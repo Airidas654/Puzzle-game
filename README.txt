@@ -2,4 +2,4 @@ This is a game Explorium. You can find it's source code and assets here.
 
 If you want to edit this project, you need to install unity and open this repository from there.
 
-For any questions contact us via github.
+For any questions contact us armandasleonavicius555@gmail.com
