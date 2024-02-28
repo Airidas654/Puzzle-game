@@ -19,12 +19,15 @@ public class Grab : MonoBehaviour
         {
             float boxDist;
             GameObject closestBox = PushableObjectManager.Instance.GetClosestBox(transform.position, out boxDist);
-            float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint(closestBox.transform.position) - new Vector2(closestBox.transform.position.x, closestBox.transform.position.y)).magnitude;
-        
-            if (tempDist <= grabDist)
+            if (closestBox != null)
             {
-                join.connectedBody = closestBox.GetComponent<Rigidbody2D>();
-                join.enabled = true;
+                float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint(closestBox.transform.position) - new Vector2(closestBox.transform.position.x, closestBox.transform.position.y)).magnitude;
+
+                if (tempDist <= grabDist)
+                {
+                    join.connectedBody = closestBox.GetComponent<Rigidbody2D>();
+                    join.enabled = true;
+                }
             }
         }
         if (Input.GetKeyUp(KeyCode.E))
