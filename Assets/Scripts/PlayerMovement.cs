@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10;
     Rigidbody2D rg;
+    [HideInInspector] public Vector2 moveDir;
     void Start()
     {
         rg = GetComponent<Rigidbody2D>(); 
@@ -14,6 +15,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rg.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * moveSpeed;
+        Vector2 inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        float mag = inputVector.magnitude;
+        if (mag > 1)
+        {
+            inputVector /= mag;
+        }
+        moveDir = inputVector;
+        rg.velocity = moveDir * moveSpeed;
     }
 }
