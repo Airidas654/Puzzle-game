@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class Receiver : MonoBehaviour
 {
-    private bool currState;
-    private void Awake()
+    [SerializeField] private bool state;
+    [SerializeField] public BasicColorsenum color;
+
+    private void Start()
     {
-        currState = false;
+        if (state)
+        {
+            OnStateOn();
+        }
+        else
+        {
+            OnStateOff();
+        }
     }
 
-    public virtual void Receive(bool state) {
-        if (state != currState)
+    public virtual void OnValidate()
+    {
+        GetComponent<SpriteRenderer>().color = BasicColors.GetColorFromEnum(color);
+    }
+
+    public virtual void Receive(bool state, Transmitter transmitterId) {
+        if (this.state != state)
         {
             if (state)
             {
@@ -21,7 +35,7 @@ public class Receiver : MonoBehaviour
             {
                 OnStateOff();
             }
-            currState = state;
+            this.state = state;
         }
     }
 

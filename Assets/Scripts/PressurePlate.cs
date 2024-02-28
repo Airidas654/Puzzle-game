@@ -7,10 +7,6 @@ public class PressurePlate : Transmitter
     [SerializeField] Vector2 colliderPositionOffset;
     [SerializeField] Vector2 colliderSize;
     [SerializeField] LayerMask colliderMask;
-    [Space]
-    [Space]
-    [SerializeField] bool checkByName;
-    [SerializeField] string requiredName;
 
     private void OnDrawGizmosSelected()
     {

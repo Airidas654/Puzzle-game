@@ -99,10 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receivers:
   - {fileID: 0}
+  transmitionColor: 0
   colliderPositionOffset: {x: 0, y: 0}
   colliderSize: {x: 1, y: 1}
   colliderMask:
     serializedVersion: 2
     m_Bits: 0
-  checkByName: 0
-  requiredName: 
