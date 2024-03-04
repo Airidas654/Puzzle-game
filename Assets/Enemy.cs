@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
 
     Vector2 currentPoint;
+    Vector2 nextPoint;
 
     bool isCycle;
 
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = positions[0];
+        nextPoint = positions[1];
     }
     int index = 0;
     int count = 0;
@@ -29,39 +31,51 @@ public class Enemy : MonoBehaviour
     {
 
         //////////// TODO enemy goes to next point
-        if (currentPoint == positions[index] && isForward == true)
+        if (currentPoint == positions[index])
         {
-            rb.velocity = (positions[index+1]-currentPoint).normalized*movespeed;
+            rb.velocity = (nextPoint - (Vector2)transform.position).normalized*movespeed;
         }
-        else if(currentPoint == positions[index] && isForward == false)
-        {
-            rb.velocity = new Vector2((positions[index - 1].x - currentPoint.x), (positions[index - 1].y - currentPoint.y));
-        }
+        
         
         
 
-        if(isForward == true && Vector2.Distance(transform.position, currentPoint) < movespeed && currentPoint == positions[index + 1])
+        if(isForward == true && Vector2.Distance(transform.position, nextPoint) <= 0.5)
         {
-            currentPoint = positions[index + 1];
-            index++;
             count++;
-            if (count == positions.Count - 1 && currentPoint == positions[positions.Count - 1] && isForward == true)
+            currentPoint = nextPoint;
+            if (count != positions.Count - 1)
+            {
+                index++;
+                nextPoint = positions[index + 1];
+            }
+            
+            if (isForward == true && count == positions.Count - 1 && currentPoint == positions[positions.Count - 1])
             {
                 isForward = false;
                 count = 0;
-                
+                nextPoint = positions[index];
+                index++;
+
             }
         }
-        else if(isForward == false && Vector2.Distance(transform.position, currentPoint) < movespeed && currentPoint == positions[index - 1])
+        if(isForward == false && Vector2.Distance(transform.position, nextPoint) <= 0.5)
         {
-            currentPoint = positions[index - 1];
-            index--;
+            
             count++;
-            if (count == positions.Count - 1 && currentPoint == positions[0] && isForward == false)
+            currentPoint = nextPoint;
+            if (count != positions.Count - 1)
+            {
+                index--;
+                nextPoint = positions[index - 1];
+            }
+            
+            if (isForward == false && count == positions.Count - 1 && currentPoint == positions[0])
             {
                 isForward = true;
                 count = 0;
-                
+                nextPoint = positions[index];
+                index--;
+
             }
         }
 
