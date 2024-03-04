@@ -25,20 +25,22 @@ public class Enemy : MonoBehaviour
     int count = 0;
     bool isForward = true;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
-
+        //////////// TODO enemy goes to next point
         if (currentPoint == positions[index] && isForward == true)
         {
-            rb.velocity = new Vector2((positions[index + 1].x - currentPoint.x), (positions[index + 1].y - currentPoint.y));
+            rb.velocity = (positions[index+1]-currentPoint).normalized*movespeed;
         }
         else if(currentPoint == positions[index] && isForward == false)
         {
             rb.velocity = new Vector2((positions[index - 1].x - currentPoint.x), (positions[index - 1].y - currentPoint.y));
         }
         
-        if(Vector2.Distance(transform.position, currentPoint) < movespeed && currentPoint == positions[index + 1] && isForward == true)
+        
+
+        if(isForward == true && Vector2.Distance(transform.position, currentPoint) < movespeed && currentPoint == positions[index + 1])
         {
             currentPoint = positions[index + 1];
             index++;
@@ -50,7 +52,7 @@ public class Enemy : MonoBehaviour
                 
             }
         }
-        else if(Vector2.Distance(transform.position, currentPoint) < movespeed && currentPoint == positions[index - 1] && isForward == false)
+        else if(isForward == false && Vector2.Distance(transform.position, currentPoint) < movespeed && currentPoint == positions[index - 1])
         {
             currentPoint = positions[index - 1];
             index--;
@@ -63,20 +65,8 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        
-        
-        
-
-
-
-
-        
-        
-
-
-
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         for (int i = 0; i < positions.Count - 1; i++)
         {
