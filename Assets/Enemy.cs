@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
 
     public bool isCycle;
+    [SerializeField] bool reversed;
 
     // Start is called before the first frame update
     void Start()
@@ -80,7 +81,10 @@ public class Enemy : MonoBehaviour
             if (Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
             {
                 //count++;
-                nextIndex = (nextIndex + 1) % positions.Count;
+                if (!reversed)
+                    nextIndex = (nextIndex + 1) % positions.Count;
+                else
+                    nextIndex = ((nextIndex - 1) + positions.Count) % positions.Count;
                /* if (count != positions.Count - 1)
                 {
                     index++;
