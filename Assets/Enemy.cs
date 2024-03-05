@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     Vector2 currentPoint;
     //Vector2 nextPoint;
 
-    bool isCycle;
+    public bool isCycle;
 
     // Start is called before the first frame update
     void Start()
@@ -34,46 +34,66 @@ public class Enemy : MonoBehaviour
     {
 
         rb.velocity = (positions[nextIndex] - (Vector2)transform.position).normalized*movespeed;
-        
-        
 
-        if(isForward == true && Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
+
+        if (!isCycle)
         {
-            count++;
-            //currentPoint = positions[nextIndex];
-            if (count != positions.Count - 1)
+            if (isForward == true && Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
             {
-                index++;
-                nextIndex = index + 1;
-            }
-            
-            if (isForward == true && count == positions.Count - 1 )//&& currentPoint == positions[positions.Count - 1])
-            {
-                isForward = false;
-                count = 0;
-                nextIndex = index;
-                index++;
+                count++;
+                //currentPoint = positions[nextIndex];
+                if (count != positions.Count - 1)
+                {
+                    index++;
+                    nextIndex = index + 1;
+                }
 
+                if (isForward == true && count == positions.Count - 1)//&& currentPoint == positions[positions.Count - 1])
+                {
+                    isForward = false;
+                    count = 0;
+                    nextIndex = index;
+                    index++;
+
+                }
+            }
+            if (isForward == false && Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
+            {
+
+                count++;
+                //currentPoint = positions[nextIndex];
+                if (count != positions.Count - 1)
+                {
+                    index--;
+                    nextIndex = index - 1;
+                }
+
+                if (isForward == false && count == positions.Count - 1)//&& currentPoint == positions[0])
+                {
+                    isForward = true;
+                    count = 0;
+                    nextIndex = index;
+                    index--;
+
+                }
             }
         }
-        if(isForward == false && Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
+        else
         {
-            
-            count++;
-            //currentPoint = positions[nextIndex];
-            if (count != positions.Count - 1)
+            if (Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
             {
-                index--;
-                nextIndex = index - 1;
-            }
-            
-            if (isForward == false && count == positions.Count - 1 )//&& currentPoint == positions[0])
-            {
-                isForward = true;
-                count = 0;
-                nextIndex = index;
-                index--;
-
+                count++;
+                if (count != positions.Count - 1)
+                {
+                    index++;
+                    nextIndex = index + 1;
+                }
+                else
+                {
+                    index = -1;
+                    count = -1;
+                    nextIndex = 0;
+                }
             }
         }
 
