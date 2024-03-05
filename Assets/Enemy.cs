@@ -12,8 +12,6 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rb;
 
-    Vector2 currentPoint;
-    //Vector2 nextPoint;
 
     public bool isCycle;
 
@@ -21,7 +19,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentPoint = positions[0];
         nextIndex = 1;
         //nextPoint = positions[1];
     }
@@ -41,14 +38,14 @@ public class Enemy : MonoBehaviour
             if (isForward == true && Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
             {
                 count++;
-                //currentPoint = positions[nextIndex];
+                
                 if (count != positions.Count - 1)
                 {
                     index++;
                     nextIndex = index + 1;
                 }
 
-                if (isForward == true && count == positions.Count - 1)//&& currentPoint == positions[positions.Count - 1])
+                if (isForward == true && count == positions.Count - 1)
                 {
                     isForward = false;
                     count = 0;
@@ -61,14 +58,14 @@ public class Enemy : MonoBehaviour
             {
 
                 count++;
-                //currentPoint = positions[nextIndex];
+                
                 if (count != positions.Count - 1)
                 {
                     index--;
                     nextIndex = index - 1;
                 }
 
-                if (isForward == false && count == positions.Count - 1)//&& currentPoint == positions[0])
+                if (isForward == false && count == positions.Count - 1)
                 {
                     isForward = true;
                     count = 0;
@@ -82,8 +79,9 @@ public class Enemy : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
             {
-                count++;
-                if (count != positions.Count - 1)
+                //count++;
+                nextIndex = (nextIndex + 1) % positions.Count;
+               /* if (count != positions.Count - 1)
                 {
                     index++;
                     nextIndex = index + 1;
@@ -93,7 +91,7 @@ public class Enemy : MonoBehaviour
                     index = -1;
                     count = -1;
                     nextIndex = 0;
-                }
+                }*/
             }
         }
 
@@ -103,6 +101,10 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < positions.Count - 1; i++)
         {
             Gizmos.DrawLine(positions[i], positions[i + 1]);
+        }
+        if (isCycle)
+        {
+            Gizmos.DrawLine(positions[positions.Count-1], positions[0]);
         }
     }
 }
