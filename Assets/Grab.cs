@@ -5,11 +5,13 @@ using UnityEngine;
 public class Grab : MonoBehaviour
 {
     [SerializeField] float grabDist;
-    FixedJoint2D join;
+    FixedJoint2D staticJoint;
+    SpringJoint2D springJoint;
 
     void Start()
     {
-        join = gameObject.GetComponent<FixedJoint2D>();
+        staticJoint = gameObject.GetComponent<FixedJoint2D>();
+        springJoint = gameObject.GetComponent<SpringJoint2D>();
     }
 
     // Update is called once per frame
@@ -19,20 +21,35 @@ public class Grab : MonoBehaviour
         {
             float boxDist;
             GameObject closestBox = PushableObjectManager.Instance.GetClosestBox(transform.position, out boxDist);
-            if (closestBox != null)
+
+            float pickableDist;
+            GameObject closestPickable = PushableObjectManager.Instance.GetClosestPickable(transform.position, out pickableDist);
+            //Debug.Log(closestPickable);
+            if (boxDist < pickableDist && closestBox != null)
             {
                 float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint(closestBox.transform.position) - new Vector2(closestBox.transform.position.x, closestBox.transform.position.y)).magnitude;
 
                 if (tempDist <= grabDist)
                 {
-                    join.connectedBody = closestBox.GetComponent<Rigidbody2D>();
-                    join.enabled = true;
+                    staticJoint.connectedBody = closestBox.GetComponent<Rigidbody2D>();
+                    staticJoint.enabled = true;
+                }
+            }else if (boxDist > pickableDist && closestPickable != null)
+            {
+                float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint(closestPickable.transform.position) - new Vector2(closestPickable.transform.position.x, closestPickable.transform.position.y)).magnitude;
+                
+                if (tempDist <= grabDist)
+                {
+                    springJoint.connectedBody = closestPickable.GetComponent<Rigidbody2D>();
+                    springJoint.enabled = true;
+                    springJoint.distance = 0.3f;
                 }
             }
         }
         if (Input.GetKeyUp(KeyCode.E))
         {
-            join.enabled = false;
+            staticJoint.enabled = false;
+            springJoint.enabled = false;
         }
     }
 }

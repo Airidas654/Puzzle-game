@@ -18,10 +18,39 @@ public class PushableObjectManager : MonoBehaviour
     }
 
     List<GameObject> boxes = new List<GameObject>();
+    List<GameObject> pickableObjs = new List<GameObject>();
 
+    public void RegisterPickable(GameObject pickable)
+    {
+        pickableObjs.Add(pickable);
+    }
     public void RegisterBox(GameObject box)
     {
         boxes.Add(box);
+    }
+
+    public GameObject GetClosest(Vector2 posToCompare, out float dist)
+    {
+        GameObject ansObj = null;
+        dist = Mathf.Infinity;
+
+        float tempDist;
+        GameObject tempObj = GetClosestBox(posToCompare, out tempDist);
+
+        if (tempDist < dist)
+        {
+            dist = tempDist;
+            ansObj = tempObj;
+        }
+
+        tempObj = GetClosestPickable(posToCompare, out tempDist);
+
+        if (tempDist < dist)
+        {
+            dist = tempDist;
+            ansObj = tempObj;
+        }
+        return ansObj;
     }
 
     public GameObject GetClosestBox(Vector2 posToCompare, out float dist)
@@ -29,6 +58,21 @@ public class PushableObjectManager : MonoBehaviour
         float minDist = Mathf.Infinity;
         GameObject ansObj = null;
         foreach (GameObject ob in boxes)
+        {
+            if ((new Vector2(ob.transform.position.x, ob.transform.position.y) - posToCompare).sqrMagnitude < minDist)
+            {
+                minDist = (new Vector2(ob.transform.position.x, ob.transform.position.y) - posToCompare).sqrMagnitude;
+                ansObj = ob;
+            }
+        }
+        dist = minDist;
+        return ansObj;
+    }
+    public GameObject GetClosestPickable(Vector2 posToCompare, out float dist)
+    {
+        float minDist = Mathf.Infinity;
+        GameObject ansObj = null;
+        foreach (GameObject ob in pickableObjs)
         {
             if ((new Vector2(ob.transform.position.x, ob.transform.position.y) - posToCompare).sqrMagnitude < minDist)
             {
