@@ -185,7 +185,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1501991301
-  m_SortingLayer: 4
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -441,14 +441,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4154968003197314318, guid: 4226af66bba55b54b8a99701d7a89046, type: 3}
-      propertyPath: m_Frequency
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4154968003197314318, guid: 4226af66bba55b54b8a99701d7a89046, type: 3}
-      propertyPath: m_AutoConfigureConnectedAnchor
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8044617308367178426, guid: 4226af66bba55b54b8a99701d7a89046, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -506,10 +498,6 @@ PrefabInstance:
       propertyPath: obj
       value: 
       objectReference: {fileID: 207431853}
-    - target: {fileID: 7545494105866316002, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
-      propertyPath: boundingBoxSize.x
-      value: 23.7
-      objectReference: {fileID: 0}
     - target: {fileID: 8212965873360041593, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
