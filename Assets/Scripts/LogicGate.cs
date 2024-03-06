@@ -6,7 +6,7 @@ public class LogicGate : Receiver
 {
     [SerializeField] protected List<Receiver> receivers;
     
-    public List<Transmitter> connectedTransmitters;
+    
     protected bool[] transmittersStates;
 
     private void Start()
@@ -30,7 +30,9 @@ public class LogicGate : Receiver
         }
     }
 
-    public override void OnValidate() {}
+    public override void OnValidate() {
+        base.OnValidate();
+    }
 
     public override void Receive(bool state, Transmitter transmitterId)
     {

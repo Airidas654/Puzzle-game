@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Receiver : MonoBehaviour
 {
-    [SerializeField] private bool state;
+    [SerializeField] protected bool state;
     [SerializeField] public BasicColorsenum color;
+    public List<Transmitter> connectedTransmitters;
 
     private void Start()
     {
@@ -21,7 +22,18 @@ public class Receiver : MonoBehaviour
 
     public virtual void OnValidate()
     {
-        GetComponent<SpriteRenderer>().color = BasicColors.GetColorFromEnum(color);
+        if (GetComponent<SpriteRenderer>() != null)
+        {
+            GetComponent<SpriteRenderer>().color = BasicColors.GetColorFromEnum(color);
+        }
+        for(int i = 0;i < connectedTransmitters.Count;i++)
+        {
+            if (!connectedTransmitters[i].receivers.Contains(this))
+            {
+                connectedTransmitters[i] = connectedTransmitters[connectedTransmitters.Count - 1];
+                connectedTransmitters.RemoveAt(connectedTransmitters.Count - 1);
+            }
+        }
     }
 
     public virtual void Receive(bool state, Transmitter transmitterId) {

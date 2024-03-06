@@ -111,5 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f053a06088f1bc84295d3eb5e38f7f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   color: 0
+  connectedTransmitters: []
+  OpenedDoorSprite: {fileID: 0}
+  ClosedDoorSprite: {fileID: 0}
