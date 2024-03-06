@@ -20,7 +20,14 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        nextIndex = 1;
+        if (!isCycle)
+        {
+            nextIndex = 1;
+        }
+        else
+        {
+            nextIndex = reversed ? positions.Count - 1 : 1;
+        }
         //nextPoint = positions[1];
     }
     int index = 0;

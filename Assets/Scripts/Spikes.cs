@@ -7,12 +7,14 @@ public class Spikes : Receiver
 
     [SerializeField] float spikeTime;
     [SerializeField] LayerMask triggerMask;
-    [SerializeField] bool state = false;
     [SerializeField] bool isTimed;
     float tempTime;
     // Start is called before the first frame update
     void Start()
     {
+        
+        SpikesControl(state);
+        
         tempTime = spikeTime;
     }
 
@@ -23,14 +25,21 @@ public class Spikes : Receiver
         if(tempTime <= 0)
         {
             state = !state;
+            SpikesControl(state);
             tempTime = spikeTime;
         }
+        
     }
     public void SpikesControl(bool control)
     {
         if (control)
         {
-
+            OnStateOn();
+            //Debug.Log("Spikehjnhuhyubhyb");
+        }
+        else
+        {
+            OnStateOff();
         }
     }
 
@@ -46,6 +55,7 @@ public class Spikes : Receiver
         }
         if(triggerCollider.Length == 1) {
             Debug.Log("You died");
+            return;
         }
         var Collider = GetComponent<Collider2D>();
         Collider.enabled = true;
