@@ -6,71 +6,109 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float movespeed;
+    [SerializeField] float epsilon = 0.4f;
 
     public List<Vector2> positions;
 
     Rigidbody2D rb;
 
-    Vector2 currentPoint;
 
-    bool isCycle;
+    public bool isCycle;
+    [SerializeField] bool reversed;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentPoint = positions[0];
+        nextIndex = 1;
+        //nextPoint = positions[1];
     }
     int index = 0;
     int count = 0;
+    int nextIndex = 0;
     bool isForward = true;
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        //////////// TODO enemy goes to next point
-        if (currentPoint == positions[index] && isForward == true)
-        {
-            rb.velocity = (positions[index+1]-currentPoint).normalized*movespeed;
-        }
-        else if(currentPoint == positions[index] && isForward == false)
-        {
-            rb.velocity = new Vector2((positions[index - 1].x - currentPoint.x), (positions[index - 1].y - currentPoint.y));
-        }
-        
-        
+        rb.velocity = (positions[nextIndex] - (Vector2)transform.position).normalized*movespeed;
 
-        if(isForward == true && Vector2.Distance(transform.position, currentPoint) < movespeed && currentPoint == positions[index + 1])
+
+        if (!isCycle)
         {
-            currentPoint = positions[index + 1];
-            index++;
-            count++;
-            if (count == positions.Count - 1 && currentPoint == positions[positions.Count - 1] && isForward == true)
+            if (isForward == true && Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
             {
-                isForward = false;
-                count = 0;
+                count++;
                 
+                if (count != positions.Count - 1)
+                {
+                    index++;
+                    nextIndex = index + 1;
+                }
+
+                if (isForward == true && count == positions.Count - 1)
+                {
+                    isForward = false;
+                    count = 0;
+                    nextIndex = index;
+                    index++;
+
+                }
+            }
+            if (isForward == false && Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
+            {
+
+                count++;
+                
+                if (count != positions.Count - 1)
+                {
+                    index--;
+                    nextIndex = index - 1;
+                }
+
+                if (isForward == false && count == positions.Count - 1)
+                {
+                    isForward = true;
+                    count = 0;
+                    nextIndex = index;
+                    index--;
+
+                }
             }
         }
-        else if(isForward == false && Vector2.Distance(transform.position, currentPoint) < movespeed && currentPoint == positions[index - 1])
+        else
         {
-            currentPoint = positions[index - 1];
-            index--;
-            count++;
-            if (count == positions.Count - 1 && currentPoint == positions[0] && isForward == false)
+            if (Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
             {
-                isForward = true;
-                count = 0;
-                
+                //count++;
+                if (!reversed)
+                    nextIndex = (nextIndex + 1) % positions.Count;
+                else
+                    nextIndex = ((nextIndex - 1) + positions.Count) % positions.Count;
+               /* if (count != positions.Count - 1)
+                {
+                    index++;
+                    nextIndex = index + 1;
+                }
+                else
+                {
+                    index = -1;
+                    count = -1;
+                    nextIndex = 0;
+                }*/
             }
         }
 
     }
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         for (int i = 0; i < positions.Count - 1; i++)
         {
             Gizmos.DrawLine(positions[i], positions[i + 1]);
+        }
+        if (isCycle)
+        {
+            Gizmos.DrawLine(positions[positions.Count-1], positions[0]);
         }
     }
 }
