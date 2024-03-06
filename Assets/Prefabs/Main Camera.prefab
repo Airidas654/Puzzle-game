@@ -180,5 +180,5 @@ MonoBehaviour:
   usePlayerDir: 0
   forwardMult: 0
   useBoundingBox: 1
-  boundingBoxSize: {x: 24.43, y: 14.48}
+  boundingBoxSize: {x: 23.7, y: 14.48}
   boundingBoxOffset: {x: 1.26, y: -0.87}
