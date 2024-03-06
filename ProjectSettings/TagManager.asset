@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Player
   - Box
-  - 
+  - Pickable objects
   - 
   - 
   - 
@@ -41,15 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Walls
-    uniqueID: 2792975995
-    locked: 0
-  - name: Player
-    uniqueID: 773552937
+  - name: Ground
+    uniqueID: 1616888135
     locked: 0
   - name: 'Pickable objects '
     uniqueID: 4147444571
     locked: 0
-  - name: Ground
-    uniqueID: 1616888135
+  - name: Player
+    uniqueID: 773552937
+    locked: 0
+  - name: Walls
+    uniqueID: 2792975995
     locked: 0

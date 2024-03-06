@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8699825592090173992}
   - component: {fileID: 6959705606806674211}
   - component: {fileID: 8677846068854163072}
+  - component: {fileID: 4154968003197314318}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 773552937
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -191,7 +192,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -2.79, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!114 &8677846068854163072
@@ -206,4 +207,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251c0ae6c38fe264fb44afc4fca76d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDist: 0.1
+  grabDist: 0.6
+--- !u!231 &4154968003197314318
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451310129310132281}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 0.005
+  m_DampingRatio: 0
+  m_Frequency: 1
