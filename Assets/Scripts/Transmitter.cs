@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Transmitter : MonoBehaviour
 {
-    [SerializeField] List<Receiver> receivers;
+    public List<Receiver> receivers;
     [SerializeField] BasicColorsenum transmitionColor;
 
     private void OnDrawGizmos()
@@ -28,6 +28,10 @@ public class Transmitter : MonoBehaviour
             {
                 i.color = transmitionColor;
                 i.OnValidate();
+                if (!i.connectedTransmitters.Contains(this))
+                {
+                    i.connectedTransmitters.Add(this);
+                }
             }
         }
     }
