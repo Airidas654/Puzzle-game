@@ -30,6 +30,6 @@ public class PressurePlate : Transmitter
         Collider2D hit = Physics2D.OverlapBox((Vector2)transform.position + colliderPositionOffset, colliderSize, 0, colliderMask);
         transmit(hit!=null);
 
-        renderer.sprite = hit!=null? plateUp : platePressed;
+        renderer.sprite = hit==null? plateUp : platePressed;
     }
 }
