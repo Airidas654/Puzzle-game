@@ -18,6 +18,6 @@ public class PressurePlate : Transmitter
     private void Update()
     {
         Collider2D hit = Physics2D.OverlapBox((Vector2)transform.position + colliderPositionOffset, colliderSize, 0, colliderMask);
-        transmit(hit==null);
+        transmit(hit!=null);
     }
 }

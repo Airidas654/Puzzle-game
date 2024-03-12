@@ -28,7 +28,7 @@ public class Receiver : MonoBehaviour
         }
         for(int i = 0;i < connectedTransmitters.Count;i++)
         {
-            if (!connectedTransmitters[i].receivers.Contains(this))
+            if (connectedTransmitters[i] != null && !connectedTransmitters[i].receivers.Contains(this))
             {
                 connectedTransmitters[i] = connectedTransmitters[connectedTransmitters.Count - 1];
                 connectedTransmitters.RemoveAt(connectedTransmitters.Count - 1);
