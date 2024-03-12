@@ -525,7 +525,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: isTimed
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
+      propertyPath: isSpikesUp
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.size
