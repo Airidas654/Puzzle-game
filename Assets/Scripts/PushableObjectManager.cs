@@ -18,6 +18,7 @@ public class PushableObjectManager : MonoBehaviour
     }
 
     List<GameObject> boxes = new List<GameObject>();
+    List<GameObject> switches = new List<GameObject>();
     List<GameObject> pickableObjs = new List<GameObject>();
 
     public void RegisterPickable(GameObject pickable)
@@ -27,6 +28,11 @@ public class PushableObjectManager : MonoBehaviour
     public void RegisterBox(GameObject box)
     {
         boxes.Add(box);
+    }
+
+    public void RegisterSwitch(GameObject switchpr)
+    {
+        switches.Add(switchpr);
     }
 
     public GameObject GetClosest(Vector2 posToCompare, out float dist)
@@ -58,6 +64,22 @@ public class PushableObjectManager : MonoBehaviour
         float minDist = Mathf.Infinity;
         GameObject ansObj = null;
         foreach (GameObject ob in boxes)
+        {
+            if ((new Vector2(ob.transform.position.x, ob.transform.position.y) - posToCompare).sqrMagnitude < minDist)
+            {
+                minDist = (new Vector2(ob.transform.position.x, ob.transform.position.y) - posToCompare).sqrMagnitude;
+                ansObj = ob;
+            }
+        }
+        dist = minDist;
+        return ansObj;
+    }
+
+    public GameObject GetClosestSwitch(Vector2 posToCompare, out float dist)
+    {
+        float minDist = Mathf.Infinity;
+        GameObject ansObj = null;
+        foreach (GameObject ob in switches)
         {
             if ((new Vector2(ob.transform.position.x, ob.transform.position.y) - posToCompare).sqrMagnitude < minDist)
             {
