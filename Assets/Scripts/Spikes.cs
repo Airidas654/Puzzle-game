@@ -52,7 +52,7 @@ public class Spikes : Receiver
     }
     public void SpikesOn()
     {
-        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, triggerMask);
+        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, transform.localScale-new Vector3(0.1f,0.1f,0.1f), 0, triggerMask);
         foreach (var col in triggerCollider)
         {
             if (!col.CompareTag("Player"))

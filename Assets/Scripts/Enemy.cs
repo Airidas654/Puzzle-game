@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
 
     public bool isCycle;
     [SerializeField] bool reversed;
+    SpriteRenderer renderer;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
         {
             nextIndex = reversed ? positions.Count - 1 : 1;
         }
+        renderer = GetComponent<SpriteRenderer>();
         //nextPoint = positions[1];
     }
     int index = 0;
@@ -40,6 +42,14 @@ public class Enemy : MonoBehaviour
 
         rb.velocity = (positions[nextIndex] - (Vector2)transform.position).normalized*movespeed;
 
+        if (rb.velocity.x < 0)
+        {
+            renderer.flipX = true;
+        }
+        else
+        {
+            renderer.flipX = false;
+        }
 
         if (!isCycle)
         {

@@ -37,8 +37,10 @@ public class Grab : MonoBehaviour
             if (listas[0].Item2==null) return;
             if (listas[0].Item2==closestBox)
             {
-                float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint(closestBox.transform.position) - new Vector2(closestBox.transform.position.x, closestBox.transform.position.y)).magnitude;
-
+                
+                float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint((Vector2)closestBox.transform.position + closestBox.GetComponent<Collider2D>().offset) -
+                            closestBox.GetComponent<Collider2D>().ClosestPoint((Vector2)transform.position + GetComponent<Collider2D>().offset)).magnitude;
+                Debug.Log(tempDist + "  " + grabDist);
                 if (tempDist <= grabDist)
                 {
                     staticJoint.connectedBody = closestBox.GetComponent<Rigidbody2D>();
@@ -46,8 +48,10 @@ public class Grab : MonoBehaviour
                 }
             }else if (listas[0].Item2 == closestPickable)
             {
-                float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint(closestPickable.transform.position) - new Vector2(closestPickable.transform.position.x, closestPickable.transform.position.y)).magnitude;
-                
+
+                float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint((Vector2)closestPickable.transform.position + closestPickable.GetComponent<Collider2D>().offset) -
+                            closestPickable.GetComponent<Collider2D>().ClosestPoint((Vector2)transform.position + GetComponent<Collider2D>().offset)).magnitude;
+
                 if (tempDist <= grabDist)
                 {
                     springJoint.connectedBody = closestPickable.GetComponent<Rigidbody2D>();
@@ -56,7 +60,8 @@ public class Grab : MonoBehaviour
                 }
             }else if(listas[0].Item2 == closestSwitch)
             {
-                float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint(closestSwitch.transform.position) - new Vector2(closestSwitch.transform.position.x, closestSwitch.transform.position.y)).magnitude;
+                float tempDist = (gameObject.GetComponent<Collider2D>().ClosestPoint((Vector2)closestSwitch.transform.position + closestSwitch.GetComponent<Collider2D>().offset) -
+                            closestSwitch.GetComponent<Collider2D>().ClosestPoint((Vector2)transform.position + GetComponent<Collider2D>().offset)).magnitude;
 
                 if (tempDist <= switchDist)
                 {

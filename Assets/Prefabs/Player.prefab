@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 773552937
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 945031386, guid: ed937b9f5c71df546b2d16c09bb720c9, type: 3}
+  m_Sprite: {fileID: -1305851854, guid: 957d4842b0881944c93b90142474273d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251c0ae6c38fe264fb44afc4fca76d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDist: 0.6
+  grabDist: 0.1
 --- !u!231 &4154968003197314318
 SpringJoint2D:
   m_ObjectHideFlags: 0

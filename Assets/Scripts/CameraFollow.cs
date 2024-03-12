@@ -16,6 +16,9 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] Vector2 boundingBoxSize;
     [SerializeField] Vector2 boundingBoxOffset;
 
+    [SerializeField] bool freezeX;
+    [SerializeField] bool freezeY;
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -58,6 +61,7 @@ public class CameraFollow : MonoBehaviour
             float camSize = Camera.main.orthographicSize;
             float xMult = Screen.width / (float)Screen.height;
 
+
             objPos.y = Mathf.Max(objPos.y, boundingBoxOffset.y - boundingBoxSize.y / 2 + camSize);
             objPos.y = Mathf.Min(objPos.y, boundingBoxOffset.y + boundingBoxSize.y / 2 - camSize);
 
@@ -79,7 +83,8 @@ public class CameraFollow : MonoBehaviour
             }
         }
 
-        
+        if (freezeX) newPos.x = transform.position.x;
+        if (freezeY) newPos.y = transform.position.y;
 
         transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
     }
