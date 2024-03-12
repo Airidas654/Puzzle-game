@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e647f021274b13448817e7081580ea9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,5 +114,5 @@ MonoBehaviour:
   state: 1
   color: 0
   connectedTransmitters: []
-  OpenedDoorSprite: {fileID: 0}
-  ClosedDoorSprite: {fileID: 0}
+  OpenedDoorSprite: {fileID: 21300000, guid: 2e647f021274b13448817e7081580ea9, type: 3}
+  ClosedDoorSprite: {fileID: 21300000, guid: 2e647f021274b13448817e7081580ea9, type: 3}
