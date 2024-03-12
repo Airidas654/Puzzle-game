@@ -11,7 +11,7 @@ public class Spikes : Receiver
     [SerializeField] bool isSpikesUp = false;
     [SerializeField] Sprite openSpikesSprite;
     [SerializeField] Sprite closedSpikesSprite;
-    private bool timerOn = false;
+    private bool timerOn = true;
     float tempTime;
     // Start is called before the first frame update
     void Start()
@@ -84,7 +84,9 @@ public class Spikes : Receiver
         }
         else
         {
-            timerOn = true;
+            timerOn = false;
+            SpikesOff();
+            tempTime = spikeTime;
         }
 
 
@@ -97,9 +99,7 @@ public class Spikes : Receiver
         }
         else
         {
-            timerOn = false;
-            SpikesOff();
-            tempTime = spikeTime;
+            timerOn = true;
         }
     }
 

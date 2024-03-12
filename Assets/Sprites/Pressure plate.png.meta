@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9e5b2e377c7073a40a6dc665f9d4a1c0
+guid: 61da8853efa39dc4884b4741a5fe94aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,8 +49,8 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteBorder: {x: 0, y: 0, z: 32, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -110,43 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spikes_0
+      name: Pressure plate_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 17
-      alignment: 9
-      pivot: {x: 0.5, y: 0.47058824}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5076356be98d0345a164b284b84c154
-      internalID: 255776274
+      spriteID: 088afac0817b2cb42aa8a8739723dbaa
+      internalID: -840120277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_1
+      name: Pressure plate_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 32
         y: 0
-        width: 16
-        height: 17
-      alignment: 9
-      pivot: {x: 0.5, y: 0.47058824}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b9ed60b548c49742a692add4d58a129
-      internalID: 1294047824
+      spriteID: 537bed6130d8feb45802f520abbea7dd
+      internalID: -1293231111
       vertices: []
       indices: 
       edges: []
@@ -155,15 +155,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Spikes_0: 255776274
-      Spikes_1: 1294047824
+      Pressure plate_0: -840120277
+      Pressure plate_1: -1293231111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

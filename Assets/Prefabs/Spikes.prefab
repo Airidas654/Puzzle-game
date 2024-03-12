@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 1616888135
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 255776274, guid: 9e5b2e377c7073a40a6dc665f9d4a1c0, type: 3}
+  m_Sprite: {fileID: -1354758543, guid: 118fce620d832784d9fa41d0e0653605, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -107,8 +107,8 @@ MonoBehaviour:
     m_Bits: 192
   isTimed: 0
   isSpikesUp: 0
-  openSpikesSprite: {fileID: 1294047824, guid: 9e5b2e377c7073a40a6dc665f9d4a1c0, type: 3}
-  closedSpikesSprite: {fileID: 255776274, guid: 9e5b2e377c7073a40a6dc665f9d4a1c0, type: 3}
+  openSpikesSprite: {fileID: -1872339511, guid: 118fce620d832784d9fa41d0e0653605, type: 3}
+  closedSpikesSprite: {fileID: -1354758543, guid: 118fce620d832784d9fa41d0e0653605, type: 3}
 --- !u!61 &3060154584073220408
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,9 +144,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.47058824}
-    oldSize: {x: 0.5, y: 0.53125}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.44444445}
+    oldSize: {x: 1, y: 1.125}
+    newSize: {x: 1, y: 1.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
