@@ -8,6 +8,10 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rg;
     Animator animator;
     [HideInInspector] public Vector2 moveDir;
+
+    [HideInInspector]
+    public bool cantRotateWithMove = false;
+    public bool lookRight = false;
     void Start()
     {
         rg = GetComponent<Rigidbody2D>(); 
@@ -22,11 +26,11 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetBool("Walking", horizontalRaw!=0||verticalRaw!=0);
 
-        if (horizontalRaw < 0)
+        if ((!cantRotateWithMove && horizontalRaw < 0) || (cantRotateWithMove && !lookRight))
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
-        else if (horizontalRaw > 0)
+        else if ((!cantRotateWithMove && horizontalRaw > 0) || (cantRotateWithMove && lookRight))
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
