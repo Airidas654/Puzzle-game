@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1917573720425927600}
   - component: {fileID: 2555228628273575991}
   m_Layer: 0
-  m_Name: Puzzle object manager
+  m_Name: Game manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
