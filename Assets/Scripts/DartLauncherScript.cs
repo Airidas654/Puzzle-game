@@ -12,9 +12,9 @@ public class DartLauncherScript : MonoBehaviour
 
     public Quaternion spawnRotation;
 
-    private float delay = 1f;
+    private float delay = 0.5f;
 
-    private float timer = 1f;
+    private float timer = 0.5f;
 
     // Start is called before the first frame update
     void Start()
