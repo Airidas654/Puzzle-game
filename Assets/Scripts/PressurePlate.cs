@@ -11,11 +11,11 @@ public class PressurePlate : Transmitter
     [SerializeField] Sprite platePressed;
     [SerializeField] Sprite plateUp;
 
-    SpriteRenderer renderer;
+    SpriteRenderer srenderer;
 
     private void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        srenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnDrawGizmosSelected()
@@ -30,6 +30,6 @@ public class PressurePlate : Transmitter
         Collider2D hit = Physics2D.OverlapBox((Vector2)transform.position + colliderPositionOffset, colliderSize, 0, colliderMask);
         transmit(hit!=null);
 
-        renderer.sprite = hit==null? plateUp : platePressed;
+        srenderer.sprite = hit==null? plateUp : platePressed;
     }
 }
