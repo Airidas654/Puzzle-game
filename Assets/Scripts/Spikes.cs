@@ -64,7 +64,7 @@ public class Spikes : Receiver
         GetComponent<SpriteRenderer>().sprite = openSpikesSprite;
         if (triggerCollider.Length == 1)
         {
-            Debug.Log("You died");
+            GameManager.inst.Death();
             return;
         }
         var Collider = GetComponent<Collider2D>();

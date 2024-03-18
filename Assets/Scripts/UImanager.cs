@@ -22,7 +22,7 @@ public class UImanager : MonoBehaviour
         }
     }
 
-    static void StartLevelTransition(int sceneIndex, float length, float delay = 0)
+    public static void StartLevelTransition(int sceneIndex, float length, float delay = 0)
     {
         Instance.dark.DOKill();
         Instance.dark.gameObject.SetActive(true);
