@@ -34,21 +34,4 @@ public class UImanager : MonoBehaviour
         dark.DOKill();
         dark.DOColor(new Color(0,0,0,0), darkStartLength).SetEase(Ease.OutSine).OnComplete(()=>dark.gameObject.SetActive(false));
     }
-
-    private void OnPreRender()
-    {
-        Debug.Log("ya");
-        if (dark != null)
-        {
-            
-            dark.gameObject.SetActive(true);
-            Color col = new Color(0, 0, 0, 1);
-            dark.color = col;
-        }
-    }
-
-    void Update()
-    {
-        
-    }
 }
