@@ -5,7 +5,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class DartLauncherScript : MonoBehaviour
+public class DartLauncherScript : Receiver
 {
     IObjectPool<GameObject> pool;
 
@@ -60,34 +60,21 @@ public class DartLauncherScript : MonoBehaviour
         pool.Release(obj);
     }
 
-    private void OnValidate()
+    public override void OnValidate()
     {
+        base.OnValidate();
         if (zone == null) return;
         zone.GetComponent<BoxCollider2D>().size = new Vector2(xVariable, yVariable);
         zone.GetComponent<BoxCollider2D>().offset = new Vector2(offsetX, offsetY);
         zone.transform.SetLocalPositionAndRotation(zone.transform.position, Quaternion.Euler(0, 0, spawnRotation));
-        
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (constantShooting)
+        if (!state)
         {
-            timer += Time.deltaTime;
-            if (timer >= delay)
-            {
-                GameObject currentProjectile = pool.Get();
-                currentProjectile.transform.position = spawnLocation.position;
-                timer = 0;
-                
-            }
-        }
-        else
-        {
-            
-            if (zone.detectedObjects.Count > 0)
+            if (constantShooting)
             {
                 timer += Time.deltaTime;
                 if (timer >= delay)
@@ -95,15 +82,29 @@ public class DartLauncherScript : MonoBehaviour
                     GameObject currentProjectile = pool.Get();
                     currentProjectile.transform.position = spawnLocation.position;
                     timer = 0;
-                    
+
                 }
-                
             }
             else
             {
-                timer = 0.5f;
+
+                if (zone.detectedObjects.Count > 0)
+                {
+                    timer += Time.deltaTime;
+                    if (timer >= delay)
+                    {
+                        GameObject currentProjectile = pool.Get();
+                        currentProjectile.transform.position = spawnLocation.position;
+                        timer = 0;
+
+                    }
+
+                }
+                else
+                {
+                    timer = 0.5f;
+                }
             }
         }
-        
     }
 }
