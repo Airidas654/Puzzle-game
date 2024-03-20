@@ -2,11 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager inst;
     bool dead = false;
+    public bool CantDoAnything;
+
+    bool levelEnterFreeze = true;
+
+    void UnfreezeLevel()
+    {
+        levelEnterFreeze = false;
+    }
 
     private void Awake()
     {
@@ -18,6 +27,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+        DOVirtual.DelayedCall(2, UnfreezeLevel);
     }
 
     public void Death()
@@ -34,9 +44,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (!CantDoAnything && !levelEnterFreeze)
         {
-            Death();
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Death();
+            }
         }
     }
 
