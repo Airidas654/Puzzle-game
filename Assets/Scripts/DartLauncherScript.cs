@@ -22,6 +22,10 @@ public class DartLauncherScript : MonoBehaviour
     private float timer = 0.5f;
 
     [SerializeField] bool constantShooting = true;
+    public float xVariable;
+    public float yVariable;
+    public float offsetX;
+    public float offsetY;
 
     // Start is called before the first frame update
 
@@ -58,7 +62,10 @@ public class DartLauncherScript : MonoBehaviour
 
     private void OnValidate()
     {
+        zone.GetComponent<BoxCollider2D>().size = new Vector2(xVariable, yVariable);
+        zone.GetComponent<BoxCollider2D>().offset = new Vector2(offsetX, offsetY);
         zone.transform.SetLocalPositionAndRotation(zone.transform.position, Quaternion.Euler(0, 0, spawnRotation));
+        
 
     }
 
