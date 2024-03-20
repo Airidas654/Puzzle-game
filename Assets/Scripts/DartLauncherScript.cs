@@ -10,16 +10,16 @@ public class DartLauncherScript : MonoBehaviour
 
     public Transform spawnLocation;
 
-    public Quaternion spawnRotation;
+    public float spawnRotation;
 
     private float delay = 0.5f;
 
     private float timer = 0.5f;
 
     // Start is called before the first frame update
+
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class DartLauncherScript : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= delay)
             {
-                Instantiate(projectile, spawnLocation.position, spawnRotation);
+                Instantiate(projectile, spawnLocation.position, Quaternion.Euler(0,0,spawnRotation));
                 timer = 0;
             }
         }
