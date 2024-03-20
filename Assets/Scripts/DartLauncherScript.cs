@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class DartLauncherScript : MonoBehaviour
 {
-    public Queue<GameObject> queuedObjects;
+    IObjectPool<GameObject> pool;
 
     public DetectionZone zone;
 
@@ -16,27 +17,49 @@ public class DartLauncherScript : MonoBehaviour
 
     public float spawnRotation;
 
-    private float delay = 0.5f;
+    [SerializeField] float delay = 0.5f;
 
     private float timer = 0.5f;
 
     [SerializeField] bool constantShooting = true;
 
-    private float despawnTimer = 0f;
-    private DartScript dartScript;
-
     // Start is called before the first frame update
 
     void Start()
     {
-        queuedObjects = new Queue<GameObject>();
-        dartScript = projectile.GetComponent<DartScript>();
-        float maxObjects = dartScript.despawnTime / delay;
-        for(int i = 0; i < maxObjects; i++)
-        {
-            GameObject InstantiatedProjectile = Instantiate(projectile, spawnLocation.position, Quaternion.Euler(0, 0, spawnRotation));
-            queuedObjects.Enqueue(InstantiatedProjectile);
-        }
+        pool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject);
+    }
+
+    GameObject CreatePooledItem()
+    {
+        GameObject temp = Instantiate(projectile,spawnLocation.position,Quaternion.Euler(0,0,spawnRotation));
+        temp.GetComponent<DartScript>().shooter = this;
+        return temp;
+    }
+
+
+    void OnReturnedToPool(GameObject system)
+    {
+        system.gameObject.SetActive(false);
+    }
+    void OnTakeFromPool(GameObject system)
+    {
+        system.gameObject.SetActive(true);
+    }
+    void OnDestroyPoolObject(GameObject system)
+    {
+        Destroy(system.gameObject);
+    }
+
+    public void RemoveArrow(GameObject obj)
+    {
+        pool.Release(obj);
+    }
+
+    private void OnValidate()
+    {
+        zone.transform.SetLocalPositionAndRotation(zone.transform.position, Quaternion.Euler(0, 0, spawnRotation));
+
     }
 
     // Update is called once per frame
@@ -45,24 +68,24 @@ public class DartLauncherScript : MonoBehaviour
         if (constantShooting)
         {
             timer += Time.deltaTime;
-            despawnTimer += Time.deltaTime;
             if (timer >= delay)
             {
-                GameObject currentProjectile = queuedObjects.Dequeue();
+                GameObject currentProjectile = pool.Get();
+                currentProjectile.transform.position = spawnLocation.position;
                 timer = 0;
                 
             }
         }
         else
         {
-            zone.transform.SetLocalPositionAndRotation(zone.transform.position, Quaternion.Euler(0,0,spawnRotation));
+            
             if (zone.detectedObjects.Count > 0)
             {
                 timer += Time.deltaTime;
-                despawnTimer += Time.deltaTime;
                 if (timer >= delay)
                 {
-                    GameObject currentProjectile = queuedObjects.Dequeue();
+                    GameObject currentProjectile = pool.Get();
+                    currentProjectile.transform.position = spawnLocation.position;
                     timer = 0;
                     
                 }

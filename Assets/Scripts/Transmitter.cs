@@ -5,7 +5,6 @@ using UnityEngine;
 public class Transmitter : MonoBehaviour
 {
     public List<Receiver> receivers;
-    [SerializeField] BasicColorsenum transmitionColor;
 
     private void OnDrawGizmos()
     {
@@ -21,12 +20,10 @@ public class Transmitter : MonoBehaviour
 
     private void OnValidate()
     {
-        GetComponent<SpriteRenderer>().color = BasicColors.GetColorFromEnum(transmitionColor);
         foreach (Receiver i in receivers)
         {
             if (i != null)
             {
-                i.color = transmitionColor;
                 i.OnValidate();
                 if (!i.connectedTransmitters.Contains(this))
                 {

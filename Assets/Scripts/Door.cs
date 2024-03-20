@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : Receiver 
 {
     [SerializeField] Sprite OpenedDoorSprite;
     [SerializeField] Sprite ClosedDoorSprite;
     bool opened;
+    bool goToIncrimentedLevel;
+    int exactLevel;
 
 
     private void Start()
@@ -37,7 +40,14 @@ public class Door : Receiver
     {
         if(collision.tag == "Player" && opened)
         {
-            Debug.Log("Next Level!!");
+            if (goToIncrimentedLevel)
+            {
+                UImanager.StartLevelTransition(SceneManager.GetActiveScene().buildIndex+1, 0.5f);
+            }
+            else
+            {
+                UImanager.StartLevelTransition(exactLevel, 0.5f);
+            }
         }
     }
 

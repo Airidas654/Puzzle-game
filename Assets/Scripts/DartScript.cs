@@ -6,14 +6,15 @@ using UnityEngine;
 public class DartScript : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
-
-    public float despawnTime = 3f;
-    
-    // Start is called before the first frame update
-    void Start()
+    [System.NonSerialized] public DartLauncherScript shooter;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        
+        if (collision.gameObject == shooter.gameObject || (collision.transform.parent!=null && collision.transform.parent.gameObject == shooter.gameObject)) return;
+        shooter.RemoveArrow(gameObject);
+        if(collision.tag == "Player")
+        {
+            GameManager.inst.Death();
+        }
     }
 
     // Update is called once per frame

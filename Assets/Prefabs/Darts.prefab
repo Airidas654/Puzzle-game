@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5967866713242116415}
   - component: {fileID: -5007065226038290716}
   - component: {fileID: -2457888757399442890}
+  - component: {fileID: 7508772330590523901}
   m_Layer: 0
   m_Name: Darts
   m_TagString: Untagged
@@ -98,9 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a3b870f804ba84dbd461cb32c06448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  dartShooterBox: {fileID: 2635819056004504192, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
-  despawnTime: 3
+  speed: 5
 --- !u!50 &-2457888757399442890
 Rigidbody2D:
   serializedVersion: 4
@@ -128,3 +127,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &7508772330590523901
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029141112960556368}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

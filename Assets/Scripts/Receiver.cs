@@ -5,7 +5,6 @@ using UnityEngine;
 public class Receiver : MonoBehaviour
 {
     [SerializeField] protected bool state;
-    [SerializeField] public BasicColorsenum color;
     public List<Transmitter> connectedTransmitters;
 
     private void Start()
@@ -22,10 +21,6 @@ public class Receiver : MonoBehaviour
 
     public virtual void OnValidate()
     {
-        if (GetComponent<SpriteRenderer>() != null)
-        {
-            GetComponent<SpriteRenderer>().color = BasicColors.GetColorFromEnum(color);
-        }
         for(int i = 0;i < connectedTransmitters.Count;i++)
         {
             if (connectedTransmitters[i] != null && !connectedTransmitters[i].receivers.Contains(this))
