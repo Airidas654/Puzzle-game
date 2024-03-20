@@ -62,6 +62,7 @@ public class DartLauncherScript : MonoBehaviour
 
     private void OnValidate()
     {
+        if (zone == null) return;
         zone.GetComponent<BoxCollider2D>().size = new Vector2(xVariable, yVariable);
         zone.GetComponent<BoxCollider2D>().offset = new Vector2(offsetX, offsetY);
         zone.transform.SetLocalPositionAndRotation(zone.transform.position, Quaternion.Euler(0, 0, spawnRotation));
