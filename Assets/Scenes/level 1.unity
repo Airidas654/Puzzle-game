@@ -2595,17 +2595,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1549913595684620556, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2716722754450295981, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2716722754450295981, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3283799287397555035, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
       propertyPath: m_Pivot.x
@@ -2687,22 +2679,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5935373492040342010, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7314692027164249459, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1875160835}
-    - target: {fileID: 7314692027164249459, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
-      propertyPath: trasitionMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 0cbaf7c54834a0d4c9cc092bda68c59f, type: 2}
-    - target: {fileID: 7314692027164249459, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
-      propertyPath: playerOffset.y
-      value: 0.36
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
