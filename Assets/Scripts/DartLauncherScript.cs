@@ -16,6 +16,8 @@ public class DartLauncherScript : MonoBehaviour
 
     private float timer = 0.5f;
 
+    [SerializeField] bool constantShooting = true;
+
     // Start is called before the first frame update
 
     void Start()
@@ -25,18 +27,32 @@ public class DartLauncherScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (zone.detectedObjects.Count > 0)
+        if (constantShooting)
         {
             timer += Time.deltaTime;
             if (timer >= delay)
             {
-                Instantiate(projectile, spawnLocation.position, Quaternion.Euler(0,0,spawnRotation));
+                Instantiate(projectile, spawnLocation.position, Quaternion.Euler(0, 0, spawnRotation));
                 timer = 0;
             }
         }
         else
         {
-            timer = 0.5f;
+            zone.transform.SetLocalPositionAndRotation(zone.transform.position, Quaternion.Euler(0,0,spawnRotation));
+            if (zone.detectedObjects.Count > 0)
+            {
+                timer += Time.deltaTime;
+                if (timer >= delay)
+                {
+                    Instantiate(projectile, spawnLocation.position, Quaternion.Euler(0, 0, spawnRotation));
+                    timer = 0;
+                }
+            }
+            else
+            {
+                timer = 0.5f;
+            }
         }
+        
     }
 }
