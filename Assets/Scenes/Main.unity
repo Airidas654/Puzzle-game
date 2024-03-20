@@ -23466,6 +23466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cab114a60e30d4e878de8faf97b057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &426052459 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 465975029391759279, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
+  m_PrefabInstance: {fileID: 1240470520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &449135012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 451310129310132281, guid: 4226af66bba55b54b8a99701d7a89046, type: 3}
@@ -24182,9 +24187,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1112245539474593352, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 426052459}
     - target: {fileID: 2716722754450295981, guid: 69af959a8aebb6f4592667917eac0ba3, type: 3}
       propertyPath: m_Name
       value: Canvas
