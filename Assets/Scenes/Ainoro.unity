@@ -718,6 +718,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8170881510590612275, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170881510590612275, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: offset
       value: 0
       objectReference: {fileID: 0}
@@ -752,6 +756,14 @@ PrefabInstance:
     - target: {fileID: 8170881510590612275, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: detectedObjects.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170881510590612275, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
+      propertyPath: connectedTransmitters.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170881510590612275, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
+      propertyPath: connectedTransmitters.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

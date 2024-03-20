@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2367303230458973268}
   - component: {fileID: 3840791139086973441}
   - component: {fileID: 9176794117305348338}
+  - component: {fileID: 7311583920214194455}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -71,18 +72,18 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 773552937
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 255776274, guid: 9e5b2e377c7073a40a6dc665f9d4a1c0, type: 3}
+  m_Sprite: {fileID: -872449046, guid: 8a3634a6cbc47764d8d5ede1ef54544b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &9176794117305348338
@@ -99,7 +100,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receivers:
   - {fileID: 0}
-  transmitionColor: 0
-  SwitchOn: {fileID: 255776274, guid: 9e5b2e377c7073a40a6dc665f9d4a1c0, type: 3}
-  SwitchOff: {fileID: 1294047824, guid: 9e5b2e377c7073a40a6dc665f9d4a1c0, type: 3}
+  SwitchOn: {fileID: 1545684591, guid: 8a3634a6cbc47764d8d5ede1ef54544b, type: 3}
+  SwitchOff: {fileID: -872449046, guid: 8a3634a6cbc47764d8d5ede1ef54544b, type: 3}
   defaultState: 0
+--- !u!61 &7311583920214194455
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348601618745552212}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.024412572}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.3}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.19060707, y: 0.062364936}
+  m_EdgeRadius: 0
