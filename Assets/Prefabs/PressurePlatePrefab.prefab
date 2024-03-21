@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 1616888135
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -840120277, guid: 61da8853efa39dc4884b4741a5fe94aa, type: 3}
+  m_Sprite: {fileID: 1352045398, guid: b81dc471e99764d48a35281879a0a603, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,11 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receivers:
   - {fileID: 0}
-  transmitionColor: 0
   colliderPositionOffset: {x: 0, y: -0.15}
   colliderSize: {x: 1, y: 0.7}
   colliderMask:
     serializedVersion: 2
-    m_Bits: 0
-  platePressed: {fileID: -1293231111, guid: 61da8853efa39dc4884b4741a5fe94aa, type: 3}
-  plateUp: {fileID: -840120277, guid: 61da8853efa39dc4884b4741a5fe94aa, type: 3}
+    m_Bits: 1
+  platePressed: {fileID: 1392788022, guid: b81dc471e99764d48a35281879a0a603, type: 3}
+  plateUp: {fileID: 1352045398, guid: b81dc471e99764d48a35281879a0a603, type: 3}
