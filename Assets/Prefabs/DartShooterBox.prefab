@@ -101,7 +101,7 @@ MonoBehaviour:
   state: 0
   connectedTransmitters: []
   zone: {fileID: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 5029141112960556368, guid: 615e899e1756bb040bff119336b9cedd, type: 3}
   spawnLocation: {fileID: 3615855848662794961}
   spawnRotation: 0
   delay: 0.5
