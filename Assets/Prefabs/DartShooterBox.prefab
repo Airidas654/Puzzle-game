@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2134975606, guid: f56a984733a2c8541a4e596e231c5673, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,9 +98,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63946df4635b81459ab9a9b5d8c9a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  connectedTransmitters: []
+  zone: {fileID: 0}
   projectile: {fileID: 0}
   spawnLocation: {fileID: 3615855848662794961}
-  spawnRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
+  spawnRotation: 0
+  delay: 0.5
+  constantShooting: 1
+  xVariable: 0
+  yVariable: 0
+  offsetX: 0
+  offsetY: 0
 --- !u!1 &4606813837146345254
 GameObject:
   m_ObjectHideFlags: 0
