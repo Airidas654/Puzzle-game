@@ -6,7 +6,7 @@ public class MessageManager : MonoBehaviour
 {
     [SerializeField] float messageDist;
     [SerializeField] float timeToDisappear;
-    [SerializeField] Vector2 messageOffset;
+    
     
 
     private void OnDrawGizmosSelected()

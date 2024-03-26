@@ -23684,9 +23684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290389021235db542a47d8e54e4989b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageDist: 2
+  messageDist: 1
   timeToDisappear: 1
-  messageOffset: {x: 0, y: 0}
 --- !u!1 &1205264400
 GameObject:
   m_ObjectHideFlags: 0
@@ -23884,6 +23883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelId: 3
   messagePrefab: {fileID: 2539055706260453101, guid: 64016759141aa1646bdad55cd0ae2aa3, type: 3}
+  messageOffset: {x: 0, y: 120}
 --- !u!4 &1529780209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2367303230458973268, guid: 9671043902655b24a89af55d033cb371, type: 3}
