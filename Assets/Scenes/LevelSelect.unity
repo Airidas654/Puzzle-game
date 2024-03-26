@@ -23685,7 +23685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messageDist: 1
-  timeToDisappear: 1
+  timeToDisappear: 0.3
 --- !u!1 &1205264400
 GameObject:
   m_ObjectHideFlags: 0

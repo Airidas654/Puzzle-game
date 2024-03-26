@@ -7,11 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class UImanager : MonoBehaviour
 {
-    [SerializeField] Image dark;
     [SerializeField] float darkStartLength;
     public static UImanager Instance = null;
     [SerializeField] Material trasitionMat;
-    [SerializeField] GameObject player;
+    GameObject player;
     [SerializeField] Vector2 playerOffset;
 
     int transitionTweenId = 134;
@@ -54,7 +53,7 @@ public class UImanager : MonoBehaviour
     {
         valueId = Shader.PropertyToID("_Value");
         offsetId = Shader.PropertyToID("_Offset");
-
+        player = PlayerMovement.currPlayer;
         //dark.DOKill();
         //dark.DOColor(new Color(0,0,0,0), darkStartLength).SetEase(Ease.OutSine).OnComplete(()=>dark.gameObject.SetActive(false));
         DOTween.Kill(transitionTweenId);
@@ -66,6 +65,7 @@ public class UImanager : MonoBehaviour
             trasitionMat.SetVector(offsetId, offset);
             trasitionMat.SetFloat(valueId, x);
         }, 1.2f, darkStartLength).SetId(transitionTweenId).SetEase(Ease.OutSine);
+        
     }
 
     private void Update()

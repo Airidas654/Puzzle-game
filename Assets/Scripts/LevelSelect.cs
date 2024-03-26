@@ -18,7 +18,7 @@ public class LevelSelect : MonoBehaviour
         if (this.time == 0)
         {
             message.GetComponent<TMP_Text>().DOKill();
-            message.GetComponent<TMP_Text>().DOFade(1, 1).SetEase(Ease.InOutQuad);
+            message.GetComponent<TMP_Text>().DOFade(1, 0.5f).SetEase(Ease.InOutQuad);
         }
         this.time = time;
     }
@@ -56,7 +56,7 @@ public class LevelSelect : MonoBehaviour
             {
                 time = 0;
                 message.GetComponent<TMP_Text>().DOKill();
-                message.GetComponent<TMP_Text>().DOFade(0, 1).SetEase(Ease.InOutQuad);
+                message.GetComponent<TMP_Text>().DOFade(0, 0.5f).SetEase(Ease.InOutQuad);
             }
         }
     }
