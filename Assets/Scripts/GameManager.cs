@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+        CantDoAnything = false;
         DOVirtual.DelayedCall(2, UnfreezeLevel);
     }
 
