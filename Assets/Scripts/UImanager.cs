@@ -27,7 +27,7 @@ public class UImanager : MonoBehaviour
         }
     }
     bool oneTime = false;
-    public static void StartLevelTransition(int sceneIndex, float length, float delay = 0)
+    public static void StartLevelTransition(int sceneIndex, float length = 0.5f, float delay = 0)
     {
         if (Instance.oneTime) return;
         Instance.oneTime = true;
@@ -43,7 +43,7 @@ public class UImanager : MonoBehaviour
             Vector2 offset = Camera.main.WorldToViewportPoint((Vector2)Instance.player.transform.position+Instance.playerOffset);
             Instance.trasitionMat.SetVector(offsetId, offset);
             Instance.trasitionMat.SetFloat(valueId, x);
-        }, 0, length).SetId(Instance.transitionTweenId).SetEase(Ease.OutSine).SetDelay(delay).OnComplete(() => SceneManager.LoadScene(sceneIndex));
+        }, 0, length).SetId(Instance.transitionTweenId).SetEase(Ease.OutSine).SetDelay(delay).OnComplete(() => SceneManager.LoadScene(sceneIndex)).SetUpdate(true).SetUpdate(UpdateType.Normal, true);
     }
 
     static float value;

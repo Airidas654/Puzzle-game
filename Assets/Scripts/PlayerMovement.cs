@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.inst.CantDoAnything || PauseUi.instance.paused) return;
         if (canMove)
         {
             float horizontalRaw = Input.GetAxisRaw("Horizontal");
