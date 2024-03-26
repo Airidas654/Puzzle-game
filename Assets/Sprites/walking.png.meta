@@ -104,15 +104,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ee28d39132809042bf7de51dafc18e2
-      internalID: 1698140247
+      spriteID: 8e3f861bb65adb74aaac423d932522b2
+      internalID: 1803801648
       vertices: []
       indices: 
       edges: []
@@ -125,15 +125,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3faa3bce16c4c6847a48e01f479fbdb4
-      internalID: 1767391281
+      spriteID: ce1d211c26918e843a6107d8851af605
+      internalID: 1118310585
       vertices: []
       indices: 
       edges: []
@@ -146,15 +146,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6020b72fb9afbc4f87c237fdf425d1d
-      internalID: -1959211398
+      spriteID: d7029f46ecc401646a04f45881aec350
+      internalID: 231815729
       vertices: []
       indices: 
       edges: []
@@ -167,15 +167,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d3f0deaad598cc4a9eca6c9f9be9187
-      internalID: -639775927
+      spriteID: 165277aaa7eccb247b56de85fe8379fd
+      internalID: 1233095811
       vertices: []
       indices: 
       edges: []
@@ -188,15 +188,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5414737465c0cab459076c5e662ddcd5
-      internalID: 528910080
+      spriteID: 8ca7d8738e9f91a45994ec4fa4da57b2
+      internalID: -549672037
       vertices: []
       indices: 
       edges: []
@@ -209,15 +209,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8bbba7af6804af459b48ddb045896ac
-      internalID: -1275526228
+      spriteID: 190a00437e5e16d459a4e8c8638f52f2
+      internalID: 1920595853
       vertices: []
       indices: 
       edges: []
@@ -230,15 +230,15 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e723272ea63f5e43ba8707ad54cfe5a
-      internalID: -1744667071
+      spriteID: 72636d48c8eb0ed42997ad8cf67cb12d
+      internalID: -535549910
       vertices: []
       indices: 
       edges: []
@@ -254,13 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      walking_0: 1698140247
-      walking_1: 1767391281
-      walking_2: -1959211398
-      walking_3: -639775927
-      walking_4: 528910080
-      walking_5: -1275526228
-      walking_6: -1744667071
+      walking_0: 1803801648
+      walking_1: 1118310585
+      walking_2: 231815729
+      walking_3: 1233095811
+      walking_4: -549672037
+      walking_5: 1920595853
+      walking_6: -535549910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
