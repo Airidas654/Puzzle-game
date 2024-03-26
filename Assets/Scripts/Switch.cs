@@ -6,7 +6,7 @@ public class Switch : Transmitter
 {
     [SerializeField] Sprite SwitchOn;
     [SerializeField] Sprite SwitchOff;
-    [SerializeField] bool defaultState;
+    [SerializeField] public bool defaultState;
     private void Start()
     {
         PushableObjectManager.Instance.RegisterSwitch(gameObject);
