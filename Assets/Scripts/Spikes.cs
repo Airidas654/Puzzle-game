@@ -30,7 +30,7 @@ public class Spikes : Receiver
         baseColliderSize = boxCollider.size;
 
         var triggerCollider = Physics2D.OverlapBoxAll(transform.position, baseColliderSize - new Vector2(0.05f, 0.05f), 0, triggerMask);
-        blockingObjectsCount = 0;
+        blockingObjectsCount = 1;
 
         spikesShouldBeOut = isSpikesUp;
         if (triggerCollider.Length > 0)
