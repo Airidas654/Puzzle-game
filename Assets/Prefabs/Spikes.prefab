@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &3282367079020702513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  connectedTransmitters:
-  - {fileID: 0}
+  connectedTransmitters: []
   spikeTime: 1
   triggerMask:
     serializedVersion: 2

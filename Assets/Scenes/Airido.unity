@@ -133,11 +133,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2367303230458973268, guid: 9671043902655b24a89af55d033cb371, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6181052
+      value: 0.609
       objectReference: {fileID: 0}
     - target: {fileID: 2367303230458973268, guid: 9671043902655b24a89af55d033cb371, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.7079155
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2367303230458973268, guid: 9671043902655b24a89af55d033cb371, type: 3}
       propertyPath: m_LocalPosition.z
@@ -378,10 +378,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
-      propertyPath: connectedTransmitters.Array.data[0]
-      value: 
-      objectReference: {fileID: 699112676}
     - target: {fileID: 5520590351180940479, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: m_Name
       value: Spikes
@@ -391,17 +387,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
---- !u!114 &699112676 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9176794117305348338, guid: 9671043902655b24a89af55d033cb371, type: 3}
-  m_PrefabInstance: {fileID: 198060099}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 025f371c6593e81419b0d66a6aee1e87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &957135778 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
@@ -954,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8044617308367178426, guid: 4226af66bba55b54b8a99701d7a89046, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.85
+      value: -3.96
       objectReference: {fileID: 0}
     - target: {fileID: 8044617308367178426, guid: 4226af66bba55b54b8a99701d7a89046, type: 3}
       propertyPath: m_LocalPosition.z
