@@ -22,6 +22,8 @@ public class Spikes : Receiver
     bool playerOnSpikes = false;
     bool spikesShouldBeOut;
 
+    HashSet<GameObject> obstacles = new HashSet<GameObject>();
+
     void Awake()
     {
         tempTime = spikeTime;
@@ -30,13 +32,21 @@ public class Spikes : Receiver
         baseColliderSize = boxCollider.size;
 
         var triggerCollider = Physics2D.OverlapBoxAll(transform.position, baseColliderSize - new Vector2(0.05f, 0.05f), 0, triggerMask);
-        blockingObjectsCount = 1;
+        foreach(var i in triggerCollider)
+        {
+            if (i.gameObject.CompareTag("Player"))
+            {
+                playerOnSpikes = true;
+                continue;
+            }
+            obstacles.Add(i.gameObject);
+        }
+        blockingObjectsCount = obstacles.Count;
 
         spikesShouldBeOut = isSpikesUp;
-        if (triggerCollider.Length > 0)
+        if (blockingObjectsCount > 0)
         {
             SpikesControl(false);
-            Debug.Log("lololo");
             spikesShouldBeOut = isSpikesUp;
         }
         else
@@ -106,12 +116,11 @@ public class Spikes : Receiver
             playerOnSpikes = true;
             return;
         }
-        if (((1<<collision.gameObject.layer) & triggerMask) != 0)
+        if (((1<<collision.gameObject.layer) & triggerMask) != 0 && !obstacles.Contains(collision.gameObject))
         {
+            obstacles.Add(collision.gameObject);
             blockingObjectsCount++;
-            Debug.Log(collision.gameObject.name);
         }
-        Debug.Log("lol3");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -123,11 +132,8 @@ public class Spikes : Receiver
         }
         if (((1 << collision.gameObject.layer) & triggerMask) != 0)
         {
-            //Debug.Log("yassss");
-            
-            
+            obstacles.Remove(collision.gameObject);
             blockingObjectsCount--;
-
         }
         if (spikesShouldBeOut)
             TrySpikesOn();
