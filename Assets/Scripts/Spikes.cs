@@ -9,23 +9,46 @@ public class Spikes : Receiver
     [SerializeField] LayerMask triggerMask;
     [SerializeField] bool isTimed;
     [SerializeField] bool isSpikesUp = false;
-    [SerializeField] Sprite openSpikesSprite;
-    [SerializeField] Sprite closedSpikesSprite;
-    private bool timerOn = true;
+    [SerializeField] Sprite outSpikesSprite;
+    [SerializeField] Sprite inSpikesSprite;
+    
     float tempTime;
     // Start is called before the first frame update
-    void Start()
+
+    BoxCollider2D boxCollider;
+    Vector2 baseColliderSize;
+
+    int blockingObjectsCount = 0;
+    bool playerOnSpikes = false;
+    bool spikesShouldBeOut;
+
+    void Awake()
     {
-        
-        SpikesControl(isSpikesUp);
-        
         tempTime = spikeTime;
+
+        boxCollider = GetComponent<BoxCollider2D>();
+        baseColliderSize = boxCollider.size;
+
+        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, baseColliderSize - new Vector2(0.05f, 0.05f), 0, triggerMask);
+        blockingObjectsCount = 0;
+
+        spikesShouldBeOut = isSpikesUp;
+        if (triggerCollider.Length > 0)
+        {
+            SpikesControl(false);
+            Debug.Log("lololo");
+            spikesShouldBeOut = isSpikesUp;
+        }
+        else
+        {
+            SpikesControl(isSpikesUp);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isTimed && timerOn)
+        if (isTimed && !state)
         {
             tempTime -= Time.deltaTime;
             if (tempTime <= 0)
@@ -35,71 +58,98 @@ public class Spikes : Receiver
                 tempTime = spikeTime;
             }
         }
-        
-        
     }
     public void SpikesControl(bool control)
     {
         if (control)
         {
-            SpikesOn();
-            //Debug.Log("Spikehjnhuhyubhyb");
+            TrySpikesOn();
         }
         else
         {
             SpikesOff();
         }
+        spikesShouldBeOut = control;
     }
-    public void SpikesOn()
+    public void TrySpikesOn()
     {
-        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, transform.localScale-new Vector3(0.1f,0.1f,0.1f), 0, triggerMask);
-        foreach (var col in triggerCollider)
+        if (blockingObjectsCount > 0)
         {
-            if (!col.CompareTag("Player"))
-            {
-                return;
-            }
-
+            return;
         }
-        GetComponent<SpriteRenderer>().sprite = openSpikesSprite;
-        if (triggerCollider.Length == 1)
+
+        GetComponent<SpriteRenderer>().sprite = outSpikesSprite;
+        if (playerOnSpikes)
         {
             GameManager.inst.Death();
             return;
         }
-        var Collider = GetComponent<Collider2D>();
-        Collider.enabled = true;
+
+        boxCollider.isTrigger = false;
+        boxCollider.size = baseColliderSize;
+        boxCollider.includeLayers = 0;
     }
     public void SpikesOff()
     {
-        GetComponent<SpriteRenderer>().sprite = closedSpikesSprite;
-        var Collider = GetComponent<Collider2D>();
-        Collider.enabled = false;
+        GetComponent<SpriteRenderer>().sprite = inSpikesSprite;
+        boxCollider.isTrigger = true;
+        boxCollider.size = baseColliderSize - new Vector2(0.05f, 0.05f);
+        boxCollider.includeLayers = int.MaxValue;
     }
+
+    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerOnSpikes = true;
+            return;
+        }
+        if (((1<<collision.gameObject.layer) & triggerMask) != 0)
+        {
+            blockingObjectsCount++;
+            Debug.Log(collision.gameObject.name);
+        }
+        Debug.Log("lol3");
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerOnSpikes = false;
+            return;
+        }
+        if (((1 << collision.gameObject.layer) & triggerMask) != 0)
+        {
+            //Debug.Log("yassss");
+            
+            
+            blockingObjectsCount--;
+
+        }
+        if (spikesShouldBeOut)
+            TrySpikesOn();
+    }
+
     public override void OnStateOn()
     {
         if (!isTimed)
         {
-            SpikesOn();
+            SpikesControl(true);
         }
         else
         {
-            timerOn = false;
-            SpikesOff();
+            SpikesControl(false);
             tempTime = spikeTime;
         }
-
-
     }
     public override void OnStateOff()
     {
         if (!isTimed)
         {
-            SpikesOff();
-        }
-        else
-        {
-            timerOn = true;
+            SpikesControl(false);
         }
     }
 
