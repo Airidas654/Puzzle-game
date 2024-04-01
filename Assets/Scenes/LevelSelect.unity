@@ -23684,7 +23684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290389021235db542a47d8e54e4989b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageDist: 1
+  messageDist: 2
   timeToDisappear: 0.3
 --- !u!1 &1205264400
 GameObject:
