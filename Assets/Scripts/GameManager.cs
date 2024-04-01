@@ -7,10 +7,10 @@ using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     public static GameManager inst;
-    bool dead = false;
+    public bool dead { get; private set; }
     public bool CantDoAnything;
 
-    bool levelEnterFreeze = true;
+    public bool levelEnterFreeze { get; private set; }
 
     void UnfreezeLevel()
     {
@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        dead = false;
+        levelEnterFreeze = true;
         if (inst == null)
         {
             inst = this;
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         CantDoAnything = false;
-        DOVirtual.DelayedCall(2, UnfreezeLevel);
+        DOVirtual.DelayedCall(1.5f, UnfreezeLevel);
     }
 
     public void Death()
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!CantDoAnything && !levelEnterFreeze)
+        if (!CantDoAnything && !levelEnterFreeze && !dead)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {

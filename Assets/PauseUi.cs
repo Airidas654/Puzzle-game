@@ -86,7 +86,7 @@ public class PauseUi : MonoBehaviour
 
     void SetPause(bool val)
     {
-        if (!transitioning)
+        if (!transitioning && !GameManager.inst.dead && !GameManager.inst.CantDoAnything && !GameManager.inst.levelEnterFreeze)
         {
             transitioning= true;
             DOTween.Kill(555);
