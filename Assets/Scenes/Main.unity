@@ -156,7 +156,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1205264401}
     m_Modifications:
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -176,15 +176,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -23838,7 +23838,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1205264401}
     m_Modifications:
     - target: {fileID: 805989173805857752, guid: 653df6228e1005c40a0f568bb4b0a040, type: 3}
       propertyPath: receivers.Array.size
@@ -23898,15 +23898,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089623334680163594, guid: 653df6228e1005c40a0f568bb4b0a040, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4089623334680163594, guid: 653df6228e1005c40a0f568bb4b0a040, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4089623334680163594, guid: 653df6228e1005c40a0f568bb4b0a040, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4089623334680163594, guid: 653df6228e1005c40a0f568bb4b0a040, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -23931,7 +23931,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1205264401}
     m_Modifications:
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23951,15 +23951,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24036,7 +24036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.data[0]
@@ -24066,6 +24066,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 123058729861751142, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
   m_PrefabInstance: {fileID: 1046104323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &623885019 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
+  m_PrefabInstance: {fileID: 511877384}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &652779520
 PrefabInstance:
@@ -24303,7 +24308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.data[0]
@@ -24456,7 +24461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.data[0]
@@ -24663,6 +24668,9 @@ Transform:
   - {fileID: 958070005}
   - {fileID: 65016749}
   - {fileID: 883181937}
+  - {fileID: 1942542091}
+  - {fileID: 1932015508}
+  - {fileID: 623885019}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1240470520
@@ -24673,6 +24681,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 465975029391759279, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.36900002
+      objectReference: {fileID: 0}
+    - target: {fileID: 465975029391759279, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.36900002
+      objectReference: {fileID: 0}
+    - target: {fileID: 465975029391759279, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.36900002
+      objectReference: {fileID: 0}
     - target: {fileID: 7545494105866316002, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
       propertyPath: obj
       value: 
@@ -24820,7 +24840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.data[0]
@@ -25235,7 +25255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.data[0]
@@ -25398,7 +25418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: connectedTransmitters.Array.data[0]
@@ -25429,6 +25449,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c79b099d815a924086618c6f230d012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1932015508 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1186131799668161180, guid: 144658e8c2f766645ae20e8b64be52a4, type: 3}
+  m_PrefabInstance: {fileID: 164155514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1942542091 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4089623334680163594, guid: 653df6228e1005c40a0f568bb4b0a040, type: 3}
+  m_PrefabInstance: {fileID: 469886031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1948732085 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6350875426905027789, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
@@ -25529,15 +25559,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Options
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bb885e2497bf4ed438cd7c3fb684790d, type: 2}
+  m_sharedMaterial: {fileID: -1097201562750552905, guid: bb885e2497bf4ed438cd7c3fb684790d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294508451
-  m_fontColor: {r: 0.6396227, g: 1, b: 0.97379076, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -25755,15 +25785,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Explorium
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bb885e2497bf4ed438cd7c3fb684790d, type: 2}
+  m_sharedMaterial: {fileID: -1097201562750552905, guid: bb885e2497bf4ed438cd7c3fb684790d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294508451
-  m_fontColor: {r: 0.6396227, g: 1, b: 0.97379076, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -25780,8 +25810,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 121.6
-  m_fontSizeBase: 121.6
+  m_fontSize: 110
+  m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -25906,15 +25936,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bb885e2497bf4ed438cd7c3fb684790d, type: 2}
+  m_sharedMaterial: {fileID: -1097201562750552905, guid: bb885e2497bf4ed438cd7c3fb684790d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294508451
-  m_fontColor: {r: 0.6396227, g: 1, b: 0.97379076, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -26145,8 +26175,5 @@ SceneRoots:
   - {fileID: 3283799288360202608}
   - {fileID: 1205264401}
   - {fileID: 216865952}
-  - {fileID: 511877384}
-  - {fileID: 164155514}
-  - {fileID: 469886031}
   - {fileID: 8629946867501208180}
   - {fileID: 813438399}
