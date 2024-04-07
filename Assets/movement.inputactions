@@ -1,0 +1,34 @@
+{
+    "name": "movement",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "c749e1f3-21d3-4851-a912-bb134006b8eb",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "b74ec8b9-8524-44e3-8416-4a6821e5a423",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e0625a11-5c38-4d30-8ef1-fbb8a08ffd6d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
