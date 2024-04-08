@@ -20,7 +20,7 @@ public class Movetest : InputTestFixture
     }
 
     [UnityTest]
-    public IEnumerator MovetestForwardWithEnumeratorPasses()
+    public IEnumerator MoveForwardTest()
     {
         yield return new WaitForSeconds(0.1f);
 
@@ -37,7 +37,7 @@ public class Movetest : InputTestFixture
     }
 
     [UnityTest]
-    public IEnumerator MovetestBackWithEnumeratorPasses()
+    public IEnumerator MoveBackTest()
     {
         yield return new WaitForSeconds(0.1f);
 
@@ -54,7 +54,7 @@ public class Movetest : InputTestFixture
     }
 
     [UnityTest]
-    public IEnumerator MovetestRightWithEnumeratorPasses()
+    public IEnumerator MoveRightTest()
     {
         yield return new WaitForSeconds(0.1f);
 
@@ -71,7 +71,7 @@ public class Movetest : InputTestFixture
     }
 
     [UnityTest]
-    public IEnumerator MovetestLeftWithEnumeratorPasses()
+    public IEnumerator MoveLeftTest()
     {
         yield return new WaitForSeconds(0.1f);
 
