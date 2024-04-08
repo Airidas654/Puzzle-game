@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-
         if (GameManager.inst.CantDoAnything || PauseUi.instance.paused) return;
         if (canMove)
         {
