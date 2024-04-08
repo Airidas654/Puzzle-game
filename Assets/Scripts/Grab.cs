@@ -23,13 +23,13 @@ public class Grab : MonoBehaviour
         if (PlayerMovement.input.Player.Grab.WasPressedThisFrame())
         {
             float boxDist;
-            GameObject closestBox = PushableObjectManager.Instance.GetClosestBox(transform.position, out boxDist);
+            GameObject closestBox = PushableObjectManager.GetClosestBox(transform.position, out boxDist);
 
             float switchDist;
-            GameObject closestSwitch = PushableObjectManager.Instance.GetClosestSwitch(transform.position, out switchDist);
+            GameObject closestSwitch = PushableObjectManager.GetClosestSwitch(transform.position, out switchDist);
 
             float pickableDist;
-            GameObject closestPickable = PushableObjectManager.Instance.GetClosestPickable(transform.position, out pickableDist);
+            GameObject closestPickable = PushableObjectManager.GetClosestPickable(transform.position, out pickableDist);
 
             List<(float, GameObject)> listas = new List<(float, GameObject)>();
             listas.Add((boxDist, closestBox));
