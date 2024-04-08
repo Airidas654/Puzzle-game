@@ -7,7 +7,7 @@ public class Spikes : Receiver
 
     [SerializeField] float spikeTime;
     [SerializeField] LayerMask triggerMask;
-    [SerializeField] bool isTimed;
+    public bool isTimed;
     [SerializeField] bool isSpikesUp = false;
     [SerializeField] Sprite outSpikesSprite;
     [SerializeField] Sprite inSpikesSprite;
@@ -73,6 +73,7 @@ public class Spikes : Receiver
     {
         if (control)
         {
+            
             TrySpikesOn();
         }
         else
@@ -85,9 +86,9 @@ public class Spikes : Receiver
     {
         if (blockingObjectsCount > 0)
         {
+            
             return;
         }
-
         GetComponent<SpriteRenderer>().sprite = outSpikesSprite;
         if (playerOnSpikes)
         {
@@ -144,7 +145,6 @@ public class Spikes : Receiver
         
         if (!isTimed)
         {
-            Debug.Log("hahah");
             SpikesControl(true);
         }
         else

@@ -53,6 +53,9 @@ public class Deathtest : InputTestFixture
     public IEnumerator DeathWhenSpikesHitTest()
     {
         GameObject spike = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector2(0, 0), Quaternion.identity);
+
+        yield return null;
+        
         spike.GetComponent<Spikes>().OnStateOn();
 
         yield return new WaitForSeconds(0.5f);
