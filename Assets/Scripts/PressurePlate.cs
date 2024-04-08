@@ -6,9 +6,9 @@ public class PressurePlate : Transmitter
 {
     [SerializeField] Vector2 colliderPositionOffset;
     [SerializeField] Vector2 colliderSize;
-    [SerializeField] LayerMask colliderMask;
+    public LayerMask colliderMask;
 
-    [SerializeField] Sprite platePressed;
+    public Sprite platePressed;
     [SerializeField] Sprite plateUp;
 
     SpriteRenderer srenderer;
