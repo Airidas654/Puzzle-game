@@ -28,6 +28,7 @@ public class SpikeColliderTest : InputTestFixture
        // GameObject spikes1 = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3 (1 ,0.2f, 0), Quaternion.identity);
         GameObject spikes2 = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3 (2 ,0.2f, 0), Quaternion.identity);
 
+        yield return null;
 
         spikes2.GetComponent<Spikes>().OnStateOn();
 
