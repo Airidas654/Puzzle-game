@@ -46,5 +46,28 @@ public class ConnectorsTest : InputTestFixture
         yield return null;
     }
 
-    
+    [UnityTest]
+    public IEnumerator SwitchConnectionTest()
+    {
+        yield return new WaitForSeconds(0.1f);
+        GameObject sw = GameObject.Instantiate((GameObject)Resources.Load("Switch"), new Vector3(0, 1, 0), Quaternion.identity);
+
+        GameObject spikes = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3(3, 1, 0), Quaternion.identity);
+
+        sw.GetComponent<Switch>().receivers.Clear();
+        sw.GetComponent<Switch>().receivers.Add(spikes.GetComponent<Spikes>());
+        spikes.GetComponent<Spikes>().OnValidate();
+
+        PlayerMovement.currPlayer.transform.position = Vector2.zero;
+
+        PressAndRelease(keyboard.eKey);
+
+
+        yield return new WaitForSeconds(0.3f);
+
+        Assert.That(spikes.GetComponent<Spikes>().state, Is.True);
+
+        yield return null;
+    }
+
 }
