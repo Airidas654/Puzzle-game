@@ -20,7 +20,7 @@ public class Grab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (PlayerMovement.input.Player.Grab.WasPressedThisFrame())
         {
             float boxDist;
             GameObject closestBox = PushableObjectManager.Instance.GetClosestBox(transform.position, out boxDist);
@@ -86,7 +86,7 @@ public class Grab : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyUp(KeyCode.E))
+        if (PlayerMovement.input.Player.Grab.WasReleasedThisFrame())
         {
             staticJoint.enabled = false;
             springJoint.enabled = false;

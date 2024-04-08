@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,10 +27,16 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         currPlayer = gameObject;
+
+        input = new PlayerController();
+        input.Enable();
+        input.Player.Enable();
     }
 
+    public static PlayerController input;
     void Start()
     {
+
         rg = GetComponent<Rigidbody2D>(); 
         animator = GetComponent<Animator>();
         canMove = true;
@@ -38,11 +45,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (GameManager.inst.CantDoAnything || PauseUi.instance.paused) return;
         if (canMove)
         {
-            float horizontalRaw = Input.GetAxisRaw("Horizontal");
-            float verticalRaw = Input.GetAxisRaw("Vertical");
+            float horizontalRaw = input.Player.Movement.ReadValue<Vector2>().x;
+            float verticalRaw = input.Player.Movement.ReadValue<Vector2>().y;
+
 
             animator.SetBool("Walking", horizontalRaw != 0 || verticalRaw != 0);
 
@@ -54,8 +64,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().flipX = true;
             }
-
-            Vector2 inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            Vector2 inputVector = input.Player.Movement.ReadValue<Vector2>();
             float mag = inputVector.magnitude;
             if (mag > 1)
             {

@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (!CantDoAnything && !levelEnterFreeze && !dead)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (PlayerMovement.input.Player.Restart.WasPressedThisFrame())
             {
                 Death();
             }

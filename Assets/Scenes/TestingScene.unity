@@ -23457,7 +23457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6646758201595028138, guid: 6243705f91c12d74c896163fd25b8a26, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 6646758201595028138, guid: 6243705f91c12d74c896163fd25b8a26, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23681,7 +23681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8044617308367178426, guid: 4226af66bba55b54b8a99701d7a89046, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8044617308367178426, guid: 4226af66bba55b54b8a99701d7a89046, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23767,7 +23767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212965873360041593, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 8212965873360041593, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23914,7 +23914,6 @@ GameObject:
   - component: {fileID: 7312123030005554491}
   - component: {fileID: 4503449134001904538}
   - component: {fileID: 7314692026214197080}
-  - component: {fileID: 7314692026214197081}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -23996,23 +23995,6 @@ MonoBehaviour:
   darkStartLength: 0.5
   trasitionMat: {fileID: 2100000, guid: 0cbaf7c54834a0d4c9cc092bda68c59f, type: 2}
   playerOffset: {x: 0, y: 0.36}
---- !u!114 &7314692026214197081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2716722755509413510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2ce6fa16d689c4da5d5c47548ce2f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  checkboxes:
-  - {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

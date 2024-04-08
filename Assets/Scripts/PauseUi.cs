@@ -138,7 +138,7 @@ public class PauseUi : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.inst.CantDoAnything && (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)))
+        if (!GameManager.inst.CantDoAnything && PlayerMovement.input.Player.Pause.WasPressedThisFrame())
         {
             SetPause(!paused);
         }

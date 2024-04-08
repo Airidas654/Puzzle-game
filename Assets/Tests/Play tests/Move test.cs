@@ -14,30 +14,75 @@ public class Movetest : InputTestFixture
     Keyboard keyboard;
     public override void Setup()
     {
-        //SceneManager.LoadScene("Scenes/SimpleTesting");
+        SceneManager.LoadScene("Scenes/TestingScene");
         base.Setup();
         keyboard = InputSystem.AddDevice<Keyboard>();
-
-        var mouse = InputSystem.AddDevice<Mouse>();
-        Press(mouse.rightButton);
-        Release(mouse.rightButton);
     }
 
     [UnityTest]
-    public IEnumerator MovetestWithEnumeratorPasses()
+    public IEnumerator MovetestForwardWithEnumeratorPasses()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
+
+        PlayerMovement.currPlayer.transform.position = Vector2.zero;
 
         Vector2 pos = PlayerMovement.currPlayer.transform.position;
-        Press(keyboard.wKey, 1);
+        Press(keyboard.wKey, 0.2f);
 
-        //Debug.Log(pos);
-
-        yield return new WaitForSeconds(2);
-
-        //Debug.Log(PlayerMovement.currPlayer.transform.position.y);
+        yield return new WaitForSeconds(0.3f);
 
         Assert.That(PlayerMovement.currPlayer.transform.position.y, Is.GreaterThan(pos.y));
+
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator MovetestBackWithEnumeratorPasses()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        PlayerMovement.currPlayer.transform.position = Vector2.zero;
+
+        Vector2 pos = PlayerMovement.currPlayer.transform.position;
+        Press(keyboard.sKey, 0.2f);
+
+        yield return new WaitForSeconds(0.3f);
+
+        Assert.That(PlayerMovement.currPlayer.transform.position.y, Is.LessThan(pos.y));
+
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator MovetestRightWithEnumeratorPasses()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        PlayerMovement.currPlayer.transform.position = Vector2.zero;
+
+        Vector2 pos = PlayerMovement.currPlayer.transform.position;
+        Press(keyboard.dKey, 0.2f);
+
+        yield return new WaitForSeconds(0.3f);
+
+        Assert.That(PlayerMovement.currPlayer.transform.position.x, Is.GreaterThan(pos.x));
+
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator MovetestLeftWithEnumeratorPasses()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        PlayerMovement.currPlayer.transform.position = Vector2.zero;
+
+        Vector2 pos = PlayerMovement.currPlayer.transform.position;
+        Press(keyboard.aKey, 0.2f);
+
+        yield return new WaitForSeconds(0.3f);
+
+        Assert.That(PlayerMovement.currPlayer.transform.position.x, Is.LessThan(pos.x));
 
         yield return null;
     }
