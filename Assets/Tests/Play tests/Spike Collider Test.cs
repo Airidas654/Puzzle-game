@@ -20,7 +20,7 @@ public class SpikeColliderTest : InputTestFixture
     }
 
     [UnityTest]
-    public IEnumerator SpikesCollision()
+    public IEnumerator SpikesCollisionTest()
     {
         yield return new WaitForSeconds(0.1f);
         
