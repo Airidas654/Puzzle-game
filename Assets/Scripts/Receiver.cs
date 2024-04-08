@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Receiver : MonoBehaviour
 {
-    [SerializeField] protected bool state;
+    public bool state;
     public List<Transmitter> connectedTransmitters;
 
     private void Start()
