@@ -41,7 +41,31 @@ public class Deathtest : InputTestFixture
         GameObject enemy = GameObject.Instantiate((GameObject)Resources.Load("Enemy"), new Vector2(0, 1), Quaternion.identity);
         enemy.GetComponent<Enemy>().positions[0] = Vector2.up;
         enemy.GetComponent<Enemy>().positions[1] = Vector2.zero;
-        Press(keyboard.wKey, 0.5f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Assert.That(GameManager.inst.dead, Is.True);
+
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator DeathWhenSpikesHitTest()
+    {
+        GameObject spike = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector2(0, 0), Quaternion.identity);
+        spike.GetComponent<Spikes>().OnStateOn();
+
+        yield return new WaitForSeconds(0.5f);
+
+        Assert.That(GameManager.inst.dead, Is.True);
+
+        yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator DeathWhenArrowsHitTest()
+    {
+        GameObject spike = GameObject.Instantiate((GameObject)Resources.Load("DartShooterBox"), new Vector2(-1, 0), Quaternion.identity);
 
         yield return new WaitForSeconds(0.5f);
 

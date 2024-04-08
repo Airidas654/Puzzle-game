@@ -12,6 +12,7 @@ public class OptionsManager : MonoBehaviour
         sliders[0].SetValue(0.5f); // set value to sound volume
         sliders[1].SetValue(0.5f); // set value to music volume
         checkboxes[0].SetValue(true); // set value to post effects
+
     }
 
     // Update is called once per frame
