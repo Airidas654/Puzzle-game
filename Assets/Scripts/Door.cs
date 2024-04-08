@@ -10,8 +10,8 @@ public class Door : MonoBehaviour
     [SerializeField] Vector2 openingColliderOffset;
     [SerializeField] float lengthToOpen;
     [SerializeField] LayerMask layersToOpen;
-    [SerializeField] bool goToIncrimentedLevel;
-    [SerializeField] int exactLevel;
+    public bool goToIncrimentedLevel;
+    public int exactLevel;
     bool opened;
 
     private void Start()
