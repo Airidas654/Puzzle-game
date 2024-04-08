@@ -45,20 +45,46 @@ public class Boxtest : InputTestFixture
 
         GameObject box = GameObject.Instantiate((GameObject)Resources.Load("Box"), new Vector2(0.6f, 0), Quaternion.identity);
 
-        //Press(keyboard.eKey, 0.3f);
-
         InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.E, Key.A), 0.3f);
 
         Vector2 pos = box.transform.position;
-
-        
-
-        //Press(keyboard.aKey, 0.3f);
 
         yield return new WaitForSeconds(0.4f);
 
         Assert.That(box.transform.position.x, Is.LessThan(pos.x));
 
         yield return null;
+    }
+
+    [UnityTest]
+    public IEnumerator PushBoxOnButtonTest()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        GameObject box = GameObject.Instantiate((GameObject)Resources.Load("Box"), new Vector2(0.6f, 0), Quaternion.identity);
+        GameObject plate = GameObject.Instantiate((GameObject)Resources.Load("PressurePlatePrefab"), new Vector3(1, -1, 0), Quaternion.identity);
+        GameObject spikes = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3(0, -1.5f, 0), Quaternion.identity);
+        GameObject notGate = GameObject.Instantiate((GameObject)Resources.Load("Gates/NotGate"), new Vector3(0, 0, 0), Quaternion.identity);
+        spikes.GetComponent<Spikes>().isSpikesUp = true;
+        yield return new WaitForSeconds(0.1f);
+
+        plate.GetComponent<PressurePlate>().receivers.Clear();
+        plate.GetComponent<PressurePlate>().receivers.Add(notGate.GetComponent<LogicNOTGate>());
+        notGate.GetComponent<LogicNOTGate>().receivers.Add(spikes.GetComponent<Spikes>());
+        notGate.GetComponent<LogicNOTGate>().OnValidate();
+        spikes.GetComponent<Spikes>().OnStateOn();
+        spikes.GetComponent<Spikes>().OnValidate();
+
+
+        plate.GetComponent<PressurePlate>().colliderMask = 128+64;
+
+        InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.E, Key.S), 0.3f);
+        yield return new WaitForSeconds(0.4f);
+
+        Press(keyboard.sKey, 1f);
+
+        yield return new WaitForSeconds(1f);
+
+        Assert.That(PlayerMovement.currPlayer.transform.position.y, Is.LessThan(-1.6f));
     }
 }

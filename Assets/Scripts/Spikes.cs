@@ -8,7 +8,7 @@ public class Spikes : Receiver
     [SerializeField] float spikeTime;
     [SerializeField] LayerMask triggerMask;
     public bool isTimed;
-    [SerializeField] bool isSpikesUp = false;
+    public bool isSpikesUp = false;
     [SerializeField] Sprite outSpikesSprite;
     [SerializeField] Sprite inSpikesSprite;
     

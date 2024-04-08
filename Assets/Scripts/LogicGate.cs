@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LogicGate : Receiver
 {
-    [SerializeField] protected List<Receiver> receivers;
+    public List<Receiver> receivers;
     
     
     protected bool[] transmittersStates;
