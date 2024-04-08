@@ -25,8 +25,8 @@ public class SpikeColliderTest : InputTestFixture
         yield return new WaitForSeconds(0.1f);
         
 
-       // GameObject spikes1 = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3 (1 ,0.2f, 0), Quaternion.identity);
-        GameObject spikes2 = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3 (2 ,0.2f, 0), Quaternion.identity);
+        GameObject spikes1 = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3 (1 ,0.2f, 0), Quaternion.identity);
+        GameObject spikes2 = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3 (3 ,0.2f, 0), Quaternion.identity);
 
         yield return null;
 
@@ -36,12 +36,12 @@ public class SpikeColliderTest : InputTestFixture
         PlayerMovement.currPlayer.transform.position = Vector2.zero;
 
         Vector2 pos = PlayerMovement.currPlayer.transform.position;
-        Press(keyboard.aKey, 0.3f);
+        Press(keyboard.dKey, 0.3f);
 
 
         yield return new WaitForSeconds(2);
 
-       // Assert.That(spikes.GetComponent<Spikes>().state, Is.True);
+        Assert.That(PlayerMovement.currPlayer.transform.position.x, Is.GreaterThan(spikes1.transform.position.x).And.LessThan(spikes2.transform.position.x));
 
         yield return null;
     }
