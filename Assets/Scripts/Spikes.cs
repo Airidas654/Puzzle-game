@@ -141,8 +141,10 @@ public class Spikes : Receiver
 
     public override void OnStateOn()
     {
+        
         if (!isTimed)
         {
+            Debug.Log("hahah");
             SpikesControl(true);
         }
         else
