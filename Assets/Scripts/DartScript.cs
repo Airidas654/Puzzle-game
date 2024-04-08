@@ -9,7 +9,6 @@ public class DartScript : MonoBehaviour
     [System.NonSerialized] public DartLauncherScript shooter;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if (!gameObject.activeSelf || collision.gameObject == shooter.gameObject || (collision.transform.parent!=null && collision.transform.parent.gameObject == shooter.gameObject)) return;
         shooter.RemoveArrow(gameObject);
         if(collision.tag == "Player")
