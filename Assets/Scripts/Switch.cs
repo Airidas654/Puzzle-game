@@ -9,7 +9,7 @@ public class Switch : Transmitter
     [SerializeField] public bool defaultState;
     private void Start()
     {
-        PushableObjectManager.Instance.RegisterSwitch(gameObject);
+        PushableObjectManager.RegisterSwitch(gameObject);
         transmit(defaultState);
         if (defaultState)
         {

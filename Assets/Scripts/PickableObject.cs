@@ -6,6 +6,6 @@ public class PickableObject : MonoBehaviour
 {
     void Start()
     {
-        PushableObjectManager.Instance.RegisterPickable(gameObject);
+        PushableObjectManager.RegisterPickable(gameObject);
     }
 }

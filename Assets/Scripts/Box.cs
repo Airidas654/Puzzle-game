@@ -7,6 +7,6 @@ public class Box : MonoBehaviour
     
     void Start()
     {
-        PushableObjectManager.Instance.RegisterBox(gameObject);
+        PushableObjectManager.RegisterBox(gameObject);
     }
 }
