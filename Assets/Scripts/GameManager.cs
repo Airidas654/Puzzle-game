@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        PushableObjectManager.boxes.Clear();
+        PushableObjectManager.pickableObjs.Clear();
+        PushableObjectManager.switches.Clear();
+
         CantDoAnything = false;
         DOVirtual.DelayedCall(1.5f, UnfreezeLevel);
     }

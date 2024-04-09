@@ -30,6 +30,11 @@ public class UImanager : MonoBehaviour
     {
         if (Instance.oneTime) return;
         Instance.oneTime = true;
+
+        PushableObjectManager.boxes.Clear();
+        PushableObjectManager.pickableObjs.Clear();
+        PushableObjectManager.switches.Clear();
+
         //Instance.dark.DOKill();
         //Instance.dark.gameObject.SetActive(true);
         //Instance.dark.DOColor(new Color(0, 0, 0, 1), length).SetDelay(delay).SetEase(Ease.InSine).OnComplete(() => SceneManager.LoadScene(sceneIndex));
