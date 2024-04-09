@@ -6,8 +6,12 @@ using UnityEngine.TestTools;
 
 public class ClosestItemstest
 {
+
     [Test]
-    public void ClosestBoxTest()
+    [TestCase(0,0,0.6f)]
+    [TestCase(1,0,0.4f)]
+    [TestCase(0,1,0.6f)]
+    public void ClosestBoxTest(float x, float y,float ans)
     {
         PushableObjectManager.boxes.Clear();
 
@@ -19,15 +23,18 @@ public class ClosestItemstest
         PushableObjectManager.RegisterBox(box2);
         PushableObjectManager.RegisterBox(box3);
         float dist;
-        PushableObjectManager.GetClosestBox(Vector2.zero, out dist);
+        PushableObjectManager.GetClosestBox(new Vector2(x,y), out dist);
 
         PushableObjectManager.boxes.Clear();
-
-        Assert.That(dist, Is.EqualTo(0.6f));
+        Assert.IsTrue(Mathf.Approximately(dist,ans));
+       // Assert.That(dist, Is.EqualTo(ans));
     }
 
     [Test]
-    public void ClosestPickableTest()
+    [TestCase(0, 0, 0.6f)]
+    [TestCase(1, 0, 0.4f)]
+    [TestCase(0, 1, 0.6f)]
+    public void ClosestPickableTest(float x, float y, float ans)
     {
         PushableObjectManager.pickableObjs.Clear();
 
@@ -39,15 +46,19 @@ public class ClosestItemstest
         PushableObjectManager.RegisterPickable(pickable2);
         PushableObjectManager.RegisterPickable(pickable3);
         float dist;
-        PushableObjectManager.GetClosestPickable(Vector2.zero, out dist);
+        PushableObjectManager.GetClosestPickable(new Vector2(x, y), out dist);
 
         PushableObjectManager.pickableObjs.Clear();
 
-        Assert.That(dist, Is.EqualTo(0.6f));
+        Assert.IsTrue(Mathf.Approximately(dist, ans));
+        //Assert.That(dist, Is.EqualTo(0.6f));
     }
 
     [Test]
-    public void ClosestSwitchTest()
+    [TestCase(0, 0, 0.6f)]
+    [TestCase(1, 0, 0.4f)]
+    [TestCase(0, 1, 0.6f)]
+    public void ClosestSwitchTest(float x, float y, float ans)
     {
         PushableObjectManager.switches.Clear();
 
@@ -59,10 +70,11 @@ public class ClosestItemstest
         PushableObjectManager.RegisterSwitch(switch2);
         PushableObjectManager.RegisterSwitch(switch3);
         float dist;
-        PushableObjectManager.GetClosestSwitch(Vector2.zero, out dist);
+        PushableObjectManager.GetClosestSwitch(new Vector2(x, y), out dist);
 
         PushableObjectManager.switches.Clear();
 
-        Assert.That(dist, Is.EqualTo(0.6f));
+        Assert.IsTrue(Mathf.Approximately(dist, ans));
+        // Assert.That(dist, Is.EqualTo(0.6f));
     }
 }
