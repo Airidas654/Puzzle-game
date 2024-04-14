@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3968534682916276330
+--- !u!114 &-7299674018135529601
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Flashing
-  m_Shader: {fileID: -6465566751694194690, guid: 907e3efa535e4dc41aaf50e85e838f32, type: 3}
+  m_Name: laser
+  m_Shader: {fileID: -6465566751694194690, guid: 4ae220a21f000b14e82a69a347b0a97b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -41,6 +41,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -66,19 +70,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueOffset: 0
+    - _Blink_intensity: 0.05
+    - _Blink_speed: 10
     - _EnableExternalAlpha: 0
-    - _MaxSpeed: 20
-    - _Off_duration: 0.15
-    - _On_duration: 0.2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _White_intensity: 0.15
-    - _light: 4.8
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 2.8539834, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _MainTex: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TexColor: {r: 0, g: 0, b: 0, a: 0}
-    - _color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

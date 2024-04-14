@@ -11,11 +11,16 @@ public class Spikes : Receiver
     public bool isSpikesUp = false;
     [SerializeField] Sprite outSpikesSprite;
     [SerializeField] Sprite inSpikesSprite;
+
+    [Space(20)]
+    [SerializeField] float blinkTransitionTime = 0.2f;
+    [SerializeField] float blinkDurationBeforeOpening = 1f;
     
     float tempTime;
     // Start is called before the first frame update
 
     BoxCollider2D boxCollider;
+    SpriteRenderer spriteRenderer;
     Vector2 baseColliderSize;
 
     int blockingObjectsCount = 0;
@@ -24,9 +29,14 @@ public class Spikes : Receiver
 
     HashSet<GameObject> obstacles = new HashSet<GameObject>();
 
+
+    float blinkVal = 0;
+    bool isBlinkOn = false;
     void Awake()
     {
         tempTime = spikeTime;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         boxCollider = GetComponent<BoxCollider2D>();
         baseColliderSize = boxCollider.size;
@@ -55,6 +65,13 @@ public class Spikes : Receiver
         }
     }
 
+    void SetAlpha(float a)
+    {
+        Color col = spriteRenderer.color;
+        col.a = a;
+        spriteRenderer.color = col;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -63,11 +80,29 @@ public class Spikes : Receiver
             tempTime -= Time.deltaTime;
             if (tempTime <= 0)
             {
+                SetAlpha(0);
+                isBlinkOn = false;
+
                 isSpikesUp = !isSpikesUp;
                 SpikesControl(isSpikesUp);
                 tempTime = spikeTime;
+
+            }
+            if (tempTime <= blinkDurationBeforeOpening && isBlinkOn == false && !spikesShouldBeOut)
+            {
+                isBlinkOn = true;
+                SetAlpha(1);
             }
         }
+
+        /*if (isBlinkOn && blinkVal > 0)
+        {
+            blinkVal -= (1/ blinkTransitionTime) *Time.deltaTime;
+
+            blinkVal = Mathf.Clamp01(blinkVal);
+
+            SetAlpha(1-blinkVal);
+        }*/
     }
     public void SpikesControl(bool control)
     {
@@ -78,6 +113,8 @@ public class Spikes : Receiver
         }
         else
         {
+            isBlinkOn = false;
+            SetAlpha(0);
             SpikesOff();
         }
         spikesShouldBeOut = control;
@@ -86,10 +123,13 @@ public class Spikes : Receiver
     {
         if (blockingObjectsCount > 0)
         {
-            
+            isBlinkOn = true;
+            SetAlpha(1);
             return;
         }
-        GetComponent<SpriteRenderer>().sprite = outSpikesSprite;
+        spriteRenderer.sprite = outSpikesSprite;
+        isBlinkOn = false;
+        SetAlpha(0);
         if (playerOnSpikes)
         {
             GameManager.inst.Death();
@@ -102,7 +142,7 @@ public class Spikes : Receiver
     }
     public void SpikesOff()
     {
-        GetComponent<SpriteRenderer>().sprite = inSpikesSprite;
+        spriteRenderer.sprite = inSpikesSprite;
         boxCollider.isTrigger = true;
         boxCollider.size = baseColliderSize - new Vector2(0.05f, 0.05f);
         boxCollider.includeLayers = int.MaxValue;
