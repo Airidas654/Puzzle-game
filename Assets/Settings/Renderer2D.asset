@@ -24,9 +24,9 @@ MonoBehaviour:
   NoiseIntensity: -159.5
   LineCurveNoiseScale: {x: 0, y: 0}
   LineCurveNoiseIntensity: 0
-  DistortionIntensity: 4.49
+  DistortionIntensity: 5.04
   Vignette_width: 18.49
-  ChromaticAberrationMiddle: 0
+  ChromaticAberrationMiddle: 0.001
   ChromaticAberrationEnd: 0
 --- !u!114 &11400000
 MonoBehaviour:
