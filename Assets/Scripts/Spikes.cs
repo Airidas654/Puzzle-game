@@ -13,6 +13,10 @@ public class Spikes : Receiver
     [SerializeField] Sprite inSpikesSprite;
 
     [Space(20)]
+    [SerializeField] float delay = 0;
+    [SerializeField] float randomDelayAdd0toX = 0;
+
+    [Space(20)]
     [SerializeField] float blinkTransitionTime = 0.2f;
     [SerializeField] float blinkDurationBeforeOpening = 1f;
     
@@ -34,6 +38,7 @@ public class Spikes : Receiver
     bool isBlinkOn = false;
     void Awake()
     {
+        tempDelay = delay + Random.Range(0,randomDelayAdd0toX);
         tempTime = spikeTime;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -72,9 +77,15 @@ public class Spikes : Receiver
         spriteRenderer.color = col;
     }
 
-    // Update is called once per frame
+    float tempDelay;
     void Update()
     {
+        if (tempDelay > 0)
+        {
+            tempDelay -= Time.deltaTime;
+            return;
+        }
+
         if (isTimed && !state)
         {
             tempTime -= Time.deltaTime;
