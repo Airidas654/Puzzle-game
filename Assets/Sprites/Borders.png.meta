@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 593878209f4d6454fa45a4c7b8d118fa
+guid: 5b71713284cb1c345adfa95674134580
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,12 +34,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -98,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: level_0
+      name: Borders_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3fcf102e26042947b4623bca0198ec5
-      internalID: 1542399356
+      spriteID: c12bc8680fdb22f4f9790f60d64b1b4f
+      internalID: -531424198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_1
+      name: Borders_1
       rect:
         serializedVersion: 2
         x: 16
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57e8c99742da64449931ecf09e5ef6fa
-      internalID: -1167889343
+      spriteID: e6d77c6e639670d4fbcd35421d00894e
+      internalID: 2138588226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_2
+      name: Borders_2
       rect:
         serializedVersion: 2
         x: 32
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d29e4164fef44c843932a51c9c000cbf
-      internalID: 386287888
+      spriteID: f18021ac1ae1200469a9b697004d153c
+      internalID: 2120211948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_3
+      name: Borders_3
       rect:
         serializedVersion: 2
         x: 48
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e46f4847bbb681e43bd016994f0bd141
-      internalID: 1875057638
+      spriteID: aa476124c46970c40a23c9ab17cdc950
+      internalID: 1698688591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_4
+      name: Borders_4
       rect:
         serializedVersion: 2
         x: 64
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2988c64dedf2e443b7a1d5a81c5424b
-      internalID: -582486332
+      spriteID: 0ac22c20fc193fb40942dd1bbf204274
+      internalID: 1987893484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5
+      name: Borders_5
       rect:
         serializedVersion: 2
         x: 80
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc0fd004f9841cf4385713ba7562aca4
-      internalID: 1357815182
+      spriteID: 41a1464659d16a649aa74807c06674eb
+      internalID: -1872312344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_6
+      name: Borders_6
       rect:
         serializedVersion: 2
         x: 96
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 183156db713af214c8e86f7703abc3af
-      internalID: -718761866
+      spriteID: 635960f18eabdd2499333f578284ee8d
+      internalID: 626427059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_7
+      name: Borders_7
       rect:
         serializedVersion: 2
         x: 112
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7bcda2b2fa7ea347a02d1affddf7c24
-      internalID: 858589028
+      spriteID: 417b6f8fe4aa19f4cb7a51addaa166c0
+      internalID: 721505995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_8
+      name: Borders_8
       rect:
         serializedVersion: 2
         x: 0
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adae94c354f7cae488ab9feaa557a179
-      internalID: 718981597
+      spriteID: 7c9b005dc4a4b954e920b1a550ec0d0f
+      internalID: -385087500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_9
+      name: Borders_9
       rect:
         serializedVersion: 2
         x: 16
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56af74ad997ffba4685f53176ca6cdf2
-      internalID: -1466012416
+      spriteID: 2f30e00445cda3e42a0be09874a40952
+      internalID: 1319028115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_10
+      name: Borders_10
       rect:
         serializedVersion: 2
         x: 32
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59760d5ab9ddb9a40b123f0be0559061
-      internalID: -112555772
+      spriteID: a0817a38301fea9419726d16d62259d5
+      internalID: -820364159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_11
+      name: Borders_11
       rect:
         serializedVersion: 2
         x: 48
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a21039950f8648a498cc50d1ed365645
-      internalID: 2003913369
+      spriteID: e6273fe0244f75349b5733d67d514c9a
+      internalID: -1342255346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_12
+      name: Borders_12
       rect:
         serializedVersion: 2
         x: 64
@@ -376,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6da260b71df2004db95a16559b91fbc
-      internalID: -625937463
+      spriteID: e1bb4b64d9561104c9781ac137479ad0
+      internalID: 393064852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_13
+      name: Borders_13
       rect:
         serializedVersion: 2
         x: 80
@@ -397,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 196d72225577bb54a9a686b072c3a9ae
-      internalID: -973732371
+      spriteID: 57ad96d3e87c607489ee5c6e3db07f1d
+      internalID: 1174013628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_14
+      name: Borders_14
       rect:
         serializedVersion: 2
         x: 96
@@ -418,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dffcc9aa8ee611479e694cb9262d48e
-      internalID: 1503287533
+      spriteID: 095bc4b4ecf2ab644820a32e37688486
+      internalID: 1083665897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_15
+      name: Borders_15
       rect:
         serializedVersion: 2
         x: 112
@@ -439,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a414d102ea237d44b6402ad144c4873
-      internalID: -1126617533
+      spriteID: a4bd21c5879671744b14616a7789fa83
+      internalID: -974831495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_16
+      name: Borders_16
       rect:
         serializedVersion: 2
         x: 0
@@ -460,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b92c7e9e844ae24c9be1a709555a593
-      internalID: 1627682051
+      spriteID: 504341e9b91e4ee45a12961eff312aa2
+      internalID: -678706508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_17
+      name: Borders_17
       rect:
         serializedVersion: 2
         x: 16
@@ -481,8 +481,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b89a51322fb1a44ebbbb6dc230560d8
-      internalID: 796253698
+      spriteID: 611753e8c6b50a744a3837aabadfe806
+      internalID: -832595907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Borders_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63da9f6707f17e408c5a0a654d02b45
+      internalID: -1809257880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Borders_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d19ec8e221beee41a526c890299f7c6
+      internalID: 818387299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Borders_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebae6133acc81f54398f2670babb1525
+      internalID: 1900380680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Borders_21
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c47893e41891eb44b77f216a5b5970a
+      internalID: -1071226437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Borders_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d724052bf661e2242ab38f78e069cae3
+      internalID: -1164337182
       vertices: []
       indices: 
       edges: []
@@ -498,24 +603,29 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      level_0: 1542399356
-      level_1: -1167889343
-      level_10: -112555772
-      level_11: 2003913369
-      level_12: -625937463
-      level_13: -973732371
-      level_14: 1503287533
-      level_15: -1126617533
-      level_16: 1627682051
-      level_17: 796253698
-      level_2: 386287888
-      level_3: 1875057638
-      level_4: -582486332
-      level_5: 1357815182
-      level_6: -718761866
-      level_7: 858589028
-      level_8: 718981597
-      level_9: -1466012416
+      Borders_0: -531424198
+      Borders_1: 2138588226
+      Borders_10: -820364159
+      Borders_11: -1342255346
+      Borders_12: 393064852
+      Borders_13: 1174013628
+      Borders_14: 1083665897
+      Borders_15: -974831495
+      Borders_16: -678706508
+      Borders_17: -832595907
+      Borders_18: -1809257880
+      Borders_19: 818387299
+      Borders_2: 2120211948
+      Borders_20: 1900380680
+      Borders_21: -1071226437
+      Borders_22: -1164337182
+      Borders_3: 1698688591
+      Borders_4: 1987893484
+      Borders_5: -1872312344
+      Borders_6: 626427059
+      Borders_7: 721505995
+      Borders_8: -385087500
+      Borders_9: 1319028115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
