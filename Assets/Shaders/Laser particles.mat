@@ -61,7 +61,7 @@ Material:
     - _Blink_speed: 10
     - _EnableExternalAlpha: 0
     m_Colors:
-    - _Color: {r: 1.6698586, g: 0.055136874, b: 0.055136874, a: 1}
+    - _Color: {r: 2.6082373, g: 0.0861211, b: 0.0861211, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

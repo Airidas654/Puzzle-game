@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 693507594}
   - component: {fileID: 693507593}
   - component: {fileID: 693507592}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mirror
   m_TagString: Mirror
   m_Icon: {fileID: 0}
