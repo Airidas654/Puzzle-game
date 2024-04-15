@@ -27,7 +27,7 @@ MonoBehaviour:
   DistortionIntensity: 5.04
   Vignette_width: 18.49
   ChromaticAberrationMiddle: 0.001
-  ChromaticAberrationEnd: 0
+  ChromaticAberrationEnd: 0.001
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
