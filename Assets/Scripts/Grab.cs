@@ -80,7 +80,7 @@ public class Grab : MonoBehaviour
                 Vector2 closestOnPlayer = gameObject.GetComponent<Collider2D>().ClosestPoint(closestOnSwitch);
                 float tempDist = (closestOnSwitch - closestOnPlayer).magnitude;
 
-                if (tempDist <= switchDist)
+                if (tempDist <= grabDist)
                 {
                     closestSwitch.GetComponent<Switch>().Toggle();
                 }
