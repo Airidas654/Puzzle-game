@@ -8,6 +8,7 @@ public class LogicNOTGate : LogicGate
     {
         if (connectedTransmitters.Count > 0)
         {
+            state = !transmittersStates[0];
             foreach (Receiver i in receivers)
             {
                 i.Receive(!transmittersStates[0], connectedTransmitters[0]);

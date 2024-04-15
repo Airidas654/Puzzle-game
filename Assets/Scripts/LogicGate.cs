@@ -7,7 +7,7 @@ public class LogicGate : Receiver
     public List<Receiver> receivers;
     
     
-    protected bool[] transmittersStates;
+    public bool[] transmittersStates;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class LogicGate : Receiver
     public override void Receive(bool state, Transmitter transmitterId)
     {
         int index = connectedTransmitters.IndexOf(transmitterId);
-        if (index >= 0)
+        if (index >= 0 && index < transmittersStates.Length)
         {
             transmittersStates[index] = state;
         }
