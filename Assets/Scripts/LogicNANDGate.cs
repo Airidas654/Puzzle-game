@@ -6,21 +6,18 @@ public class LogicNANDGate : LogicGate
 {
     public override void CheckTransmittion()
     {
-        if (connectedTransmitters.Count > 0)
+        state = false;
+        foreach (bool tstate in transmittersStates)
         {
-            state = false;
-            foreach(bool tstate in transmittersStates)
+            if (!tstate)
             {
-                if (!tstate)
-                {
-                    state = true;
-                    break;
-                }
+                state = true;
+                break;
             }
-            for(int i = 0;i < receivers.Count;i++)
-            {
-                receivers[i].Receive(state, connectedTransmitters[0]);
-            }
+        }
+        for (int i = 0; i < receivers.Count; i++)
+        {
+            receivers[i].Receive(state, connectedTransmitters[0]);
         }
     }
 }
