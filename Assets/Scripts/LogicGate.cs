@@ -16,6 +16,7 @@ public class LogicGate : Receiver
         {
             transmittersStates[i] = false;
         }
+        CheckTransmittion();
     }
 
     private void OnDrawGizmos()

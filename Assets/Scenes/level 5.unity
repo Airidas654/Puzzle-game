@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &94699008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9176794117305348338, guid: 9671043902655b24a89af55d033cb371, type: 3}
+  m_PrefabInstance: {fileID: 172073106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025f371c6593e81419b0d66a6aee1e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &94699010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2367303230458973268, guid: 9671043902655b24a89af55d033cb371, type: 3}
@@ -1506,6 +1517,14 @@ PrefabInstance:
       propertyPath: isSpikesUp
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
+      propertyPath: connectedTransmitters.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282367079020702513, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
+      propertyPath: connectedTransmitters.Array.data[0]
+      value: 
+      objectReference: {fileID: 94699008}
     - target: {fileID: 5520590351180940479, guid: 6fbd89116b82c4d4b818d4dbf10ae3f6, type: 3}
       propertyPath: m_Name
       value: Spikes
