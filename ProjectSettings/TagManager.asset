@@ -17,7 +17,7 @@ TagManager:
   - Box
   - Enemy
   - Mirror
-  - 
+  - Level walls
   - 
   - 
   - 
@@ -45,6 +45,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 1616888135
+    locked: 0
+  - name: Level walls
+    uniqueID: 2330541255
     locked: 0
   - name: 'Pickable objects '
     uniqueID: 4147444571

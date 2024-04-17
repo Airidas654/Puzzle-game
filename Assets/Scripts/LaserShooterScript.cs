@@ -64,11 +64,11 @@ public class LaserShooterScript : Receiver
         if (val && !particlesPlaying)
         {
             particlesPlaying = true;
-            particleSystem.Play();
+            particleSystem.Play(true);
         }else if (!val && particlesPlaying)
         {
             particlesPlaying= false;
-            particleSystem.Stop();
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
     }
 
