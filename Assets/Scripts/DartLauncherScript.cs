@@ -5,7 +5,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class DartLauncherScript : Receiver
+public class DartLauncherScript : LogicObject
 {
     IObjectPool<GameObject> pool;
 
@@ -29,7 +29,7 @@ public class DartLauncherScript : Receiver
 
     // Start is called before the first frame update
 
-    void Start()
+    protected override void Start()
     {
         pool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject);
     }
@@ -60,9 +60,8 @@ public class DartLauncherScript : Receiver
         pool.Release(obj);
     }
 
-    public override void OnValidate()
+    public void OnValidate()
     {
-        base.OnValidate();
         if (zone == null) return;
         zone.GetComponent<BoxCollider2D>().size = new Vector2(xVariable, yVariable);
         zone.GetComponent<BoxCollider2D>().offset = new Vector2(offsetX, offsetY);

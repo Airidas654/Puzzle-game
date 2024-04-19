@@ -46,7 +46,7 @@ public class LevelSelect : MonoBehaviour
 
     void Update()
     {
-        if (trans.defaultState) {
+        if (trans.state) {
             UImanager.StartLevelTransition(levelId, 0.5f);
         }
         if(time > 0)

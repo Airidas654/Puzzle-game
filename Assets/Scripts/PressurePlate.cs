@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressurePlate : Transmitter
+public class PressurePlate : LogicObject
 {
     [SerializeField] Vector2 colliderPositionOffset;
     [SerializeField] Vector2 colliderSize;
@@ -13,8 +13,9 @@ public class PressurePlate : Transmitter
 
     SpriteRenderer srenderer;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         srenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -28,7 +29,7 @@ public class PressurePlate : Transmitter
     private void Update()
     {
         Collider2D hit = Physics2D.OverlapBox((Vector2)transform.position + colliderPositionOffset, colliderSize, 0, colliderMask);
-        transmit(hit!=null);
+        Transmit(hit!=null);
 
         srenderer.sprite = hit==null? plateUp : platePressed;
     }

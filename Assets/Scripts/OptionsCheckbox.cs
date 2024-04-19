@@ -20,7 +20,7 @@ public class OptionsCheckbox : MonoBehaviour
         {
             trans = GetComponent<Switch>();
         }
-        if (value != trans.defaultState)
+        if (value != trans.state)
         {
             trans.Toggle();
         }
@@ -30,7 +30,7 @@ public class OptionsCheckbox : MonoBehaviour
     {
         trans = GetComponent<Switch>();
         message = Instantiate(messagePrefab);
-        message.GetComponent<TextMeshProUGUI>().text = string.Format("{0}: {1}", optionName, (trans.defaultState)?"On":"Off");
+        message.GetComponent<TextMeshProUGUI>().text = string.Format("{0}: {1}", optionName, (trans.state)?"On":"Off");
         message.GetComponent<TMP_Text>().alpha = 1;
         mCamera = Camera.main;
         message.transform.SetParent(GameObject.Find("Canvas").transform);
@@ -48,10 +48,10 @@ public class OptionsCheckbox : MonoBehaviour
     
     public bool GetValue()
     {
-        return trans.defaultState;
+        return trans.state;
     }
     private void Update()
     {
-        message.GetComponent<TextMeshProUGUI>().text = string.Format("{0}: {1}", optionName, (trans.defaultState) ? "On" : "Off");
+        message.GetComponent<TextMeshProUGUI>().text = string.Format("{0}: {1}", optionName, (trans.state) ? "On" : "Off");
     }
 }

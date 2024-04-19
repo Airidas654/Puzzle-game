@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserShooterScript : Receiver
+public class LaserShooterScript : LogicObject
 {
     List<GameObject> list = new List<GameObject>();
     [SerializeField] private float maxRayDistance = 15000;
@@ -14,7 +14,7 @@ public class LaserShooterScript : Receiver
 
     GameObject lastReceiver = null;
 
-    ParticleSystem particleSystem;
+    ParticleSystem particleSystemt;
 
     void ClearLasers()
     {
@@ -34,10 +34,10 @@ public class LaserShooterScript : Receiver
         Gizmos.DrawLine(a, b);
     }
 
-    private void Start()
+    protected override void Start()
     {
         pool = new UnityEngine.Pool.ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject);
-        particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
+        particleSystemt = transform.GetChild(0).GetComponent<ParticleSystem>();
     }
     private void Update()
     {
@@ -59,16 +59,16 @@ public class LaserShooterScript : Receiver
     Vector2 lastDir;
     void SetParticles(bool val)
     {
-        particleSystem.transform.position = lastHitPoint;
-        particleSystem.transform.rotation = Quaternion.Euler(0,0,Mathf.Atan2(-lastDir.y, -lastDir.x)*Mathf.Rad2Deg);
+        particleSystemt.transform.position = lastHitPoint;
+        particleSystemt.transform.rotation = Quaternion.Euler(0,0,Mathf.Atan2(-lastDir.y, -lastDir.x)*Mathf.Rad2Deg);
         if (val && !particlesPlaying)
         {
             particlesPlaying = true;
-            particleSystem.Play(true);
+            particleSystemt.Play(true);
         }else if (!val && particlesPlaying)
         {
             particlesPlaying= false;
-            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            particleSystemt.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
     }
 

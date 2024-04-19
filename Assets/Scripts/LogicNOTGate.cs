@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicNOTGate : LogicGate
+public class LogicNOTGate : LogicObject
 {
-    public override void CheckTransmittion()
+    public override void Receive(bool state, LogicObject transmitter)
     {
-        if (connectedTransmitters.Count > 0)
+        if (this.state != !state)
         {
-            state = !transmittersStates[0];
-            foreach (Receiver i in receivers)
-            {
-                i.Receive(!transmittersStates[0], connectedTransmitters[0]);
-            }
+            this.state = !state;
+            transmittersStates[transmitter] = this.state;
+            Transmit(this.state);
         }
     }
 }

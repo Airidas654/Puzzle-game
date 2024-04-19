@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spikes : Receiver
+public class Spikes : LogicObject
 {
 
     [SerializeField] float spikeTime;
@@ -36,6 +36,7 @@ public class Spikes : Receiver
 
     float blinkVal = 0;
     bool isBlinkOn = false;
+
     void Awake()
     {
         tempDelay = delay + Random.Range(0,randomDelayAdd0toX);

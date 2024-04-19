@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : Transmitter
+public class Switch : LogicObject
 {
     [SerializeField] Sprite SwitchOn;
     [SerializeField] Sprite SwitchOff;
-    [SerializeField] public bool defaultState;
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         PushableObjectManager.RegisterSwitch(gameObject);
-        transmit(defaultState);
-        if (defaultState)
+        if (state)
         {
             GetComponent<SpriteRenderer>().sprite = SwitchOn;
         }
@@ -23,9 +22,9 @@ public class Switch : Transmitter
 
     public void Toggle()
     {
-        defaultState = !defaultState;
-        transmit(defaultState);
-        if (defaultState)
+        state = !state;
+        Transmit(state);
+        if (state)
         {
             GetComponent<SpriteRenderer>().sprite = SwitchOn;
         }

@@ -70,7 +70,7 @@ public class Boxtest : InputTestFixture
 
         yield return new WaitForSeconds(0.1f);
 
-        spikes.GetComponent<Spikes>().OnValidate();
+        spikes.GetComponent<Spikes>().UpdateReceivers();
 
         plate.GetComponent<PressurePlate>().colliderMask = 128+64;
 

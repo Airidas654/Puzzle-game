@@ -29,7 +29,7 @@ public class ConnectorsTest : InputTestFixture
         
         plate.GetComponent<PressurePlate>().receivers.Clear();
         plate.GetComponent<PressurePlate>().receivers.Add(spikes.GetComponent<Spikes>());
-        spikes.GetComponent<Spikes>().OnValidate();
+        spikes.GetComponent<Spikes>().UpdateReceivers();
 
         plate.GetComponent<PressurePlate>().colliderMask = 64;
 
@@ -56,7 +56,7 @@ public class ConnectorsTest : InputTestFixture
 
         sw.GetComponent<Switch>().receivers.Clear();
         sw.GetComponent<Switch>().receivers.Add(spikes.GetComponent<Spikes>());
-        spikes.GetComponent<Spikes>().OnValidate();
+        spikes.GetComponent<Spikes>().UpdateReceivers();
 
         PlayerMovement.currPlayer.transform.position = Vector2.zero;
 
