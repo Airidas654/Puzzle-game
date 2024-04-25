@@ -62,7 +62,7 @@ public class Spikes : LogicObject
         spikesShouldBeOut = isSpikesUp;
         if (blockingObjectsCount > 0)
         {
-            SpikesControl(false);
+            SpikesControl(true);
             spikesShouldBeOut = isSpikesUp;
         }
         else

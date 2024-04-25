@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 773552937
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -3
   m_Sprite: {fileID: -376135930, guid: 7170c9264cb64c4459da59ae2e295d12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  connectedTransmitters: []
+  receivers: []
   spikeTime: 2
   triggerMask:
     serializedVersion: 2
@@ -108,6 +108,8 @@ MonoBehaviour:
   isSpikesUp: 0
   outSpikesSprite: {fileID: 1543578101, guid: 7170c9264cb64c4459da59ae2e295d12, type: 3}
   inSpikesSprite: {fileID: -376135930, guid: 7170c9264cb64c4459da59ae2e295d12, type: 3}
+  delay: 0
+  randomDelayAdd0toX: 0
   blinkTransitionTime: 0.2
   blinkDurationBeforeOpening: 1
 --- !u!61 &3060154584073220408
@@ -139,7 +141,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
