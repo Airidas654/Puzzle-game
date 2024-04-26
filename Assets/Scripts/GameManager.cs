@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,17 @@ public class GameManager : MonoBehaviour
 
     public bool levelEnterFreeze { get; private set; }
 
+    [SerializeField] Renderer2DData rendererData;
+    public void ChangeOldMonitorEffects(bool val)
+    {
+        foreach (var i in rendererData.rendererFeatures)
+        {
+            if (i.name == "CRTfeature")
+            {
+                i.SetActive(val);
+            }
+        }
+    }
     void UnfreezeLevel()
     {
         levelEnterFreeze = false;

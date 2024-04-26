@@ -2369,49 +2369,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 1931090785}
     m_Modifications:
     - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: colliderMask.m_Bits
-      value: 192
-      objectReference: {fileID: 0}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: receivers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
       propertyPath: receivers.Array.data[0]
       value: 
       objectReference: {fileID: 404616421}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: receivers.Array.data[1]
-      value: 
-      objectReference: {fileID: 1638902648}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: receivers.Array.data[2]
-      value: 
-      objectReference: {fileID: 208806733}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: receivers.Array.data[3]
-      value: 
-      objectReference: {fileID: 1666395771}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: receivers.Array.data[4]
-      value: 
-      objectReference: {fileID: 354058009}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: receivers.Array.data[5]
-      value: 
-      objectReference: {fileID: 243038603}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: receivers.Array.data[6]
-      value: 
-      objectReference: {fileID: 2029184906}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: receivers.Array.data[7]
-      value: 
-      objectReference: {fileID: 27190308}
-    - target: {fileID: 517063083827281430, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
-      propertyPath: receivers.Array.data[8]
-      value: 
-      objectReference: {fileID: 1516778174}
     - target: {fileID: 947769900645129553, guid: ef281f48903d0e84fa0b2337fcbc1889, type: 3}
       propertyPath: m_Name
       value: PressurePlatePrefab (1)
