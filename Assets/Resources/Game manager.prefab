@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1917573720425927600}
   - component: {fileID: 5689100063829023281}
+  - component: {fileID: 4158351888536537843}
+  - component: {fileID: 2651182566814449271}
   m_Layer: 0
   m_Name: Game manager
   m_TagString: Untagged
@@ -46,3 +48,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CantDoAnything: 0
   rendererData: {fileID: 11400000, guid: 424799608f7334c24bf367e4bbfa7f9a, type: 2}
+--- !u!114 &4158351888536537843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4562429979781547960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737ebaef6a875404ba574d1f69f4d8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  darkStartLength: 0.5
+  trasitionMat: {fileID: 2100000, guid: 0cbaf7c54834a0d4c9cc092bda68c59f, type: 2}
+  playerOffset: {x: 0, y: 0}
+--- !u!114 &2651182566814449271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4562429979781547960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6522cdf7d188082438a124ef9258e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: 
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    pitchRandomness: 0
+    loop: 0
+    onlyPlaysOneShots: 0
+    maxSoundsAtSameTime: 10
+    audioSource: {fileID: 0}
+  playOnAwake: 0
+  muteWithMAndChangeSong: 0
+  whenStoppedChangeToNext: 0
+  songs:
+  - name: 
+    clip: {fileID: 0}
+    volume: 1

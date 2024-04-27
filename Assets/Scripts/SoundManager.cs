@@ -544,7 +544,7 @@ public class SoundManager : MonoBehaviour
             }
         }
 
-        if (!playingSong.isPlaying && !musicMuted)
+        if (playingSong != null && !playingSong.isPlaying && !musicMuted)
         {
             onSongFinished();
             if (whenStoppedChangeToNext)

@@ -34208,7 +34208,6 @@ GameObject:
   - component: {fileID: 1112245538411363427}
   - component: {fileID: 7312123030005554491}
   - component: {fileID: 4503449134001904538}
-  - component: {fileID: 7314692026214197080}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -34538,21 +34537,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!114 &7314692026214197080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2716722755509413510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737ebaef6a875404ba574d1f69f4d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  darkStartLength: 0.5
-  trasitionMat: {fileID: 2100000, guid: 0cbaf7c54834a0d4c9cc092bda68c59f, type: 2}
-  playerOffset: {x: 0, y: 0.36}
 --- !u!1 &7717272014470315223
 GameObject:
   m_ObjectHideFlags: 0

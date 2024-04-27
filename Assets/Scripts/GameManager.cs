@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public bool GetOldMonitorEffects()
+    {
+        return rendererData.rendererFeatures[0].isActive;
+    }
     void UnfreezeLevel()
     {
         levelEnterFreeze = false;
