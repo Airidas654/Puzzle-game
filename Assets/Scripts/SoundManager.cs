@@ -9,6 +9,7 @@ public class Sound
 
     [Range(0, 1)]
     public float volume = 1f;
+    float globalVolume = 1f;
 
     [Range(-3, 3)]
     public float pitch = 1f;
@@ -201,9 +202,17 @@ public class Sound
         return this;     
     }
 
+    public Sound GlobalVolumeChanged(float val)
+    {
+        globalVolume = val;
+        ChangeVolume(volume);
+        return this;
+    }
+
     public Sound ChangeVolume(float volume)
     { 
-        audioSource.volume = volume;
+        audioSource.volume = volume*globalVolume;
+        this.volume = volume;
         return this;
     }
 
@@ -287,6 +296,12 @@ public class Music
         return ans;
     }
 
+    public Music GlobalVolumeChanged(float val)
+    {
+        sound.GlobalVolumeChanged(val);
+        return this;
+    }
+
     public Music SetVolume(float volume)
     {
         this.volume = volume;
@@ -349,6 +364,9 @@ public class SoundManager : MonoBehaviour
     int currentSongIndex = 0;
     Music playingSong = null;
 
+    float globalMusicVolume = 1;
+    float globalSoundVolume = 1;
+
     private void Reset()
     {
         sounds = new List<Sound>()
@@ -359,6 +377,22 @@ public class SoundManager : MonoBehaviour
         {
             new Music()
         };
+    }
+
+    public void ChangeGlobalMusicVolume(float val)
+    {
+        foreach (Music i in songs)
+        {
+            i.GlobalVolumeChanged(val);
+        }
+    }
+
+    public void ChangeGlobalSoundVolume(float val)
+    {
+        foreach (Sound i in sounds)
+        {
+            i.GlobalVolumeChanged(val);
+        }
     }
 
     void AddAudioSource(Sound sound)
@@ -503,6 +537,11 @@ public class SoundManager : MonoBehaviour
         return null;
     }
 
+    public List<Sound> GetSoundList()
+    {
+        return sounds;
+    }
+
     public Sound GetSound(string name)
     {
         return GetSound(GetSoundId(name));
@@ -532,6 +571,11 @@ public class SoundManager : MonoBehaviour
     public Music GetMusic(string name)
     {
         return GetMusic(GetMusicId(name));
+    }
+
+    public List<Music> GetMusicList()
+    {
+        return songs;
     }
 
     private void Update()
