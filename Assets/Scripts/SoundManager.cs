@@ -210,8 +210,11 @@ public class Sound
     }
 
     public Sound ChangeVolume(float volume)
-    { 
-        audioSource.volume = volume*globalVolume;
+    {
+        if (audioSource != null)
+        {
+            audioSource.volume = volume * globalVolume;
+        }
         this.volume = volume;
         return this;
     }
@@ -385,6 +388,12 @@ public class SoundManager : MonoBehaviour
         {
             i.GlobalVolumeChanged(val);
         }
+        globalMusicVolume = val;
+    }
+
+    public float GetGlobalMusicVolume()
+    {
+        return globalMusicVolume;
     }
 
     public void ChangeGlobalSoundVolume(float val)
@@ -393,6 +402,12 @@ public class SoundManager : MonoBehaviour
         {
             i.GlobalVolumeChanged(val);
         }
+        globalSoundVolume = val;
+    }
+
+    public float GetGlobalSoundVolume()
+    {
+        return globalSoundVolume;
     }
 
     void AddAudioSource(Sound sound)

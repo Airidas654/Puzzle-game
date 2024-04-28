@@ -21,9 +21,9 @@ public class OptionsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        // = sliders[0].value // set sound volume to value
-        // = sliders[1].value // set music volume to value
+
+        SoundManager.Instance.ChangeGlobalSoundVolume(sliders[0].value); // set sound volume to value
+        SoundManager.Instance.ChangeGlobalMusicVolume(sliders[1].value); // set music volume to value
         GameManager.inst.ChangeOldMonitorEffects(checkboxes[0].GetValue()); // set post effects volume to value
     }
 }
