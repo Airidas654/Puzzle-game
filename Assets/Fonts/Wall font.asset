@@ -121,9 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Wall font
   m_EditorClassIdentifier: 
-  hashCode: -829478202
+  hashCode: -2023731419
   material: {fileID: -1097201562750552905}
-  materialHashCode: 883406118
+  materialHashCode: 314655461
   m_Version: 1.1.0
   m_SourceFontFileGUID: ff9dc0068efd98947abecece619ea941
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: ff9dc0068efd98947abecece619ea941, type: 3}
