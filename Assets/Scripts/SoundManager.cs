@@ -614,7 +614,7 @@ public class SoundManager : MonoBehaviour
             }
         }
 
-        if (muteWithMAndChangeSong && Input.GetKeyDown(KeyCode.M))
+        if (muteWithMAndChangeSong && PlayerMovement.input.Player.Mute.WasPressedThisFrame())
         {
             musicMuted = !musicMuted;
             if (musicMuted)
