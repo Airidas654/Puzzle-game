@@ -19,6 +19,7 @@ public class DartLauncherScript : LogicObject
     public float spawnRotation;
 
     [SerializeField] float delay = 0.5f;
+    [SerializeField] float bulletSpeed = 5f; 
 
     private float timer = 0.5f;
 
@@ -38,7 +39,7 @@ public class DartLauncherScript : LogicObject
     GameObject CreatePooledItem()
     {
         GameObject temp = Instantiate(projectile,spawnLocation.position,Quaternion.Euler(0,0,spawnRotation));
-        temp.GetComponent<DartScript>().Setup(this);
+        temp.GetComponent<DartScript>().Setup(this, bulletSpeed);
         return temp;
     }
 
@@ -46,11 +47,12 @@ public class DartLauncherScript : LogicObject
     void OnReturnedToPool(GameObject system)
     {
         system.gameObject.SetActive(false);
-        system.GetComponent<DartScript>().Setup(this);
+       
     }
     void OnTakeFromPool(GameObject system)
     {
         system.gameObject.SetActive(true);
+        system.GetComponent<DartScript>().Setup(this, bulletSpeed);
     }
     void OnDestroyPoolObject(GameObject system)
     {
