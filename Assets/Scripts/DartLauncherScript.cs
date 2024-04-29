@@ -46,6 +46,7 @@ public class DartLauncherScript : LogicObject
     void OnReturnedToPool(GameObject system)
     {
         system.gameObject.SetActive(false);
+        system.GetComponent<DartScript>().Setup(this);
     }
     void OnTakeFromPool(GameObject system)
     {
