@@ -6,9 +6,11 @@ using UnityEngine;
 public class DartScript : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
+    [SerializeField] LayerMask ignoreCollisions = 0;
     [System.NonSerialized] public DartLauncherScript shooter;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (ignoreCollisions == (ignoreCollisions | (1 << collision.gameObject.layer))) return;
         if (!gameObject.activeSelf || collision.gameObject == shooter.gameObject || (collision.transform.parent!=null && collision.transform.parent.gameObject == shooter.gameObject)) return;
         shooter.RemoveArrow(gameObject);
         if(collision.tag == "Player")
