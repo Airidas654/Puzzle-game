@@ -6,6 +6,8 @@ public class Spikes : LogicObject
 {
 
     [SerializeField] float spikeTime;
+    [SerializeField] bool upAndDownDiffrentTimes = false;
+    [SerializeField] float upSpikeTime;
     [SerializeField] LayerMask triggerMask;
     public bool isTimed;
     public bool isSpikesUp = false;
@@ -14,6 +16,7 @@ public class Spikes : LogicObject
 
     [Space(20)]
     [SerializeField] float delay = 0;
+    
     [SerializeField] float randomDelayAdd0toX = 0;
 
     [Space(20)]
@@ -40,7 +43,14 @@ public class Spikes : LogicObject
     void Awake()
     {
         tempDelay = delay + Random.Range(0,randomDelayAdd0toX);
-        tempTime = spikeTime;
+        if (upAndDownDiffrentTimes && isSpikesUp)
+        {
+            tempTime = upSpikeTime;
+        }
+        else
+        {
+            tempTime = spikeTime;
+        }
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -97,8 +107,13 @@ public class Spikes : LogicObject
 
                 isSpikesUp = !isSpikesUp;
                 SpikesControl(isSpikesUp);
-                tempTime = spikeTime;
-
+                if (upAndDownDiffrentTimes && isSpikesUp)
+                {
+                    tempTime = upSpikeTime;
+                }
+                else {
+                    tempTime = spikeTime;
+                }
             }
             if (tempTime <= blinkDurationBeforeOpening && isBlinkOn == false && !spikesShouldBeOut)
             {

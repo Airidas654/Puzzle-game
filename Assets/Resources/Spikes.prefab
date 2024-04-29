@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 773552937
   m_SortingLayer: 4
-  m_SortingOrder: -3
+  m_SortingOrder: -8
   m_Sprite: {fileID: -376135930, guid: 7170c9264cb64c4459da59ae2e295d12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -101,6 +101,8 @@ MonoBehaviour:
   state: 0
   receivers: []
   spikeTime: 2
+  upAndDownDiffrentTimes: 0
+  upSpikeTime: 0
   triggerMask:
     serializedVersion: 2
     m_Bits: 192

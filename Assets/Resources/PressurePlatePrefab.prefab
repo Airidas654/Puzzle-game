@@ -97,12 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cab114a60e30d4e878de8faf97b057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   receivers:
   - {fileID: 0}
-  colliderPositionOffset: {x: 0, y: -0.15}
-  colliderSize: {x: 1, y: 0.7}
+  colliderPositionOffset: {x: 0, y: -0.05}
+  colliderSize: {x: 1, y: 0.63}
   colliderMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 192
   platePressed: {fileID: 1392788022, guid: b81dc471e99764d48a35281879a0a603, type: 3}
   plateUp: {fileID: 1352045398, guid: b81dc471e99764d48a35281879a0a603, type: 3}
