@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5007065226038290716}
   - component: {fileID: -2457888757399442890}
   - component: {fileID: 7508772330590523901}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Darts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 773552937
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1809615009, guid: f56a984733a2c8541a4e596e231c5673, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  ignoreCollisions:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!50 &-2457888757399442890
 Rigidbody2D:
   serializedVersion: 4
