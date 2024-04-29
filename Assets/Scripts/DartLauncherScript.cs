@@ -38,7 +38,7 @@ public class DartLauncherScript : LogicObject
     GameObject CreatePooledItem()
     {
         GameObject temp = Instantiate(projectile,spawnLocation.position,Quaternion.Euler(0,0,spawnRotation));
-        temp.GetComponent<DartScript>().shooter = this;
+        temp.GetComponent<DartScript>().Setup(this);
         return temp;
     }
 
