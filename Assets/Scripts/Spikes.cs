@@ -57,7 +57,7 @@ public class Spikes : LogicObject
         boxCollider = GetComponent<BoxCollider2D>();
         baseColliderSize = boxCollider.size;
 
-        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, baseColliderSize - new Vector2(0.02f, 0.02f), 0, triggerMask);
+        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, baseColliderSize - new Vector2(0.05f, 0.05f), 0, triggerMask);
         foreach(var i in triggerCollider)
         {
             if (i.gameObject.CompareTag("Player"))
@@ -149,6 +149,8 @@ public class Spikes : LogicObject
     }
     public void TrySpikesOn()
     {
+
+
         if (blockingObjectsCount > 0)
         {
             isBlinkOn = true;
@@ -172,7 +174,7 @@ public class Spikes : LogicObject
     {
         spriteRenderer.sprite = inSpikesSprite;
         boxCollider.isTrigger = true;
-        boxCollider.size = baseColliderSize - new Vector2(0.02f, 0.02f);
+        boxCollider.size = baseColliderSize - new Vector2(0.05f, 0.05f);
         boxCollider.includeLayers = int.MaxValue;
     }
 
@@ -183,7 +185,6 @@ public class Spikes : LogicObject
         if (collision.gameObject.CompareTag("Player"))
         {
             playerOnSpikes = true;
-            Debug.Log("On");
             return;
         }
         if (((1<<collision.gameObject.layer) & triggerMask) != 0 && !obstacles.Contains(collision.gameObject))
@@ -198,7 +199,6 @@ public class Spikes : LogicObject
         if (collision.gameObject.CompareTag("Player"))
         {
             playerOnSpikes = false;
-            Debug.Log("Off");
             return;
         }
         if (((1 << collision.gameObject.layer) & triggerMask) != 0)
