@@ -23,10 +23,10 @@ public class DartLauncherScript : LogicObject
     private float timer = 0.5f;
 
     [SerializeField] bool constantShooting;
-    public float xVariable;
-    public float yVariable;
-    public float offsetX;
-    public float offsetY;
+    public float zoneSizeX;
+    public float zoneSizeY;
+    public float zoneOffsetX;
+    public float zoneOffsetY;
 
     // Start is called before the first frame update
 
@@ -64,34 +64,34 @@ public class DartLauncherScript : LogicObject
     public void OnValidate()
     {
         if (zone == null) return;
-        if (xVariable == 0.5 && yVariable == 0.5)
+        if (zoneSizeX == 0.5 && zoneSizeY == 0.5)
         {
-            zone.GetComponent<BoxCollider2D>().size = new Vector2(xVariable, yVariable);
-            zone.GetComponent<BoxCollider2D>().offset = new Vector2(offsetX, offsetY);
+            zone.GetComponent<BoxCollider2D>().size = new Vector2(zoneSizeX, zoneSizeY);
+            zone.GetComponent<BoxCollider2D>().offset = new Vector2(zoneOffsetX, zoneOffsetY);
             zone.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.Euler(0, 0, spawnRotation));
         }
-        else if (xVariable > 0.5 && yVariable == 0.5)
+        else if (zoneSizeX > 0.5 && zoneSizeY == 0.5)
         {
-            zone.GetComponent<BoxCollider2D>().size = new Vector2(xVariable, yVariable);
-            zone.GetComponent<BoxCollider2D>().offset = new Vector2((offsetX+xVariable)/2, offsetY);
+            zone.GetComponent<BoxCollider2D>().size = new Vector2(zoneSizeX, zoneSizeY);
+            zone.GetComponent<BoxCollider2D>().offset = new Vector2((zoneOffsetX+zoneSizeX)/2, zoneOffsetY);
             zone.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.Euler(0, 0, spawnRotation));
         }
-        else if (yVariable > 0.5 && xVariable == 0.5)
+        else if (zoneSizeY > 0.5 && zoneSizeX == 0.5)
         {
-            zone.GetComponent<BoxCollider2D>().size = new Vector2(xVariable, yVariable);
-            zone.GetComponent<BoxCollider2D>().offset = new Vector2(offsetX, (offsetY+yVariable)/2);
+            zone.GetComponent<BoxCollider2D>().size = new Vector2(zoneSizeX, zoneSizeY);
+            zone.GetComponent<BoxCollider2D>().offset = new Vector2(zoneOffsetX, (zoneOffsetY+zoneSizeY)/2);
             zone.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.Euler(0, 0, spawnRotation));
         }
-        else if (xVariable < -0.5 && yVariable == 0.5)
+        else if (zoneSizeX < -0.5 && zoneSizeY == 0.5)
         {
-            zone.GetComponent<BoxCollider2D>().size = new Vector2(Math.Abs(xVariable), yVariable);
-            zone.GetComponent<BoxCollider2D>().offset = new Vector2((offsetX+xVariable)/2, offsetY);
+            zone.GetComponent<BoxCollider2D>().size = new Vector2(Math.Abs(zoneSizeX), zoneSizeY);
+            zone.GetComponent<BoxCollider2D>().offset = new Vector2((zoneOffsetX+zoneSizeX)/2, zoneOffsetY);
             zone.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.Euler(0, 0, spawnRotation));
         }
-        else if (xVariable == 0.5 && yVariable < -0.5)
+        else if (zoneSizeX == 0.5 && zoneSizeY < -0.5)
         {
-            zone.GetComponent<BoxCollider2D>().size = new Vector2(xVariable, Math.Abs(yVariable));
-            zone.GetComponent<BoxCollider2D>().offset = new Vector2(offsetX, (offsetY+yVariable)/2);
+            zone.GetComponent<BoxCollider2D>().size = new Vector2(zoneSizeX, Math.Abs(zoneSizeY));
+            zone.GetComponent<BoxCollider2D>().offset = new Vector2(zoneOffsetX, (zoneOffsetY+zoneSizeY)/2);
             zone.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.Euler(0, 0, spawnRotation));
         }
     }
