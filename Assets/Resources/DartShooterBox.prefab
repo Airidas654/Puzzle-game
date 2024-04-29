@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2635819056004504192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 2.49, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.947, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -76,10 +76,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2134975606, guid: f56a984733a2c8541a4e596e231c5673, type: 3}
+  m_SortingLayerID: 773552937
+  m_SortingLayer: 4
+  m_SortingOrder: 50
+  m_Sprite: {fileID: -103393635, guid: 98298b39d9c69b544bd6d9ecac5b809b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,10 +110,10 @@ MonoBehaviour:
   spawnRotation: 0
   delay: 0.5
   constantShooting: 0
-  xVariable: 4
-  yVariable: 0.5
-  offsetX: 0
-  offsetY: 0
+  zoneSizeX: 0
+  zoneSizeY: 0
+  zoneOffsetX: 0
+  zoneOffsetY: 0
 --- !u!61 &-3069939041872931317
 BoxCollider2D:
   m_ObjectHideFlags: 0
