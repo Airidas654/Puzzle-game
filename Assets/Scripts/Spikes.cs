@@ -57,11 +57,12 @@ public class Spikes : LogicObject
         boxCollider = GetComponent<BoxCollider2D>();
         baseColliderSize = boxCollider.size;
 
-        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, baseColliderSize - new Vector2(0.05f, 0.05f), 0, triggerMask);
+        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, baseColliderSize - new Vector2(0.02f, 0.02f), 0, triggerMask);
         foreach(var i in triggerCollider)
         {
             if (i.gameObject.CompareTag("Player"))
             {
+                
                 playerOnSpikes = true;
                 continue;
             }
@@ -171,7 +172,7 @@ public class Spikes : LogicObject
     {
         spriteRenderer.sprite = inSpikesSprite;
         boxCollider.isTrigger = true;
-        boxCollider.size = baseColliderSize - new Vector2(0.05f, 0.05f);
+        boxCollider.size = baseColliderSize - new Vector2(0.02f, 0.02f);
         boxCollider.includeLayers = int.MaxValue;
     }
 
