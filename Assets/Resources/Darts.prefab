@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: 5
   ignoreCollisions:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2049
 --- !u!50 &-2457888757399442890
 Rigidbody2D:
   serializedVersion: 4
