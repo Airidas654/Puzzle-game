@@ -183,6 +183,7 @@ public class Spikes : LogicObject
         if (collision.gameObject.CompareTag("Player"))
         {
             playerOnSpikes = true;
+            Debug.Log("On");
             return;
         }
         if (((1<<collision.gameObject.layer) & triggerMask) != 0 && !obstacles.Contains(collision.gameObject))
@@ -197,6 +198,7 @@ public class Spikes : LogicObject
         if (collision.gameObject.CompareTag("Player"))
         {
             playerOnSpikes = false;
+            Debug.Log("Off");
             return;
         }
         if (((1 << collision.gameObject.layer) & triggerMask) != 0)

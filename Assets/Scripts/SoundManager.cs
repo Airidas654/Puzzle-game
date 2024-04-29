@@ -605,7 +605,8 @@ public class SoundManager : MonoBehaviour
 
         if (playingSong != null && !playingSong.isPlaying && !musicMuted)
         {
-            onSongFinished();
+            onSongFinished.Invoke();
+            //onSongFinished();
             if (whenStoppedChangeToNext)
             {
                 musicIndex = (musicIndex + 1) % songs.Count;
