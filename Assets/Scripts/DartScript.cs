@@ -25,6 +25,7 @@ public class DartScript : MonoBehaviour
     DartLauncherScript shooter;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("ya");
         if (ignoreCollisions == (ignoreCollisions | (1 << collision.gameObject.layer))) return;
         if (!gameObject.activeSelf || collision.gameObject == shooter.gameObject || (collision.transform.parent!=null && collision.transform.parent.gameObject == shooter.gameObject)) return;
 
@@ -41,5 +42,10 @@ public class DartScript : MonoBehaviour
     void Collided()
     {
         transform.DOScale(new Vector3(1-Mathf.Abs(transform.right.x), 1- Mathf.Abs(transform.right.y),1), 0.5f/speed).OnComplete(()=>shooter.RemoveArrow(gameObject));
+    }
+
+    private void Update()
+    {
+        Debug.Log("ya2");
     }
 }

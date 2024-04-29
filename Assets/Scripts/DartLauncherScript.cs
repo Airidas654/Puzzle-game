@@ -18,10 +18,13 @@ public class DartLauncherScript : LogicObject
 
     public float spawnRotation;
 
+    [SerializeField] float startDelay = 0f;
     [SerializeField] float delay = 0.5f;
     [SerializeField] float bulletSpeed = 5f; 
 
     private float timer = 0.5f;
+
+    
 
     [SerializeField] bool constantShooting;
     public float zoneSizeX;
@@ -34,6 +37,7 @@ public class DartLauncherScript : LogicObject
     protected override void Start()
     {
         pool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject);
+        timer = startDelay + delay;
     }
 
     GameObject CreatePooledItem()
@@ -99,6 +103,8 @@ public class DartLauncherScript : LogicObject
         }
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
@@ -106,12 +112,12 @@ public class DartLauncherScript : LogicObject
         {
             if (constantShooting)
             {
-                timer += Time.deltaTime;
-                if (timer >= delay)
+                timer -= Time.deltaTime;
+                if (timer <= 0)
                 {
                     GameObject currentProjectile = pool.Get();
                     currentProjectile.transform.position = spawnLocation.position;
-                    timer = 0;
+                    timer = delay;
 
                 }
             }
@@ -120,19 +126,19 @@ public class DartLauncherScript : LogicObject
 
                 if (zone.detectedObjects.Count > 0)
                 {
-                    timer += Time.deltaTime;
-                    if (timer >= delay)
+                    timer -= Time.deltaTime;
+                    if (timer <= 0)
                     {
                         GameObject currentProjectile = pool.Get();
                         currentProjectile.transform.position = spawnLocation.position;
-                        timer = 0;
+                        timer = delay;
 
                     }
 
                 }
                 else
                 {
-                    timer = 0.5f;
+                    timer = 0f;
                 }
             }
         }
