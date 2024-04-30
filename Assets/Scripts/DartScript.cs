@@ -15,6 +15,7 @@ public class DartScript : MonoBehaviour
     bool oneTime = false;
 
     bool oneTimeInLife = true;
+    float size;
     void OneTimeSetup()
     {
         if (oneTimeInLife)
@@ -22,7 +23,10 @@ public class DartScript : MonoBehaviour
             oneTimeInLife = false;
             rg = GetComponent<Rigidbody2D>();
             col = GetComponent<BoxCollider2D>();
+
+            size = col.size.x;
         }
+        
     }
 
     public void Setup(DartLauncherScript shooter, float bulletSpeed)
@@ -57,7 +61,16 @@ public class DartScript : MonoBehaviour
 
     void Collided()
     {
-        transform.DOScale(new Vector3(1-Mathf.Abs(transform.right.x), 1- Mathf.Abs(transform.right.y),1), 0.5f/speed).OnComplete(()=>shooter.RemoveArrow(gameObject));
+        rg.velocity = Vector2.zero;
+        float val=0;
+        Vector2 pradPos = transform.position;
+        Vector2 pabPos = transform.position + transform.right * (size / 2);
+        DOTween.To(()=>val, (x)=> { 
+            val = x;
+            transform.localScale = new Vector3(Mathf.Lerp(1,0,val),1,1);
+            transform.position = Vector2.Lerp(pradPos, pabPos, val);
+        }, 1, size/speed).OnComplete(() => shooter.RemoveArrow(gameObject));
+        //transform.DOScale(new Vector3(0,1,1), size/speed).OnComplete(()=>shooter.RemoveArrow(gameObject));
     }
 
     private void Update()

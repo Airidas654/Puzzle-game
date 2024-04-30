@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 8021064143842280103}
   - component: {fileID: 8170881510590612275}
   - component: {fileID: -3069939041872931317}
-  - component: {fileID: 1466311384753345059}
-  - component: {fileID: 6196199484508996669}
   m_Layer: 0
   m_Name: DartShooterBox
   m_TagString: Untagged
@@ -108,7 +106,9 @@ MonoBehaviour:
   projectile: {fileID: 5029141112960556368, guid: 615e899e1756bb040bff119336b9cedd, type: 3}
   spawnLocation: {fileID: 3615855848662794961}
   spawnRotation: 0
+  startDelay: 0
   delay: 0.5
+  bulletSpeed: 5
   constantShooting: 0
   zoneSizeX: 0
   zoneSizeY: 0
@@ -159,32 +159,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &1466311384753345059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2635819056004504192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 099608c712d5af244858f6854a321ea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectedObjects: []
---- !u!114 &6196199484508996669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2635819056004504192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 099608c712d5af244858f6854a321ea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectedObjects: []
 --- !u!1 &4606813837146345254
 GameObject:
   m_ObjectHideFlags: 0

@@ -178,20 +178,28 @@ public class Spikes : LogicObject
         boxCollider.includeLayers = int.MaxValue;
     }
 
-    
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTrigger(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             playerOnSpikes = true;
             return;
         }
-        if (((1<<collision.gameObject.layer) & triggerMask) != 0 && !obstacles.Contains(collision.gameObject))
+        if (((1 << collision.gameObject.layer) & triggerMask) != 0 && !obstacles.Contains(collision.gameObject))
         {
             obstacles.Add(collision.gameObject);
             blockingObjectsCount++;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        OnTrigger(collision);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        OnTrigger(collision);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
