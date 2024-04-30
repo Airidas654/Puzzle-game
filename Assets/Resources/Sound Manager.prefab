@@ -54,7 +54,7 @@ MonoBehaviour:
     onlyPlaysOneShots: 0
     maxSoundsAtSameTime: 10
     audioSource: {fileID: 0}
-  playOnAwake: 0
+  playOnAwake: 1
   muteWithMAndChangeSong: 0
   whenStoppedChangeToNext: 0
   songs:
