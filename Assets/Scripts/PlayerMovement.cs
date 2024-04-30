@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    public void StepSound()
+    {
+        SoundManager.Instance.GetSound("Step").PlayOneShot();
+    }
+
     public void StopMovement()
     {
         canMove = false;

@@ -47,11 +47,20 @@ MonoBehaviour:
   sounds:
   - name: Spikes
     clip: {fileID: 8300000, guid: 094dfb2eb29093445b54093dfaa237dd, type: 3}
-    volume: 1
+    volume: 0.4
     pitch: 1
     pitchRandomness: 0.1
     loop: 0
-    onlyPlaysOneShots: 0
+    onlyPlaysOneShots: 1
+    maxSoundsAtSameTime: 10
+    audioSource: {fileID: 0}
+  - name: Step
+    clip: {fileID: 8300000, guid: 552dca3bd27310844960f03d588888d6, type: 3}
+    volume: 0.2
+    pitch: 1
+    pitchRandomness: 0.2
+    loop: 0
+    onlyPlaysOneShots: 1
     maxSoundsAtSameTime: 10
     audioSource: {fileID: 0}
   playOnAwake: 1
