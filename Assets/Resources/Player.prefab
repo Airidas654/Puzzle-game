@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251c0ae6c38fe264fb44afc4fca76d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDist: 0.1
+  grabDist: 0.2
 --- !u!231 &4154968003197314318
 SpringJoint2D:
   m_ObjectHideFlags: 0
