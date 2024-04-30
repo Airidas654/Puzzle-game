@@ -28,7 +28,7 @@ public class LevelSelect : MonoBehaviour
         trans = GetComponent<Switch>();
 
         message = Instantiate(messagePrefab);
-        message.GetComponent<TextMeshProUGUI>().text = string.Format("Level {0}", levelId - 2);
+        message.GetComponent<TextMeshProUGUI>().text = string.Format("Level {0}", levelId - 3);
         Camera mCamera = Camera.main;
         message.transform.SetParent(GameObject.Find("Canvas").transform);
 

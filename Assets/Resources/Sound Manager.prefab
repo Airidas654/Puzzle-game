@@ -54,10 +54,22 @@ MonoBehaviour:
     onlyPlaysOneShots: 0
     maxSoundsAtSameTime: 10
     audioSource: {fileID: 0}
-  playOnAwake: 0
+  playOnAwake: 1
   muteWithMAndChangeSong: 0
   whenStoppedChangeToNext: 0
   songs:
-  - name: 
-    clip: {fileID: 0}
+  - name: Song 1
+    clip: {fileID: 8300000, guid: b3c737854605b354ea1cc727adafb5fb, type: 3}
+    volume: 1
+  - name: Song 2
+    clip: {fileID: 8300000, guid: cc75a62d2ec24a945be6e0835b12b47a, type: 3}
+    volume: 1
+  - name: Song 3
+    clip: {fileID: 8300000, guid: cb2b84d72ae362344a0de60183f7fc60, type: 3}
+    volume: 1
+  - name: Song 4
+    clip: {fileID: 8300000, guid: 6fb57de448e0e1648a707286b36985e4, type: 3}
+    volume: 1
+  - name: Song 5
+    clip: {fileID: 8300000, guid: 154f6c741f81cd64fa2776e5faa9f46b, type: 3}
     volume: 1
