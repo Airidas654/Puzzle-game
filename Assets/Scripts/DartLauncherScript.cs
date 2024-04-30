@@ -43,7 +43,6 @@ public class DartLauncherScript : LogicObject
     GameObject CreatePooledItem()
     {
         GameObject temp = Instantiate(projectile,spawnLocation.position,Quaternion.Euler(0,0,spawnRotation));
-        temp.GetComponent<DartScript>().Setup(this, bulletSpeed);
         return temp;
     }
 
@@ -56,7 +55,7 @@ public class DartLauncherScript : LogicObject
     void OnTakeFromPool(GameObject system)
     {
         system.gameObject.SetActive(true);
-        system.GetComponent<DartScript>().Setup(this, bulletSpeed);
+        
     }
     void OnDestroyPoolObject(GameObject system)
     {
@@ -117,6 +116,7 @@ public class DartLauncherScript : LogicObject
                 {
                     GameObject currentProjectile = pool.Get();
                     currentProjectile.transform.position = spawnLocation.position;
+                    currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
                     timer = delay;
 
                 }
@@ -131,6 +131,7 @@ public class DartLauncherScript : LogicObject
                     {
                         GameObject currentProjectile = pool.Get();
                         currentProjectile.transform.position = spawnLocation.position;
+                        currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
                         timer = delay;
 
                     }
