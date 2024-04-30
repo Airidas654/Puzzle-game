@@ -10,17 +10,33 @@ public class DartScript : MonoBehaviour
     [SerializeField] LayerMask ignoreCollisions = 0;
 
     Rigidbody2D rg;
+    BoxCollider2D col;
 
     bool oneTime = false;
+
+    bool oneTimeInLife = true;
+    void OneTimeSetup()
+    {
+        if (oneTimeInLife)
+        {
+            oneTimeInLife = false;
+            rg = GetComponent<Rigidbody2D>();
+            col = GetComponent<BoxCollider2D>();
+        }
+    }
+
     public void Setup(DartLauncherScript shooter, float bulletSpeed)
     {
         speed = bulletSpeed;
-        rg = GetComponent<Rigidbody2D>();
+        OneTimeSetup();
+        
         this.shooter = shooter;
         rg.velocity = transform.right * speed;
         transform.localScale = Vector3.one;
         oneTime = true;
-        
+
+        RaycastHit2D[] results;
+        //col.Cast(new Vector2(0, 0), results);
     }
     DartLauncherScript shooter;
     private void OnTriggerEnter2D(Collider2D collision)

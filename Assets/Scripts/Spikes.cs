@@ -62,6 +62,7 @@ public class Spikes : LogicObject
         {
             if (i.gameObject.CompareTag("Player"))
             {
+                
                 playerOnSpikes = true;
                 continue;
             }
@@ -148,6 +149,8 @@ public class Spikes : LogicObject
     }
     public void TrySpikesOn()
     {
+
+
         if (blockingObjectsCount > 0)
         {
             isBlinkOn = true;
