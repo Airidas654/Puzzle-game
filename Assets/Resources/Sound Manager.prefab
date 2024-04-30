@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
+  - name: Spikes
+    clip: {fileID: 8300000, guid: 094dfb2eb29093445b54093dfaa237dd, type: 3}
     volume: 1
     pitch: 1
-    pitchRandomness: 0
+    pitchRandomness: 0.1
     loop: 0
     onlyPlaysOneShots: 0
     maxSoundsAtSameTime: 10

@@ -160,6 +160,7 @@ public class Spikes : LogicObject
         spriteRenderer.sprite = outSpikesSprite;
         isBlinkOn = false;
         SetAlpha(0);
+        SoundManager.Instance.GetSound("Spikes").PlayOneShot();
         if (playerOnSpikes)
         {
             GameManager.inst.Death();
@@ -176,6 +177,7 @@ public class Spikes : LogicObject
         boxCollider.isTrigger = true;
         boxCollider.size = baseColliderSize - new Vector2(0.05f, 0.05f);
         boxCollider.includeLayers = int.MaxValue;
+        SoundManager.Instance.GetSound("Spikes").PlayOneShot();
     }
 
     void OnTrigger(Collider2D collision)
