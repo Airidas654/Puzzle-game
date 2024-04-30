@@ -55,9 +55,9 @@ MonoBehaviour:
     maxSoundsAtSameTime: 10
     audioSource: {fileID: 0}
   - name: Step
-    clip: {fileID: 8300000, guid: 552dca3bd27310844960f03d588888d6, type: 3}
-    volume: 0.2
-    pitch: 1
+    clip: {fileID: 8300000, guid: b1b43665730824945a47e8583f8546cd, type: 3}
+    volume: 0.4
+    pitch: 1.2
     pitchRandomness: 0.2
     loop: 0
     onlyPlaysOneShots: 1
