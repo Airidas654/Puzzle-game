@@ -366,10 +366,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DartShooterBox (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3615855848662794961, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 7005333654311775776, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -527,14 +523,6 @@ PrefabInstance:
     - target: {fileID: 2635819056004504192, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_Name
       value: DartShooterBox (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3615855848662794961, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3615855848662794961, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7005333654311775776, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -758,10 +746,6 @@ PrefabInstance:
     - target: {fileID: 2635819056004504192, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_Name
       value: DartShooterBox (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3615855848662794961, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7005333654311775776, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1291,10 +1275,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DartShooterBox (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 3615855848662794961, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 7701084426749972192, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4999998
@@ -1550,10 +1530,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DartShooterBox (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 3615855848662794961, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 7005333654311775776, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -1654,10 +1630,6 @@ PrefabInstance:
     - target: {fileID: 2635819056004504192, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_Name
       value: DartShooterBox
-      objectReference: {fileID: 0}
-    - target: {fileID: 3615855848662794961, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7005333654311775776, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1945,10 +1917,6 @@ PrefabInstance:
     - target: {fileID: 2635819056004504192, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_Name
       value: DartShooterBox (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3615855848662794961, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7005333654311775776, guid: b720fa89bf1fb7245ba97e7762db08cb, type: 3}
       propertyPath: m_LocalRotation.w
