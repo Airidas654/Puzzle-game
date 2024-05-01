@@ -359,7 +359,20 @@ public class SoundManager : MonoBehaviour
     Dictionary<string, int> soundHash;
     Dictionary<string, int> musicHash;
 
-    public static SoundManager Instance = null;
+    static SoundManager inst = null;
+    public static SoundManager Instance {
+        get {
+            if (inst == null)
+            {
+                inst = ((GameObject)Instantiate(Resources.Load("Sound Manager"))).GetComponent<SoundManager>();
+            }
+            
+            return inst;
+        } set
+        {
+            inst = value;
+        }
+    }
 
     AudioSource oneShotAudioSource = null;
 
@@ -450,7 +463,7 @@ public class SoundManager : MonoBehaviour
 
     public void Awake()
     {
-        if (Instance != null)
+        if (inst != null)
         {
             Destroy(gameObject);
             return;
