@@ -72,6 +72,15 @@ MonoBehaviour:
     onlyPlaysOneShots: 1
     maxSoundsAtSameTime: 10
     audioSource: {fileID: 0}
+  - name: Switch
+    clip: {fileID: 8300000, guid: adc1a2d8532e0b94bab063f4b78850d7, type: 3}
+    volume: 0.4
+    pitch: 1
+    pitchRandomness: 0.1
+    loop: 0
+    onlyPlaysOneShots: 1
+    maxSoundsAtSameTime: 10
+    audioSource: {fileID: 0}
   playOnAwake: 1
   muteWithMAndChangeSong: 1
   whenStoppedChangeToNext: 0

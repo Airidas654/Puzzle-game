@@ -24,6 +24,7 @@ public class Switch : LogicObject
     {
         state = !state;
         Transmit(state);
+        SoundManager.Instance.GetSound("Switch").PlayOneShot();
         if (state)
         {
             GetComponent<SpriteRenderer>().sprite = SwitchOn;
