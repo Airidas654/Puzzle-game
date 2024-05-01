@@ -63,6 +63,15 @@ MonoBehaviour:
     onlyPlaysOneShots: 1
     maxSoundsAtSameTime: 10
     audioSource: {fileID: 0}
+  - name: DartShoot
+    clip: {fileID: 8300000, guid: 5db81ad8911da774fbca157fce1b22e4, type: 3}
+    volume: 0.4
+    pitch: 1
+    pitchRandomness: 0.1
+    loop: 0
+    onlyPlaysOneShots: 1
+    maxSoundsAtSameTime: 10
+    audioSource: {fileID: 0}
   playOnAwake: 1
   muteWithMAndChangeSong: 0
   whenStoppedChangeToNext: 0

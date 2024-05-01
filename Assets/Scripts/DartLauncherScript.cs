@@ -117,6 +117,7 @@ public class DartLauncherScript : LogicObject
                     GameObject currentProjectile = pool.Get();
                     currentProjectile.transform.position = spawnLocation.position;
                     currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
+                    SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
                     timer = delay;
 
                 }
@@ -132,6 +133,7 @@ public class DartLauncherScript : LogicObject
                         GameObject currentProjectile = pool.Get();
                         currentProjectile.transform.position = spawnLocation.position;
                         currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
+                        SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
                         timer = delay;
 
                     }
