@@ -88,8 +88,12 @@ public class DartScript : MonoBehaviour
             val = x;
             transform.localScale = new Vector3(Mathf.Lerp(1,0,val),1,1);
             transform.position = Vector2.Lerp(pradPos, pabPos, val);
-        }, 1, size/speed).OnComplete(() => shooter.RemoveArrow(gameObject));
+        }, 1, size/speed).OnComplete(() => shooter.RemoveArrow(gameObject)).SetId(69);
         //transform.DOScale(new Vector3(0,1,1), size/speed).OnComplete(()=>shooter.RemoveArrow(gameObject));
     }
 
+    private void OnDestroy()
+    {
+        DOTween.Kill(69);
+    }
 }
