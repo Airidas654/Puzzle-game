@@ -364,7 +364,7 @@ public class SoundManager : MonoBehaviour
         {
             if (inst == null)
                 inst = ((GameObject)Instantiate(Resources.Load("Sound Manager"))).GetComponent<SoundManager>();
-
+            
             return inst;
         }
         set => inst = value;

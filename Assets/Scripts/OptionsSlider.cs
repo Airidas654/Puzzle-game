@@ -42,6 +42,7 @@ public class OptionsSlider : MonoBehaviour
 
     private void Start()
     {
+
         if (XAxis)
             value = Mathf.InverseLerp(range.x, range.y, transform.position.x);
         else
