@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class MessageManager : MonoBehaviour
 {
-    [SerializeField] float messageDist;
-    [SerializeField] float timeToDisappear;
-    
-    
+    [SerializeField] private float messageDist;
+    [SerializeField] private float timeToDisappear;
+
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position,messageDist);
+        Gizmos.DrawWireSphere(transform.position, messageDist);
     }
 
-    void Update()
+    private void Update()
     {
-        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, messageDist);
-        foreach(Collider2D h in hit)
+        var hit = Physics2D.OverlapCircleAll(transform.position, messageDist);
+        foreach (var h in hit)
         {
             LevelSelect ls;
-            if (h.TryGetComponent(out ls))
-            {
-                ls.SetTimer(timeToDisappear);
-            }
+            if (h.TryGetComponent(out ls)) ls.SetTimer(timeToDisappear);
         }
     }
 }

@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class LaserReceiverScript : LogicObject
 {
-    [SerializeField] bool oneTimePower = false;
+    [SerializeField] private bool oneTimePower = false;
 
     public void SetValue(bool value)
     {
-        if (oneTimePower) Transmit(true); 
+        if (oneTimePower) Transmit(true);
         else Transmit(value);
     }
-
 }

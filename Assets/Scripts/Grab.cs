@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Grab : MonoBehaviour
 {
-    [SerializeField] float grabDist;
-    FixedJoint2D staticJoint;
-    SpringJoint2D springJoint;
+    [SerializeField] private float grabDist;
+    private FixedJoint2D staticJoint;
+    private SpringJoint2D springJoint;
 
-    PlayerMovement movement;
+    private PlayerMovement movement;
 
-    void Start()
+    private void Start()
     {
         staticJoint = gameObject.GetComponent<FixedJoint2D>();
         springJoint = gameObject.GetComponent<SpringJoint2D>();
@@ -18,32 +18,33 @@ public class Grab : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (PlayerMovement.input.Player.Grab.WasPressedThisFrame())
         {
             float boxDist;
-            GameObject closestBox = PushableObjectManager.GetClosestBox(transform.position, out boxDist);
+            var closestBox = PushableObjectManager.GetClosestBox(transform.position, out boxDist);
 
             float switchDist;
-            GameObject closestSwitch = PushableObjectManager.GetClosestSwitch(transform.position, out switchDist);
+            var closestSwitch = PushableObjectManager.GetClosestSwitch(transform.position, out switchDist);
 
             float pickableDist;
-            GameObject closestPickable = PushableObjectManager.GetClosestPickable(transform.position, out pickableDist);
+            var closestPickable = PushableObjectManager.GetClosestPickable(transform.position, out pickableDist);
 
-            List<(float, GameObject)> listas = new List<(float, GameObject)>();
+            var listas = new List<(float, GameObject)>();
             listas.Add((boxDist, closestBox));
             listas.Add((switchDist, closestSwitch));
             listas.Add((pickableDist, closestPickable));
             listas.Sort();
             //Debug.Log(closestPickable);
-            if (listas[0].Item2==null) return;
-            if (listas[0].Item2==closestBox)
+            if (listas[0].Item2 == null) return;
+            if (listas[0].Item2 == closestBox)
             {
-                Vector2 closestOnBox = closestBox.GetComponent<Collider2D>().ClosestPoint((Vector2)transform.position + GetComponent<Collider2D>().offset);
-                Vector2 closestOnPlayer = gameObject.GetComponent<Collider2D>().ClosestPoint(closestOnBox);
-                float tempDist = (closestOnBox - closestOnPlayer).magnitude;
-                
+                var closestOnBox = closestBox.GetComponent<Collider2D>()
+                    .ClosestPoint((Vector2)transform.position + GetComponent<Collider2D>().offset);
+                var closestOnPlayer = gameObject.GetComponent<Collider2D>().ClosestPoint(closestOnBox);
+                var tempDist = (closestOnBox - closestOnPlayer).magnitude;
+
                 if (tempDist <= grabDist)
                 {
                     staticJoint.connectedBody = closestBox.GetComponent<Rigidbody2D>();
@@ -59,14 +60,14 @@ public class Grab : MonoBehaviour
                     }
                     movement.cantRotateWithMove = true;*/
                 }
-
-                
-            }else if (listas[0].Item2 == closestPickable)
+            }
+            else if (listas[0].Item2 == closestPickable)
             {
-                Vector2 closestOnPickable = closestPickable.GetComponent<Collider2D>().ClosestPoint((Vector2)transform.position + GetComponent<Collider2D>().offset);
-                Vector2 closestOnPlayer = gameObject.GetComponent<Collider2D>().ClosestPoint(closestOnPickable);
-                float tempDist = (closestOnPickable - closestOnPlayer).magnitude;
-               
+                var closestOnPickable = closestPickable.GetComponent<Collider2D>()
+                    .ClosestPoint((Vector2)transform.position + GetComponent<Collider2D>().offset);
+                var closestOnPlayer = gameObject.GetComponent<Collider2D>().ClosestPoint(closestOnPickable);
+                var tempDist = (closestOnPickable - closestOnPlayer).magnitude;
+
 
                 if (tempDist <= grabDist)
                 {
@@ -74,18 +75,18 @@ public class Grab : MonoBehaviour
                     springJoint.enabled = true;
                     springJoint.distance = 0.3f;
                 }
-            }else if(listas[0].Item2 == closestSwitch)
+            }
+            else if (listas[0].Item2 == closestSwitch)
             {
-                Vector2 closestOnSwitch = closestSwitch.GetComponent<Collider2D>().ClosestPoint((Vector2)transform.position + GetComponent<Collider2D>().offset);
-                Vector2 closestOnPlayer = gameObject.GetComponent<Collider2D>().ClosestPoint(closestOnSwitch);
-                float tempDist = (closestOnSwitch - closestOnPlayer).magnitude;
+                var closestOnSwitch = closestSwitch.GetComponent<Collider2D>()
+                    .ClosestPoint((Vector2)transform.position + GetComponent<Collider2D>().offset);
+                var closestOnPlayer = gameObject.GetComponent<Collider2D>().ClosestPoint(closestOnSwitch);
+                var tempDist = (closestOnSwitch - closestOnPlayer).magnitude;
 
-                if (tempDist <= grabDist)
-                {
-                    closestSwitch.GetComponent<Switch>().Toggle();
-                }
+                if (tempDist <= grabDist) closestSwitch.GetComponent<Switch>().Toggle();
             }
         }
+
         if (PlayerMovement.input.Player.Grab.WasReleasedThisFrame())
         {
             staticJoint.enabled = false;

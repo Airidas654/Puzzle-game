@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PressurePlate : LogicObject
 {
-    [SerializeField] Vector2 colliderPositionOffset;
-    [SerializeField] Vector2 colliderSize;
+    [SerializeField] private Vector2 colliderPositionOffset;
+    [SerializeField] private Vector2 colliderSize;
     public LayerMask colliderMask;
 
     public Sprite platePressed;
-    [SerializeField] Sprite plateUp;
+    [SerializeField] private Sprite plateUp;
 
-    SpriteRenderer srenderer;
+    private SpriteRenderer srenderer;
 
     protected override void Start()
     {
@@ -22,15 +22,16 @@ public class PressurePlate : LogicObject
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube((Vector2)transform.position + colliderPositionOffset,colliderSize);
+        Gizmos.DrawWireCube((Vector2)transform.position + colliderPositionOffset, colliderSize);
     }
 
 
     private void Update()
     {
-        Collider2D hit = Physics2D.OverlapBox((Vector2)transform.position + colliderPositionOffset, colliderSize, 0, colliderMask);
-        Transmit(hit!=null);
+        var hit = Physics2D.OverlapBox((Vector2)transform.position + colliderPositionOffset, colliderSize, 0,
+            colliderMask);
+        Transmit(hit != null);
 
-        srenderer.sprite = hit==null? plateUp : platePressed;
+        srenderer.sprite = hit == null ? plateUp : platePressed;
     }
 }

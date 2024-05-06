@@ -7,25 +7,24 @@ using UnityEngine.SceneManagement;
 
 public class UImanager : MonoBehaviour
 {
-    [SerializeField] float darkStartLength;
+    [SerializeField] private float darkStartLength;
     public static UImanager Instance = null;
-    [SerializeField] Material trasitionMat;
-    GameObject player;
-    [SerializeField] Vector2 playerOffset;
+    [SerializeField] private Material trasitionMat;
+    private GameObject player;
+    [SerializeField] private Vector2 playerOffset;
 
-    int transitionTweenId = 134;
-    void Awake()
+    private int transitionTweenId = 134;
+
+    private void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-        }
         else
-        {
             Destroy(this);
-        }
     }
-    bool oneTime = false;
+
+    private bool oneTime = false;
+
     public static void StartLevelTransition(int sceneIndex, float length = 0.5f, float delay = 0)
     {
         if (Instance.oneTime) return;
@@ -42,17 +41,21 @@ public class UImanager : MonoBehaviour
         DOTween.Kill(Instance.transitionTweenId);
         value = 1.2f;
 
-        DOTween.To(() => value, (x) => {
-            value = x;
-            Vector2 offset = Camera.main.WorldToViewportPoint((Vector2)Instance.player.transform.position+Instance.playerOffset);
-            Instance.trasitionMat.SetVector(offsetId, offset);
-            Instance.trasitionMat.SetFloat(valueId, x);
-        }, 0, length).SetId(Instance.transitionTweenId).SetEase(Ease.OutSine).SetDelay(delay).OnComplete(() => SceneManager.LoadScene(sceneIndex)).SetUpdate(true).SetUpdate(UpdateType.Normal, true);
+        DOTween.To(() => value, (x) =>
+            {
+                value = x;
+                Vector2 offset =
+                    Camera.main.WorldToViewportPoint(
+                        (Vector2)Instance.player.transform.position + Instance.playerOffset);
+                Instance.trasitionMat.SetVector(offsetId, offset);
+                Instance.trasitionMat.SetFloat(valueId, x);
+            }, 0, length).SetId(Instance.transitionTweenId).SetEase(Ease.OutSine).SetDelay(delay)
+            .OnComplete(() => SceneManager.LoadScene(sceneIndex)).SetUpdate(true).SetUpdate(UpdateType.Normal, true);
     }
 
-    static float value;
-    static int valueId;
-    static int offsetId;
+    private static float value;
+    private static int valueId;
+    private static int offsetId;
 
     private void Start()
     {
@@ -64,17 +67,16 @@ public class UImanager : MonoBehaviour
         DOTween.Kill(transitionTweenId);
         value = 0;
 
-        DOTween.To(() => value, (x) => { 
+        DOTween.To(() => value, (x) =>
+        {
             value = x;
             Vector2 offset = Camera.main.WorldToViewportPoint((Vector2)player.transform.position + playerOffset);
             trasitionMat.SetVector(offsetId, offset);
             trasitionMat.SetFloat(valueId, x);
         }, 1.2f, darkStartLength).SetId(transitionTweenId).SetEase(Ease.OutSine);
-        
     }
 
     private void Update()
     {
-        
     }
 }

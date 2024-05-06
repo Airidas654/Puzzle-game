@@ -6,10 +6,10 @@ public class LogicObject : MonoBehaviour
 {
     public bool state;
     public List<LogicObject> receivers;
-    
-    public Dictionary<LogicObject, bool> transmittersStates = new Dictionary<LogicObject, bool>();
 
-    
+    public Dictionary<LogicObject, bool> transmittersStates = new();
+
+
     protected virtual void Start()
     {
         UpdateReceivers();
@@ -17,26 +17,20 @@ public class LogicObject : MonoBehaviour
 
     public void UpdateReceivers()
     {
-        foreach (LogicObject lo in receivers)
-        {
+        foreach (var lo in receivers)
             if (lo != null)
             {
                 lo.Receive(state, this);
                 Transmit(state);
             }
-        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        foreach (LogicObject i in receivers)
-        {
+        foreach (var i in receivers)
             if (i != null)
-            {
                 Gizmos.DrawLine(transform.position, i.gameObject.transform.position);
-            }
-        }
     }
 
     public virtual void Receive(bool state, LogicObject transmitter)
@@ -45,30 +39,31 @@ public class LogicObject : MonoBehaviour
         {
             transmittersStates[transmitter] = state;
             if (state)
-            {
                 OnStateOn();
-            }
             else
-            {
                 OnStateOff();
-            }
             this.state = state;
         }
+
         OnReceived();
     }
 
-    public virtual void OnReceived() { }
-    public virtual void OnStateOn() { }
-    public virtual void OnStateOff() { }
-    public virtual void Transmit(bool state)
+    public virtual void OnReceived()
     {
-        foreach (LogicObject i in receivers)
-        {
-            if (i != null)
-            {
-                i.Receive(state, this);
-            }
-        }
     }
 
+    public virtual void OnStateOn()
+    {
+    }
+
+    public virtual void OnStateOff()
+    {
+    }
+
+    public virtual void Transmit(bool state)
+    {
+        foreach (var i in receivers)
+            if (i != null)
+                i.Receive(state, this);
+    }
 }

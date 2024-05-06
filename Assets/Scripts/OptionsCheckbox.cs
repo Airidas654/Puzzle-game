@@ -5,32 +5,27 @@ using UnityEngine;
 
 public class OptionsCheckbox : MonoBehaviour
 {
-    [SerializeField] string optionName;
-    [SerializeField] GameObject messagePrefab;
-    [SerializeField] Vector2 messageOffset;
-    GameObject message;
-    Switch trans;
+    [SerializeField] private string optionName;
+    [SerializeField] private GameObject messagePrefab;
+    [SerializeField] private Vector2 messageOffset;
+    private GameObject message;
+    private Switch trans;
 
-    RectTransform mCanvas;
-    Camera mCamera;
+    private RectTransform mCanvas;
+    private Camera mCamera;
 
     public void SetValue(bool value)
     {
-        if (trans == null)
-        {
-            trans = GetComponent<Switch>();
-        }
-        if (value != trans.state)
-        {
-            trans.Toggle();
-        }
+        if (trans == null) trans = GetComponent<Switch>();
+        if (value != trans.state) trans.Toggle();
     }
 
-    void Start()
+    private void Start()
     {
         trans = GetComponent<Switch>();
         message = Instantiate(messagePrefab);
-        message.GetComponent<TextMeshProUGUI>().text = string.Format("{0}: {1}", optionName, (trans.state)?"On":"Off");
+        message.GetComponent<TextMeshProUGUI>().text =
+            string.Format("{0}: {1}", optionName, trans.state ? "On" : "Off");
         message.GetComponent<TMP_Text>().alpha = 1;
         mCamera = Camera.main;
         message.transform.SetParent(GameObject.Find("Canvas").transform);
@@ -45,13 +40,15 @@ public class OptionsCheckbox : MonoBehaviour
         message.transform.localScale = Vector3.one;
         message.GetComponent<RectTransform>().anchoredPosition += messageOffset;
     }
-    
+
     public bool GetValue()
     {
         return trans.state;
     }
+
     private void Update()
     {
-        message.GetComponent<TextMeshProUGUI>().text = string.Format("{0}: {1}", optionName, (trans.state) ? "On" : "Off");
+        message.GetComponent<TextMeshProUGUI>().text =
+            string.Format("{0}: {1}", optionName, trans.state ? "On" : "Off");
     }
 }

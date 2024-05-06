@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    
-    void Start()
+    private void Start()
     {
         PushableObjectManager.RegisterBox(gameObject);
     }

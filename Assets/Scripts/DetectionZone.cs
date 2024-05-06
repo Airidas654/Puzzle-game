@@ -8,16 +8,11 @@ public class DetectionZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            detectedObjects.Add(collision);
-        }
+        if (collision.gameObject.CompareTag("Player")) detectedObjects.Add(collision);
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            detectedObjects.Remove(collision);
-        }
+        if (collision.gameObject.CompareTag("Player")) detectedObjects.Remove(collision);
     }
 }

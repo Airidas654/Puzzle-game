@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-
 using UnityEngine.InputSystem;
 using NUnit.Framework.Internal;
 using UnityEngine.SceneManagement;
@@ -11,7 +10,8 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class Boxtest : InputTestFixture
 {
-    Keyboard keyboard;
+    private Keyboard keyboard;
+
     public override void Setup()
     {
         SceneManager.LoadScene("Scenes/TestingScene");
@@ -22,10 +22,9 @@ public class Boxtest : InputTestFixture
     [UnityTest]
     public IEnumerator PushBoxTest()
     {
-
         yield return new WaitForSeconds(0.1f);
 
-        GameObject box = GameObject.Instantiate((GameObject)Resources.Load("Box"), new Vector2(0.8f, 0), Quaternion.identity);
+        var box = Object.Instantiate((GameObject)Resources.Load("Box"), new Vector2(0.8f, 0), Quaternion.identity);
 
         Vector2 pos = box.transform.position;
 
@@ -43,7 +42,7 @@ public class Boxtest : InputTestFixture
     {
         yield return new WaitForSeconds(0.1f);
 
-        GameObject box = GameObject.Instantiate((GameObject)Resources.Load("Box"), new Vector2(0.6f, 0), Quaternion.identity);
+        var box = Object.Instantiate((GameObject)Resources.Load("Box"), new Vector2(0.6f, 0), Quaternion.identity);
 
         InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.E, Key.A), 0.3f);
 
@@ -61,9 +60,11 @@ public class Boxtest : InputTestFixture
     {
         yield return new WaitForSeconds(0.1f);
 
-        GameObject box = GameObject.Instantiate((GameObject)Resources.Load("Box"), new Vector2(0.6f, 0), Quaternion.identity);
-        GameObject plate = GameObject.Instantiate((GameObject)Resources.Load("PressurePlatePrefab"), new Vector3(1, -1, 0), Quaternion.identity);
-        GameObject spikes = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3(0, -2f, 0), Quaternion.identity);
+        var box = Object.Instantiate((GameObject)Resources.Load("Box"), new Vector2(0.6f, 0), Quaternion.identity);
+        var plate = Object.Instantiate((GameObject)Resources.Load("PressurePlatePrefab"), new Vector3(1, -1, 0),
+            Quaternion.identity);
+        var spikes = Object.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3(0, -2f, 0),
+            Quaternion.identity);
 
         plate.GetComponent<PressurePlate>().receivers.Clear();
         plate.GetComponent<PressurePlate>().receivers.Add(spikes.GetComponent<Spikes>());
@@ -72,7 +73,7 @@ public class Boxtest : InputTestFixture
 
         spikes.GetComponent<Spikes>().UpdateReceivers();
 
-        plate.GetComponent<PressurePlate>().colliderMask = 128+64;
+        plate.GetComponent<PressurePlate>().colliderMask = 128 + 64;
 
         InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.E, Key.S), 0.5f);
         yield return new WaitForSeconds(1f);

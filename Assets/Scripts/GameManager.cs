@@ -13,22 +13,21 @@ public class GameManager : MonoBehaviour
 
     public bool levelEnterFreeze { get; private set; }
 
-    [SerializeField] Renderer2DData rendererData;
+    [SerializeField] private Renderer2DData rendererData;
+
     public void ChangeOldMonitorEffects(bool val)
     {
         foreach (var i in rendererData.rendererFeatures)
-        {
             if (i.name == "CRTfeature")
-            {
                 i.SetActive(val);
-            }
-        }
     }
+
     public bool GetOldMonitorEffects()
     {
         return rendererData.rendererFeatures[0].isActive;
     }
-    void UnfreezeLevel()
+
+    private void UnfreezeLevel()
     {
         levelEnterFreeze = false;
     }
@@ -38,13 +37,9 @@ public class GameManager : MonoBehaviour
         dead = false;
         levelEnterFreeze = true;
         if (inst == null)
-        {
             inst = this;
-        }
         else
-        {
             Destroy(this);
-        }
 
         PushableObjectManager.boxes.Clear();
         PushableObjectManager.pickableObjs.Clear();
@@ -69,12 +64,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (!CantDoAnything && !levelEnterFreeze && !dead)
-        {
             if (PlayerMovement.input.Player.Restart.WasPressedThisFrame())
-            {
                 Death();
-            }
-        }
     }
-
 }

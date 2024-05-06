@@ -12,13 +12,12 @@ public class LogicORGate : LogicObject
             transmittersStates[transmitter] = state;
             this.state = false;
             foreach (var tstate in transmittersStates)
-            {
                 if (tstate.Value)
                 {
                     this.state = true;
                     break;
                 }
-            }
+
             Transmit(this.state);
         }
     }
