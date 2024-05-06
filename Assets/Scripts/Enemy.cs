@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float movespeed;
+    [SerializeField] float movespeed;
     [SerializeField] float epsilon = 0.4f;
 
-    public List<Vector2> positions;
+    public List<Vector2> patrolPositions = new List<Vector2>();
 
     Rigidbody2D rb;
 
 
-    public bool isCycle;
+    [SerializeField] bool isCycle;
     [SerializeField] bool reversed;
     SpriteRenderer srenderer;
 
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            nextIndex = reversed ? positions.Count - 1 : 1;
+            nextIndex = reversed ? patrolPositions.Count - 1 : 1;
         }
         srenderer = GetComponent<SpriteRenderer>();
         //nextPoint = positions[1];
@@ -36,11 +36,13 @@ public class Enemy : MonoBehaviour
     int count = 0;
     int nextIndex = 0;
     bool isForward = true;
-    // Update is called once per frame
+    // FixedUpdate is called once per fixed frame
     void FixedUpdate()
     {
-
-        rb.velocity = (positions[nextIndex] - (Vector2)transform.position).normalized*movespeed;
+        if (nextIndex >= 0 && nextIndex < patrolPositions.Count)
+        {
+            rb.velocity = (patrolPositions[nextIndex] - (Vector2)transform.position).normalized * movespeed;
+        }
 
         if (rb.velocity.x < 0)
         {
@@ -53,17 +55,17 @@ public class Enemy : MonoBehaviour
 
         if (!isCycle)
         {
-            if (isForward == true && Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
+            if (isForward == true && Vector2.Distance(transform.position, patrolPositions[nextIndex]) <= epsilon)
             {
                 count++;
                 
-                if (count != positions.Count - 1)
+                if (count != patrolPositions.Count - 1)
                 {
                     index++;
                     nextIndex = index + 1;
                 }
 
-                if (isForward == true && count == positions.Count - 1)
+                if (isForward == true && count == patrolPositions.Count - 1)
                 {
                     isForward = false;
                     count = 0;
@@ -72,18 +74,18 @@ public class Enemy : MonoBehaviour
 
                 }
             }
-            if (isForward == false && Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
+            if (isForward == false && Vector2.Distance(transform.position, patrolPositions[nextIndex]) <= epsilon)
             {
 
                 count++;
                 
-                if (count != positions.Count - 1)
+                if (count != patrolPositions.Count - 1)
                 {
                     index--;
                     nextIndex = index - 1;
                 }
 
-                if (isForward == false && count == positions.Count - 1)
+                if (isForward == false && count == patrolPositions.Count - 1)
                 {
                     isForward = true;
                     count = 0;
@@ -95,13 +97,13 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (Vector2.Distance(transform.position, positions[nextIndex]) <= epsilon)
+            if (Vector2.Distance(transform.position, patrolPositions[nextIndex]) <= epsilon)
             {
                 //count++;
                 if (!reversed)
-                    nextIndex = (nextIndex + 1) % positions.Count;
+                    nextIndex = (nextIndex + 1) % patrolPositions.Count;
                 else
-                    nextIndex = ((nextIndex - 1) + positions.Count) % positions.Count;
+                    nextIndex = ((nextIndex - 1) + patrolPositions.Count) % patrolPositions.Count;
                /* if (count != positions.Count - 1)
                 {
                     index++;
@@ -118,22 +120,37 @@ public class Enemy : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Called when object collides with something
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            GameManager.inst.Death();
+            if (GameManager.inst != null)
+            {
+                GameManager.inst.Death();
+            }
+            else
+            {
+                Debug.LogError("PLAYER CANT DIE, GameManager.inst = null");
+            }
         }
     }
+
+    /// <summary>
+    /// Called on gizmos update
+    /// </summary>
     private void OnDrawGizmos()
     {
-        for (int i = 0; i < positions.Count - 1; i++)
+        for (int i = 0; i < patrolPositions.Count - 1; i++)
         {
-            Gizmos.DrawLine(positions[i], positions[i + 1]);
+            Gizmos.DrawLine(patrolPositions[i], patrolPositions[i + 1]);
         }
         if (isCycle)
         {
-            Gizmos.DrawLine(positions[positions.Count-1], positions[0]);
+            Gizmos.DrawLine(patrolPositions[patrolPositions.Count-1], patrolPositions[0]);
         }
     }
 }

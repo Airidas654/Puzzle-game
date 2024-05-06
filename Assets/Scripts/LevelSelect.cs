@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 using DG.Tweening;
+using TMPro;
+using UnityEngine;
 
 public class LevelSelect : MonoBehaviour
 {
@@ -29,15 +27,15 @@ public class LevelSelect : MonoBehaviour
         trans = GetComponent<Switch>();
 
         message = Instantiate(messagePrefab);
-        message.GetComponent<TextMeshProUGUI>().text = string.Format("Level {0}", levelId - 3);
+        message.GetComponent<TextMeshProUGUI>().text = $"Level {levelId - 3}";
         var mCamera = Camera.main;
         message.transform.SetParent(GameObject.Find("Canvas").transform);
 
         Vector2 adjustedPosition = mCamera.WorldToScreenPoint((Vector2)transform.position);
         var mCanvas = GameObject.Find("Canvas").GetComponent<RectTransform>();
 
-        adjustedPosition.x *= mCanvas.rect.width / (float)mCamera.pixelWidth;
-        adjustedPosition.y *= mCanvas.rect.height / (float)mCamera.pixelHeight;
+        adjustedPosition.x *= mCanvas.rect.width / mCamera.pixelWidth;
+        adjustedPosition.y *= mCanvas.rect.height / mCamera.pixelHeight;
 
         message.GetComponent<RectTransform>().anchoredPosition = adjustedPosition - mCanvas.sizeDelta / 2f;
         message.transform.localScale = Vector3.one;
