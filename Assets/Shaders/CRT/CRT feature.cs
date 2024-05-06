@@ -6,50 +6,51 @@ using UnityEngine.Rendering.Universal;
 
 public class CRTfeature : ScriptableRendererFeature
 {
-    enum TextureQuality
+    private enum TextureQuality
     {
         Default,
         High,
         Low
     }
-    [SerializeField] TextureQuality textureQuality;
-    [SerializeField] Shader pixelShader;
 
-    
-    [Space(10)]
-    [Header("ScanLines")]
-    [SerializeField][Range(0,1)] float intensity = 0.5f;
-    [SerializeField] [Range(0, 1)] float intensityRandomness = 0;
-    [SerializeField] [Min(1)] int lineSize = 1;
-    [SerializeField] float scrollSpeed = 0;
-    [SerializeField] [Min(0)] float lineRandomOffset = 0;
+    [SerializeField] private TextureQuality textureQuality;
+    [SerializeField] private Shader pixelShader;
 
-    [Space(10)]
-    [Header("Noise")]
-    [SerializeField] [Min(1)] float NoiseScale = 500;
-    [SerializeField] float NoiseIntensity = 0;
-    [SerializeField] Vector2 LineCurveNoiseScale = new Vector2(1,1);
-    [SerializeField] float LineCurveNoiseIntensity = 1;
 
-    [Space(10)]
-    [Header("Sidebars")]
-    [SerializeField] float DistortionIntensity = 1;
-    [SerializeField] [Min(0)] float Vignette_width = 0;
+    [Space(10)] [Header("ScanLines")] [SerializeField] [Range(0, 1)]
+    private float intensity = 0.5f;
 
-    [Space(10)]
-    [Header("Colors")]
-    [SerializeField] float ChromaticAberrationMiddle = 0;
-    [SerializeField] float ChromaticAberrationEnd = 0;
+    [SerializeField] [Range(0, 1)] private float intensityRandomness = 0;
+    [SerializeField] [Min(1)] private int lineSize = 1;
+    [SerializeField] private float scrollSpeed = 0;
+    [SerializeField] [Min(0)] private float lineRandomOffset = 0;
 
-    class CRTPass : ScriptableRenderPass
+    [Space(10)] [Header("Noise")] [SerializeField] [Min(1)]
+    private float NoiseScale = 500;
+
+    [SerializeField] private float NoiseIntensity = 0;
+    [SerializeField] private Vector2 LineCurveNoiseScale = new(1, 1);
+    [SerializeField] private float LineCurveNoiseIntensity = 1;
+
+    [Space(10)] [Header("Sidebars")] [SerializeField]
+    private float DistortionIntensity = 1;
+
+    [SerializeField] [Min(0)] private float Vignette_width = 0;
+
+    [Space(10)] [Header("Colors")] [SerializeField]
+    private float ChromaticAberrationMiddle = 0;
+
+    [SerializeField] private float ChromaticAberrationEnd = 0;
+
+    private class CRTPass : ScriptableRenderPass
     {
-        TextureQuality textureQuality;
-        Material mat;
+        private TextureQuality textureQuality;
+        private Material mat;
 
-        ProfilingSampler _profilingSampler = new ProfilingSampler("CRT");
+        private ProfilingSampler _profilingSampler = new("CRT");
 
-        int temporaryBufferID = Shader.PropertyToID("_CRTTemporaryBuffer");
-        RenderTargetIdentifier tempBuffer;
+        private int temporaryBufferID = Shader.PropertyToID("_CRTTemporaryBuffer");
+        private RenderTargetIdentifier tempBuffer;
 
         public CRTPass(TextureQuality quality, Material pixelMat)
         {
@@ -61,7 +62,7 @@ public class CRTfeature : ScriptableRendererFeature
 
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
-            RenderTextureDescriptor descriptor = renderingData.cameraData.cameraTargetDescriptor;
+            var descriptor = renderingData.cameraData.cameraTargetDescriptor;
             descriptor.enableRandomWrite = true;
             if (textureQuality == TextureQuality.Default) descriptor.colorFormat = RenderTextureFormat.RGB111110Float;
             else if (textureQuality == TextureQuality.High) descriptor.colorFormat = RenderTextureFormat.ARGB64;
@@ -71,7 +72,6 @@ public class CRTfeature : ScriptableRendererFeature
 
             cmd.GetTemporaryRT(temporaryBufferID, descriptor, FilterMode.Point);
             tempBuffer = new RenderTargetIdentifier(temporaryBufferID);
-
         }
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
@@ -79,7 +79,7 @@ public class CRTfeature : ScriptableRendererFeature
             var camera = renderingData.cameraData.camera;
             if (camera.cameraType != CameraType.Game) return;
 
-            CommandBuffer cmd = CommandBufferPool.Get("CRTPass");
+            var cmd = CommandBufferPool.Get("CRTPass");
 
             using (new ProfilingScope(cmd, _profilingSampler))
             {
@@ -94,9 +94,8 @@ public class CRTfeature : ScriptableRendererFeature
         }
     }
 
-    
 
-    CRTPass pass;
+    private CRTPass pass;
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
@@ -105,7 +104,7 @@ public class CRTfeature : ScriptableRendererFeature
 
     public override void Create()
     {
-        Material pixelMat = new Material(pixelShader);
+        var pixelMat = new Material(pixelShader);
         pixelMat.SetFloat("_Intensity", intensity);
         pixelMat.SetFloat("_LineSize", lineSize);
         pixelMat.SetFloat("_IntensityRandomness", intensityRandomness);

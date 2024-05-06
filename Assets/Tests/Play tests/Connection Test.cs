@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-
 using UnityEngine.InputSystem;
 using NUnit.Framework.Internal;
 using UnityEngine.SceneManagement;
@@ -11,7 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class ConnectorsTest : InputTestFixture
 {
-    Keyboard keyboard;
+    private Keyboard keyboard;
+
     public override void Setup()
     {
         SceneManager.LoadScene("Scenes/TestingScene");
@@ -23,10 +23,12 @@ public class ConnectorsTest : InputTestFixture
     public IEnumerator SpikesConnectionTest()
     {
         yield return new WaitForSeconds(0.1f);
-        GameObject plate = GameObject.Instantiate((GameObject)Resources.Load("PressurePlatePrefab"), new Vector3(0, 1, 0), Quaternion.identity);
+        var plate = Object.Instantiate((GameObject)Resources.Load("PressurePlatePrefab"), new Vector3(0, 1, 0),
+            Quaternion.identity);
 
-        GameObject spikes = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3(3, 1, 0), Quaternion.identity);
-        
+        var spikes = Object.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3(3, 1, 0),
+            Quaternion.identity);
+
         plate.GetComponent<PressurePlate>().receivers.Clear();
         plate.GetComponent<PressurePlate>().receivers.Add(spikes.GetComponent<Spikes>());
         spikes.GetComponent<Spikes>().UpdateReceivers();
@@ -50,9 +52,10 @@ public class ConnectorsTest : InputTestFixture
     public IEnumerator SwitchConnectionTest()
     {
         yield return new WaitForSeconds(0.1f);
-        GameObject sw = GameObject.Instantiate((GameObject)Resources.Load("Switch"), new Vector3(0, 1, 0), Quaternion.identity);
+        var sw = Object.Instantiate((GameObject)Resources.Load("Switch"), new Vector3(0, 1, 0), Quaternion.identity);
 
-        GameObject spikes = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3(3, 1, 0), Quaternion.identity);
+        var spikes = Object.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3(3, 1, 0),
+            Quaternion.identity);
 
         sw.GetComponent<Switch>().receivers.Clear();
         sw.GetComponent<Switch>().receivers.Add(spikes.GetComponent<Spikes>());
@@ -69,5 +72,4 @@ public class ConnectorsTest : InputTestFixture
 
         yield return null;
     }
-
 }
