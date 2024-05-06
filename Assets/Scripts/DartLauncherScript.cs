@@ -8,15 +8,15 @@ using System;
 
 public class DartLauncherScript : LogicObject
 {
-    IObjectPool<GameObject> pool;
+    IObjectPool<GameObject> dartPool;
 
-    public DetectionZone zone;
+	[SerializeField] DetectionZone zone;
 
-    public GameObject projectile;
+	[SerializeField] GameObject projectile;
 
-    public Transform spawnLocation;
+	[SerializeField] Transform spawnLocation;
 
-    public float spawnRotation;
+    [SerializeField] float spawnRotation;
 
     [SerializeField] float startDelay = 0f;
     [SerializeField] float delay = 0.5f;
@@ -27,46 +27,70 @@ public class DartLauncherScript : LogicObject
     
 
     [SerializeField] bool constantShooting;
-    public float zoneSizeX;
-    public float zoneSizeY;
-    public float zoneOffsetX;
-    public float zoneOffsetY;
+    [SerializeField] float zoneSizeX;
+    [SerializeField] float zoneSizeY;
+    [SerializeField] float zoneOffsetX;
+    [SerializeField] float zoneOffsetY;
 
     // Start is called before the first frame update
 
+    /// <summary>
+    /// 
+    /// </summary>
     protected override void Start()
     {
-        pool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject);
+        dartPool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject);
         timer = startDelay + delay;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     GameObject CreatePooledItem()
     {
         GameObject temp = Instantiate(projectile,spawnLocation.position,Quaternion.Euler(0,0,spawnRotation));
         return temp;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="system"></param>
 
     void OnReturnedToPool(GameObject system)
     {
         system.gameObject.SetActive(false);
        
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="system"></param>
     void OnTakeFromPool(GameObject system)
     {
         system.gameObject.SetActive(true);
         
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="system"></param>
     void OnDestroyPoolObject(GameObject system)
     {
         Destroy(system.gameObject);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="obj"></param>
     public void RemoveArrow(GameObject obj)
     {
-        pool.Release(obj);
+        dartPool.Release(obj);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void OnValidate()
     {
         if (zone == null) return;
@@ -104,7 +128,9 @@ public class DartLauncherScript : LogicObject
 
     
 
-    // Update is called once per frame
+   /// <summary>
+   /// 
+   /// </summary>
     void Update()
     {
         if (!state)
@@ -114,7 +140,7 @@ public class DartLauncherScript : LogicObject
                 timer -= Time.deltaTime;
                 if (timer <= 0)
                 {
-                    GameObject currentProjectile = pool.Get();
+                    GameObject currentProjectile = dartPool.Get();
                     currentProjectile.transform.position = spawnLocation.position;
                     currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
                     SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
@@ -130,7 +156,7 @@ public class DartLauncherScript : LogicObject
                     timer -= Time.deltaTime;
                     if (timer <= 0)
                     {
-                        GameObject currentProjectile = pool.Get();
+                        GameObject currentProjectile = dartPool.Get();
                         currentProjectile.transform.position = spawnLocation.position;
                         currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
                         SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
