@@ -90,7 +90,6 @@ public class LaserShooterScript : LogicObject
         bool isLast = true;
         if (hit.collider != null)
         {
-            
             if (hit.collider.CompareTag("Mirror"))
             {
                 

@@ -39,8 +39,8 @@ public class Deathtest : InputTestFixture
         yield return new WaitForSeconds(2f);
 
         GameObject enemy = GameObject.Instantiate((GameObject)Resources.Load("Enemy"), new Vector2(0, 1), Quaternion.identity);
-        enemy.GetComponent<Enemy>().positions[0] = Vector2.up;
-        enemy.GetComponent<Enemy>().positions[1] = Vector2.zero;
+        enemy.GetComponent<Enemy>().patrolPositions[0] = Vector2.up;
+        enemy.GetComponent<Enemy>().patrolPositions[1] = Vector2.zero;
 
         yield return new WaitForSeconds(0.5f);
 

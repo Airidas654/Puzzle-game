@@ -49,6 +49,7 @@ public class DartLauncherScript : LogicObject
     /// <returns></returns>
     GameObject CreatePooledItem()
     {
+        /// nulls
         GameObject temp = Instantiate(projectile,spawnLocation.position,Quaternion.Euler(0,0,spawnRotation));
         return temp;
     }
@@ -140,9 +141,13 @@ public class DartLauncherScript : LogicObject
                 timer -= Time.deltaTime;
                 if (timer <= 0)
                 {
+                    
                     GameObject currentProjectile = dartPool.Get();
+                    /// null
                     currentProjectile.transform.position = spawnLocation.position;
+                    /// no dartscript
                     currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
+                    /// instance can be null
                     SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
                     timer = delay;
 
@@ -150,15 +155,18 @@ public class DartLauncherScript : LogicObject
             }
             else
             {
-
+                /// null zone
                 if (zone.detectedObjects.Count > 0)
                 {
                     timer -= Time.deltaTime;
                     if (timer <= 0)
                     {
                         GameObject currentProjectile = dartPool.Get();
+                        /// null
                         currentProjectile.transform.position = spawnLocation.position;
+                        /// no dartscript
                         currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
+                        /// instance can be null
                         SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
                         timer = delay;
 
