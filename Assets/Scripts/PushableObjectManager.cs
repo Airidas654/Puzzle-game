@@ -10,16 +10,19 @@ public static class PushableObjectManager
 
     public static void RegisterPickable(GameObject pickable)
     {
+        //null
         pickableObjs.Add(pickable);
     }
 
     public static void RegisterBox(GameObject box)
     {
+        //null
         boxes.Add(box);
     }
-
+    //switchpr name should be more concise
     public static void RegisterSwitch(GameObject switchpr)
     {
+        //null
         switches.Add(switchpr);
     }
 

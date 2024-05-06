@@ -49,8 +49,12 @@ public class DartLauncherScript : LogicObject
     /// <returns></returns>
     GameObject CreatePooledItem()
     {
-        GameObject temp = Instantiate(projectile,spawnLocation.position,Quaternion.Euler(0,0,spawnRotation));
-        return temp;
+        if (projectile != null && spawnLocation != null)
+        {
+            GameObject temp = Instantiate(projectile, spawnLocation.position, Quaternion.Euler(0, 0, spawnRotation));
+            return temp;
+        }
+        return null;
     }
 
     /// <summary>
@@ -143,9 +147,16 @@ public class DartLauncherScript : LogicObject
                 if (timer <= 0)
                 {
                     GameObject currentProjectile = dartPool.Get();
-                    currentProjectile.transform.position = spawnLocation.position;
-                    currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
-                    SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
+                    DartScript dartScript;
+                    if (spawnLocation != null && currentProjectile.TryGetComponent<DartScript>(out dartScript))
+                    {
+                        currentProjectile.transform.position = spawnLocation.position;
+                        dartScript.Setup(this, bulletSpeed);
+                    }
+
+                    if (SoundManager.Instance != null) {
+                        SoundManager.Instance.GetSound("DartShoot").PlayOneShot(); 
+                    }
                     timer = delay;
 
                 }
@@ -159,9 +170,17 @@ public class DartLauncherScript : LogicObject
                     if (timer <= 0)
                     {
                         GameObject currentProjectile = dartPool.Get();
-                        currentProjectile.transform.position = spawnLocation.position;
-                        currentProjectile.GetComponent<DartScript>().Setup(this, bulletSpeed);
-                        SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
+                        DartScript dartScript;
+                        if (spawnLocation != null && currentProjectile.TryGetComponent<DartScript>(out dartScript))
+                        {
+                            currentProjectile.transform.position = spawnLocation.position;
+                            dartScript.Setup(this, bulletSpeed);
+                        }
+
+                        if (SoundManager.Instance != null)
+                        {
+                            SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
+                        }
                         timer = delay;
 
                     }
