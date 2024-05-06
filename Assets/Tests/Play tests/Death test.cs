@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-
 using UnityEngine.InputSystem;
 using NUnit.Framework.Internal;
 using UnityEngine.SceneManagement;
@@ -11,7 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class Deathtest : InputTestFixture
 {
-    Keyboard keyboard;
+    private Keyboard keyboard;
+
     public override void Setup()
     {
         SceneManager.LoadScene("Scenes/TestingScene");
@@ -38,9 +38,9 @@ public class Deathtest : InputTestFixture
     {
         yield return new WaitForSeconds(2f);
 
-        GameObject enemy = GameObject.Instantiate((GameObject)Resources.Load("Enemy"), new Vector2(0, 1), Quaternion.identity);
-        enemy.GetComponent<Enemy>().patrolPositions[0] = Vector2.up;
-        enemy.GetComponent<Enemy>().patrolPositions[1] = Vector2.zero;
+        var enemy = Object.Instantiate((GameObject)Resources.Load("Enemy"), new Vector2(0, 1), Quaternion.identity);
+        enemy.GetComponent<Enemy>().positions[0] = Vector2.up;
+        enemy.GetComponent<Enemy>().positions[1] = Vector2.zero;
 
         yield return new WaitForSeconds(0.5f);
 
@@ -52,10 +52,10 @@ public class Deathtest : InputTestFixture
     [UnityTest]
     public IEnumerator DeathWhenSpikesHitTest()
     {
-        GameObject spike = GameObject.Instantiate((GameObject)Resources.Load("Spikes"), new Vector2(0, 0), Quaternion.identity);
+        var spike = Object.Instantiate((GameObject)Resources.Load("Spikes"), new Vector2(0, 0), Quaternion.identity);
 
         yield return null;
-        
+
         spike.GetComponent<Spikes>().OnStateOn();
 
         yield return new WaitForSeconds(0.5f);
@@ -68,7 +68,8 @@ public class Deathtest : InputTestFixture
     [UnityTest]
     public IEnumerator DeathWhenArrowsHitTest()
     {
-        GameObject spike = GameObject.Instantiate((GameObject)Resources.Load("DartShooterBox"), new Vector2(-1, 0), Quaternion.identity);
+        var spike = Object.Instantiate((GameObject)Resources.Load("DartShooterBox"), new Vector2(-1, 0),
+            Quaternion.identity);
 
         yield return new WaitForSeconds(0.5f);
 

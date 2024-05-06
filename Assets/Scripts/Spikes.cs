@@ -4,70 +4,65 @@ using UnityEngine;
 
 public class Spikes : LogicObject
 {
-
-    [SerializeField] float spikeTime;
-    [SerializeField] bool upAndDownDiffrentTimes = false;
-    [SerializeField] float upSpikeTime;
-    [SerializeField] LayerMask triggerMask;
+    [SerializeField] private float spikeTime;
+    [SerializeField] private bool upAndDownDiffrentTimes = false;
+    [SerializeField] private float upSpikeTime;
+    [SerializeField] private LayerMask triggerMask;
     public bool isTimed;
     public bool isSpikesUp = false;
-    [SerializeField] Sprite outSpikesSprite;
-    [SerializeField] Sprite inSpikesSprite;
+    [SerializeField] private Sprite outSpikesSprite;
+    [SerializeField] private Sprite inSpikesSprite;
 
-    [Space(20)]
-    [SerializeField] float delay = 0;
-    
-    [SerializeField] float randomDelayAdd0toX = 0;
+    [Space(20)] [SerializeField] private float delay = 0;
 
-    [Space(20)]
-    [SerializeField] float blinkTransitionTime = 0.2f;
-    [SerializeField] float blinkDurationBeforeOpening = 1f;
-    
-    float tempTime;
+    [SerializeField] private float randomDelayAdd0toX = 0;
+
+    [Space(20)] [SerializeField] private float blinkTransitionTime = 0.2f;
+    [SerializeField] private float blinkDurationBeforeOpening = 1f;
+
+    private float tempTime;
     // Start is called before the first frame update
 
-    BoxCollider2D boxCollider;
-    SpriteRenderer spriteRenderer;
-    Vector2 baseColliderSize;
+    private BoxCollider2D boxCollider;
+    private SpriteRenderer spriteRenderer;
+    private Vector2 baseColliderSize;
 
-    int blockingObjectsCount = 0;
-    bool playerOnSpikes = false;
-    bool spikesShouldBeOut;
+    private int blockingObjectsCount = 0;
+    private bool playerOnSpikes = false;
+    private bool spikesShouldBeOut;
 
-    HashSet<GameObject> obstacles = new HashSet<GameObject>();
+    private HashSet<GameObject> obstacles = new();
 
 
-    float blinkVal = 0;
-    bool isBlinkOn = false;
+    private float blinkVal = 0;
+    private bool isBlinkOn = false;
 
-    void Awake()
+    private void Awake()
     {
-        tempDelay = delay + Random.Range(0,randomDelayAdd0toX);
+        tempDelay = delay + Random.Range(0, randomDelayAdd0toX);
         if (upAndDownDiffrentTimes && isSpikesUp)
-        {
             tempTime = upSpikeTime;
-        }
         else
-        {
             tempTime = spikeTime;
-        }
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         boxCollider = GetComponent<BoxCollider2D>();
         baseColliderSize = boxCollider.size;
 
-        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, baseColliderSize - new Vector2(0.05f, 0.05f), 0, triggerMask);
-        foreach(var i in triggerCollider)
+        var triggerCollider = Physics2D.OverlapBoxAll(transform.position, baseColliderSize - new Vector2(0.05f, 0.05f),
+            0, triggerMask);
+        foreach (var i in triggerCollider)
         {
             if (i.gameObject.CompareTag("Player"))
             {
-                
                 playerOnSpikes = true;
                 continue;
             }
+
             obstacles.Add(i.gameObject);
         }
+
         blockingObjectsCount = obstacles.Count;
 
         spikesShouldBeOut = isSpikesUp;
@@ -82,15 +77,16 @@ public class Spikes : LogicObject
         }
     }
 
-    void SetAlpha(float a)
+    private void SetAlpha(float a)
     {
-        Color col = spriteRenderer.color;
+        var col = spriteRenderer.color;
         col.a = a;
         spriteRenderer.color = col;
     }
 
-    float tempDelay;
-    void Update()
+    private float tempDelay;
+
+    private void Update()
     {
         if (tempDelay > 0)
         {
@@ -109,13 +105,11 @@ public class Spikes : LogicObject
                 isSpikesUp = !isSpikesUp;
                 SpikesControl(isSpikesUp);
                 if (upAndDownDiffrentTimes && isSpikesUp)
-                {
                     tempTime = upSpikeTime;
-                }
-                else {
+                else
                     tempTime = spikeTime;
-                }
             }
+
             if (tempTime <= blinkDurationBeforeOpening && isBlinkOn == false && !spikesShouldBeOut)
             {
                 isBlinkOn = true;
@@ -132,11 +126,11 @@ public class Spikes : LogicObject
             SetAlpha(1-blinkVal);
         }*/
     }
+
     public void SpikesControl(bool control)
     {
         if (control)
         {
-            
             TrySpikesOn();
         }
         else
@@ -145,18 +139,19 @@ public class Spikes : LogicObject
             SetAlpha(0);
             SpikesOff();
         }
+
         spikesShouldBeOut = control;
     }
+
     public void TrySpikesOn()
     {
-
-
         if (blockingObjectsCount > 0)
         {
             isBlinkOn = true;
             SetAlpha(1);
             return;
         }
+
         spriteRenderer.sprite = outSpikesSprite;
         isBlinkOn = false;
         SetAlpha(0);
@@ -171,6 +166,7 @@ public class Spikes : LogicObject
         boxCollider.size = baseColliderSize;
         boxCollider.includeLayers = 0;
     }
+
     public void SpikesOff()
     {
         spriteRenderer.sprite = inSpikesSprite;
@@ -180,13 +176,14 @@ public class Spikes : LogicObject
         SoundManager.Instance.GetSound("Spikes").PlayOneShot();
     }
 
-    void OnTrigger(Collider2D collision)
+    private void OnTrigger(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             playerOnSpikes = true;
             return;
         }
+
         if (((1 << collision.gameObject.layer) & triggerMask) != 0 && !obstacles.Contains(collision.gameObject))
         {
             obstacles.Add(collision.gameObject);
@@ -211,18 +208,19 @@ public class Spikes : LogicObject
             playerOnSpikes = false;
             return;
         }
+
         if (((1 << collision.gameObject.layer) & triggerMask) != 0)
         {
             obstacles.Remove(collision.gameObject);
             blockingObjectsCount--;
         }
+
         if (spikesShouldBeOut)
             TrySpikesOn();
     }
 
     public override void OnStateOn()
     {
-        
         if (!isTimed)
         {
             SpikesControl(true);
@@ -233,12 +231,9 @@ public class Spikes : LogicObject
             tempTime = spikeTime;
         }
     }
+
     public override void OnStateOff()
     {
-        if (!isTimed)
-        {
-            SpikesControl(false);
-        }
+        if (!isTimed) SpikesControl(false);
     }
-
 }

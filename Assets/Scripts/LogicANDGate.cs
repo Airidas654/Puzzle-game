@@ -12,13 +12,12 @@ public class LogicANDGate : LogicObject
             transmittersStates[transmitter] = state;
             this.state = true;
             foreach (var tstate in transmittersStates)
-            {
                 if (!tstate.Value)
                 {
                     this.state = false;
                     break;
                 }
-            }
+
             Transmit(this.state);
         }
     }

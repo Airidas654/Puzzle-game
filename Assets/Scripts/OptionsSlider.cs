@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class OptionsSlider : MonoBehaviour
 {
-    [SerializeField] string optionName;
-    [SerializeField] Vector2 range;
-    [SerializeField] bool XAxis;
-    [SerializeField] GameObject messagePrefab;
-    [SerializeField] Vector2 messageOffset;
-    GameObject message;
+    [SerializeField] private string optionName;
+    [SerializeField] private Vector2 range;
+    [SerializeField] private bool XAxis;
+    [SerializeField] private GameObject messagePrefab;
+    [SerializeField] private Vector2 messageOffset;
+    private GameObject message;
     public float value { get; private set; }
 
-    RectTransform mCanvas;
-    Camera mCamera;
+    private RectTransform mCanvas;
+    private Camera mCamera;
 
     private void OnDrawGizmosSelected()
     {
@@ -35,25 +35,17 @@ public class OptionsSlider : MonoBehaviour
     {
         this.value = value;
         if (XAxis)
-        {
-            transform.position = new Vector2(Mathf.Lerp(range.x,range.y,value),transform.position.y);
-        }
+            transform.position = new Vector2(Mathf.Lerp(range.x, range.y, value), transform.position.y);
         else
-        {
             transform.position = new Vector2(transform.position.x, Mathf.Lerp(range.x, range.y, value));
-        }
     }
 
-    void Start()
+    private void Start()
     {
         if (XAxis)
-        {
             value = Mathf.InverseLerp(range.x, range.y, transform.position.x);
-        }
         else
-        {
             value = Mathf.InverseLerp(range.x, range.y, transform.position.y);
-        }
 
         message = Instantiate(messagePrefab);
         message.GetComponent<TextMeshProUGUI>().text = string.Format("{0}: {1}%", optionName, (int)(value * 100));
@@ -73,7 +65,7 @@ public class OptionsSlider : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (XAxis)
         {
@@ -93,6 +85,5 @@ public class OptionsSlider : MonoBehaviour
         adjustedPosition.y *= mCanvas.rect.height / (float)mCamera.pixelHeight;
         message.GetComponent<RectTransform>().anchoredPosition = adjustedPosition - mCanvas.sizeDelta / 2f;
         message.GetComponent<RectTransform>().anchoredPosition += messageOffset;
-
     }
 }

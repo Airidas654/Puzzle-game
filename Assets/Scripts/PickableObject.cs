@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickableObject : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         PushableObjectManager.RegisterPickable(gameObject);
     }

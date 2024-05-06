@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-
 using UnityEngine.InputSystem;
 using NUnit.Framework.Internal;
 using UnityEngine.SceneManagement;
@@ -11,7 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class Pausetest : InputTestFixture
 {
-    Keyboard keyboard;
+    private Keyboard keyboard;
+
     public override void Setup()
     {
         SceneManager.LoadScene("Scenes/TestingScene");
@@ -22,7 +22,6 @@ public class Pausetest : InputTestFixture
     [UnityTest]
     public IEnumerator MovementAfterPauseTest()
     {
-
         yield return new WaitForSeconds(2f);
 
         PressAndRelease(keyboard.pKey, 0.1f);
@@ -42,7 +41,6 @@ public class Pausetest : InputTestFixture
     [UnityTest]
     public IEnumerator MovementAfterUnpauseTest()
     {
-        
         yield return new WaitForSeconds(2f);
 
         PressAndRelease(keyboard.pKey, 0.1f);

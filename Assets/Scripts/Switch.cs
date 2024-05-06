@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Switch : LogicObject
 {
-    [SerializeField] Sprite SwitchOn;
-    [SerializeField] Sprite SwitchOff;
+    [SerializeField] private Sprite SwitchOn;
+    [SerializeField] private Sprite SwitchOff;
+
     protected override void Start()
     {
         base.Start();
         PushableObjectManager.RegisterSwitch(gameObject);
         if (state)
-        {
             GetComponent<SpriteRenderer>().sprite = SwitchOn;
-        }
         else
-        {
             GetComponent<SpriteRenderer>().sprite = SwitchOff;
-        }
     }
 
     public void Toggle()
@@ -26,12 +23,8 @@ public class Switch : LogicObject
         Transmit(state);
         SoundManager.Instance.GetSound("Switch").PlayOneShot();
         if (state)
-        {
             GetComponent<SpriteRenderer>().sprite = SwitchOn;
-        }
         else
-        {
             GetComponent<SpriteRenderer>().sprite = SwitchOff;
-        }
     }
 }

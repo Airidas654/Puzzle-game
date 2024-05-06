@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-
 using UnityEngine.InputSystem;
 using NUnit.Framework.Internal;
 using UnityEngine.SceneManagement;
@@ -11,7 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class Movetest : InputTestFixture
 {
-    Keyboard keyboard;
+    private Keyboard keyboard;
+
     public override void Setup()
     {
         SceneManager.LoadScene("Scenes/TestingScene");

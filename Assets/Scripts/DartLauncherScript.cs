@@ -35,7 +35,7 @@ public class DartLauncherScript : LogicObject
     // Start is called before the first frame update
 
     /// <summary>
-    /// 
+    /// Starts and creates a dart object pool
     /// </summary>
     protected override void Start()
     {
@@ -44,7 +44,7 @@ public class DartLauncherScript : LogicObject
     }
 
     /// <summary>
-    /// 
+    /// Creates a dart object into the dart pool
     /// </summary>
     /// <returns></returns>
     GameObject CreatePooledItem()
@@ -55,7 +55,7 @@ public class DartLauncherScript : LogicObject
     }
 
     /// <summary>
-    /// 
+    /// Returns the pooled dart object into the pool
     /// </summary>
     /// <param name="system"></param>
 
@@ -65,7 +65,7 @@ public class DartLauncherScript : LogicObject
        
     }
     /// <summary>
-    /// 
+    /// Gets a dart object from available pool objects
     /// </summary>
     /// <param name="system"></param>
     void OnTakeFromPool(GameObject system)
@@ -74,7 +74,7 @@ public class DartLauncherScript : LogicObject
         
     }
     /// <summary>
-    /// 
+    /// Destroys pooled dart object 
     /// </summary>
     /// <param name="system"></param>
     void OnDestroyPoolObject(GameObject system)
@@ -82,7 +82,7 @@ public class DartLauncherScript : LogicObject
         Destroy(system.gameObject);
     }
     /// <summary>
-    /// 
+    /// Takes ant puts dart object into the pool
     /// </summary>
     /// <param name="obj"></param>
     public void RemoveArrow(GameObject obj)
@@ -90,7 +90,8 @@ public class DartLauncherScript : LogicObject
         dartPool.Release(obj);
     }
     /// <summary>
-    /// 
+    /// Validates any changes when the script is loaded or changed in the inspector
+    /// For the detection zone size changes to be seen
     /// </summary>
     public void OnValidate()
     {
@@ -130,7 +131,8 @@ public class DartLauncherScript : LogicObject
     
 
    /// <summary>
-   /// 
+   /// Every frame update function
+   /// Gets darts from the pool and makes it move
    /// </summary>
     void Update()
     {

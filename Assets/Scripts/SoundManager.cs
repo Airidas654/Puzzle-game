@@ -7,27 +7,24 @@ public class Sound
     public string name;
     public AudioClip clip;
 
-    [Range(0, 1)]
-    public float volume = 1f;
-    float globalVolume = 1f;
+    [Range(0, 1)] public float volume = 1f;
 
-    [Range(-3, 3)]
-    public float pitch = 1f;
+    private float globalVolume = 1f;
 
-    [Range(0, 0.5f)]
-    public float pitchRandomness = 0f;
+    [Range(-3, 3)] public float pitch = 1f;
+
+    [Range(0, 0.5f)] public float pitchRandomness = 0f;
 
     public bool loop = false;
 
-    [Header("OneShot settings")]
-    public bool onlyPlaysOneShots = false;
+    [Header("OneShot settings")] public bool onlyPlaysOneShots = false;
     public int maxSoundsAtSameTime = 10;
 
-    [HideInInspector]
-    public AudioSource audioSource;
+    [HideInInspector] public AudioSource audioSource;
 
-    double coolDown = 0;
-    Queue<double> startTimes = new Queue<double>();
+    private double coolDown = 0;
+    private Queue<double> startTimes = new();
+
     public Sound()
     {
         name = "";
@@ -41,6 +38,7 @@ public class Sound
         coolDown = 0;
         startTimes = new Queue<double>();
     }
+
     public Sound(string name, AudioClip clip) : this()
     {
         this.name = name;
@@ -48,26 +46,30 @@ public class Sound
         SoundManager.Instance.AddSound(this);
     }
 
-    public static float RandomNum(float nuo, float iki) { return Random.Range(nuo, iki); }
+    public static float RandomNum(float nuo, float iki)
+    {
+        return Random.Range(nuo, iki);
+    }
 
-    float GetRandomPitch() { return pitch + RandomNum(-pitchRandomness, pitchRandomness); }
+    private float GetRandomPitch()
+    {
+        return pitch + RandomNum(-pitchRandomness, pitchRandomness);
+    }
 
-    bool OnlyOneShotCheck()
+    private bool OnlyOneShotCheck()
     {
         if (onlyPlaysOneShots)
         {
             Debug.LogError("Can't play, because onlyPlaysOneShots = true");
             return true;
         }
+
         return false;
     }
 
-    void UpdateStartTimes()
+    private void UpdateStartTimes()
     {
-        while(startTimes.Count != 0 && startTimes.Peek() <= Time.timeAsDouble)
-        {
-            startTimes.Dequeue();
-        }
+        while (startTimes.Count != 0 && startTimes.Peek() <= Time.timeAsDouble) startTimes.Dequeue();
     }
 
     public Sound Play()
@@ -99,8 +101,10 @@ public class Sound
             this.coolDown = coolDown + Time.timeAsDouble;
             PlayOneShot();
         }
+
         return this;
     }
+
     public Sound PlayWithCooldown(float coolDown, Vector3 position)
     {
         if (this.coolDown <= Time.timeAsDouble)
@@ -108,6 +112,7 @@ public class Sound
             this.coolDown = coolDown + Time.timeAsDouble;
             PlayOneShot(position);
         }
+
         return this;
     }
 
@@ -115,14 +120,16 @@ public class Sound
     {
         return PlayWithCooldown(clip.length);
     }
+
     public Sound PlayIfEnded(Vector3 position)
     {
         return PlayWithCooldown(clip.length, position);
     }
 
     public bool doCooldownLoop { get; private set; }
-    float coolDownLoopCooldown;
-    int coolDownLoopIterationCount;
+    private float coolDownLoopCooldown;
+    private int coolDownLoopIterationCount;
+
     public Sound StartCooldownLoop(float coolDown, int playCount)
     {
         doCooldownLoop = true;
@@ -130,6 +137,7 @@ public class Sound
         coolDownLoopIterationCount = playCount;
         return this;
     }
+
     public Sound StopCooldownLoop()
     {
         doCooldownLoop = false;
@@ -144,12 +152,10 @@ public class Sound
             if (coolDownLoopIterationCount > 0)
             {
                 coolDownLoopIterationCount--;
-                if (coolDownLoopIterationCount == 0)
-                {
-                    StopCooldownLoop();
-                }
+                if (coolDownLoopIterationCount == 0) StopCooldownLoop();
             }
         }
+
         return this;
     }
 
@@ -179,10 +185,12 @@ public class Sound
         {
             startTimes.Enqueue(Time.timeAsDouble + clip.length);
             audioSource.pitch = GetRandomPitch();
-            audioSource.PlayOneShot(clip, (onlyPlaysOneShots) ? volume : 1f);
+            audioSource.PlayOneShot(clip, onlyPlaysOneShots ? volume : 1f);
         }
+
         return this;
     }
+
     public Sound PlayOneShot(Vector3 position)
     {
         UpdateStartTimes();
@@ -193,13 +201,14 @@ public class Sound
             audioSource.pitch = GetRandomPitch();
             AudioSource.PlayClipAtPoint(clip, position, volume);
         }
+
         return this;
     }
 
     public Sound ChangePitch(float pitch)
     {
         audioSource.pitch = pitch;
-        return this;     
+        return this;
     }
 
     public Sound GlobalVolumeChanged(float val)
@@ -211,10 +220,7 @@ public class Sound
 
     public Sound ChangeVolume(float volume)
     {
-        if (audioSource != null)
-        {
-            audioSource.volume = volume * globalVolume;
-        }
+        if (audioSource != null) audioSource.volume = volume * globalVolume;
         this.volume = volume;
         return this;
     }
@@ -249,21 +255,15 @@ public class Music
 {
     public string name;
     public AudioClip clip;
-    [Range(0, 1)]
-    public float volume = 1f;
+    [Range(0, 1)] public float volume = 1f;
 
-    public bool isPlaying
-    {
-        get
-        {
-            return sound.audioSource.isPlaying;
-        }
-    }
+    public bool isPlaying => sound.audioSource.isPlaying;
 
     public Sound sound { get; private set; }
     public int soundId { get; private set; }
 
-    public Music(){
+    public Music()
+    {
         name = "";
         clip = null;
         volume = 1f;
@@ -337,70 +337,63 @@ public class Music
     {
         sound.UnPause();
     }
-
 }
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]
-    List<Sound> sounds = new List<Sound>();
+    [SerializeField] private List<Sound> sounds = new();
 
-    [Header("Music")]
-    [Space(15)]
-    [SerializeField] bool playOnAwake = false;
-    [SerializeField] bool muteWithMAndChangeSong = false;
-    [SerializeField] bool whenStoppedChangeToNext = false;
+    [Header("Music")] [Space(15)] [SerializeField]
+    private bool playOnAwake = false;
 
-    [SerializeField]
-    List<Music> songs = new List<Music>();
+    [SerializeField] private bool muteWithMAndChangeSong = false;
+    [SerializeField] private bool whenStoppedChangeToNext = false;
+
+    [SerializeField] private List<Music> songs = new();
 
     public event System.Action onSongFinished;
 
-    Dictionary<string, int> soundHash;
-    Dictionary<string, int> musicHash;
+    private Dictionary<string, int> soundHash;
+    private Dictionary<string, int> musicHash;
 
-    static SoundManager inst = null;
-    public static SoundManager Instance {
-        get {
-            if (inst == null)
-            {
-                inst = ((GameObject)Instantiate(Resources.Load("Sound Manager"))).GetComponent<SoundManager>();
-            }
-            
-            return inst;
-        } set
+    private static SoundManager inst = null;
+
+    public static SoundManager Instance
+    {
+        get
         {
-            inst = value;
+            if (inst == null)
+                inst = ((GameObject)Instantiate(Resources.Load("Sound Manager"))).GetComponent<SoundManager>();
+
+            return inst;
         }
+        set => inst = value;
     }
 
-    AudioSource oneShotAudioSource = null;
+    private AudioSource oneShotAudioSource = null;
 
-    bool musicMuted = false;
-    int currentSongIndex = 0;
-    Music playingSong = null;
+    private bool musicMuted = false;
+    private int currentSongIndex = 0;
+    private Music playingSong = null;
 
-    float globalMusicVolume = 1;
-    float globalSoundVolume = 1;
+    private float globalMusicVolume = 1;
+    private float globalSoundVolume = 1;
 
     private void Reset()
     {
         sounds = new List<Sound>()
         {
-            new Sound()
+            new()
         };
         songs = new List<Music>()
         {
-            new Music()
+            new()
         };
     }
 
     public void ChangeGlobalMusicVolume(float val)
     {
-        foreach (Music i in songs)
-        {
-            i.GlobalVolumeChanged(val);
-        }
+        foreach (var i in songs) i.GlobalVolumeChanged(val);
         globalMusicVolume = val;
     }
 
@@ -411,10 +404,7 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeGlobalSoundVolume(float val)
     {
-        foreach (Sound i in sounds)
-        {
-            i.GlobalVolumeChanged(val);
-        }
+        foreach (var i in sounds) i.GlobalVolumeChanged(val);
         globalSoundVolume = val;
     }
 
@@ -423,10 +413,11 @@ public class SoundManager : MonoBehaviour
         return globalSoundVolume;
     }
 
-    void AddAudioSource(Sound sound)
+    private void AddAudioSource(Sound sound)
     {
-        if (!sound.onlyPlaysOneShots) { 
-            AudioSource source = gameObject.AddComponent<AudioSource>();
+        if (!sound.onlyPlaysOneShots)
+        {
+            var source = gameObject.AddComponent<AudioSource>();
 
             sound.audioSource = source;
             source.pitch = sound.pitch;
@@ -445,12 +436,14 @@ public class SoundManager : MonoBehaviour
                 oneShotAudioSource.volume = 1;
                 oneShotAudioSource.playOnAwake = false;
             }
+
             sound.audioSource = oneShotAudioSource;
         }
     }
 
-    int soundIndex = 0;
-    int musicIndex = 0;
+    private int soundIndex = 0;
+    private int musicIndex = 0;
+
     public void AddSound(Sound sound)
     {
         if (!soundHash.ContainsKey(sound.name))
@@ -468,30 +461,28 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         DontDestroyOnLoad(gameObject);
         Instance = this;
 
         soundHash = new Dictionary<string, int>(sounds.Count);
         musicHash = new Dictionary<string, int>(songs.Count);
-        
-        foreach (Sound i in sounds)
+
+        foreach (var i in sounds)
         {
             AddAudioSource(i);
 
-            soundHash.Add(i.name,soundIndex++);
+            soundHash.Add(i.name, soundIndex++);
         }
 
-        foreach(Music i in songs)
+        foreach (var i in songs)
         {
             i.SetSound(new Sound(i.name, i.clip));
 
             musicHash.Add(i.name, musicIndex++);
         }
 
-        if (playOnAwake)
-        {
-            PlaySong(currentSongIndex);
-        }
+        if (playOnAwake) PlaySong(currentSongIndex);
     }
 
     public Music getCurrentSong()
@@ -501,31 +492,22 @@ public class SoundManager : MonoBehaviour
 
     public void StopCurrentSong()
     {
-        if (playingSong != null)
-        {
-            playingSong.Stop();
-        }
+        if (playingSong != null) playingSong.Stop();
     }
 
     public void PauseCurrentSong()
     {
-        if (playingSong != null)
-        {
-            playingSong.Pause();
-        }
+        if (playingSong != null) playingSong.Pause();
     }
 
     public void UnPauseCurrentSong()
     {
-        if (playingSong != null)
-        {
-            playingSong.UnPause();
-        }
+        if (playingSong != null) playingSong.UnPause();
     }
 
     public void PlaySong(int songIndex)
     {
-        Music music = GetMusic(songIndex);
+        var music = GetMusic(songIndex);
         if (music != null)
         {
             music.Play();
@@ -538,29 +520,24 @@ public class SoundManager : MonoBehaviour
     {
         PlaySong(indices[Random.Range(0, indices.Length)]);
     }
+
     public void PlaySongRandom()
     {
         PlaySong(Random.Range(0, songs.Count));
     }
-    
+
 
     public int GetSoundId(string name)
     {
         int index;
-        if (soundHash.TryGetValue(name, out index))
-        {
-            return index;
-        }
-        Debug.LogError("Couldn't find "+name+ " sound");
+        if (soundHash.TryGetValue(name, out index)) return index;
+        Debug.LogError("Couldn't find " + name + " sound");
         return -1;
     }
-    
+
     public Sound GetSound(int id)
     {
-        if (id >= 0 && id < sounds.Count)
-        {
-            return sounds[id];
-        }
+        if (id >= 0 && id < sounds.Count) return sounds[id];
         Debug.LogError("Couldn't find given sound!");
         return null;
     }
@@ -578,20 +555,14 @@ public class SoundManager : MonoBehaviour
     public int GetMusicId(string name)
     {
         int index;
-        if (musicHash.TryGetValue(name, out index))
-        {
-            return index;
-        }
+        if (musicHash.TryGetValue(name, out index)) return index;
         Debug.LogError("Couldn't find " + name + " song");
         return -1;
     }
 
     public Music GetMusic(int id)
     {
-        if (id >= 0 && id < songs.Count)
-        {
-            return songs[id];
-        }
+        if (id >= 0 && id < songs.Count) return songs[id];
         Debug.LogError("Couldn't find given song!");
         return null;
     }
@@ -608,13 +579,9 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-        foreach(Sound i in sounds)
-        {
+        foreach (var i in sounds)
             if (i.doCooldownLoop)
-            {
                 i.UpdateCooldownLoop();
-            }
-        }
 
         if (playingSong != null && !playingSong.isPlaying && !musicMuted)
         {
