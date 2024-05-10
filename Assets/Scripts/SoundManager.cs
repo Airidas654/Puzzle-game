@@ -586,7 +586,6 @@ public class SoundManager : MonoBehaviour
         if (playingSong != null && !playingSong.isPlaying && !musicMuted)
         {
             onSongFinished?.Invoke();
-            Debug.Log("No null error");
             //onSongFinished();
             if (whenStoppedChangeToNext)
             {
