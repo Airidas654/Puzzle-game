@@ -61,4 +61,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   darkStartLength: 0.5
   trasitionMat: {fileID: 2100000, guid: 0cbaf7c54834a0d4c9cc092bda68c59f, type: 2}
-  playerOffset: {x: 0, y: 0}
+  playerOffset: {x: 0, y: 0.35}

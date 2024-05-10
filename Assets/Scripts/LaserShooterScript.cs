@@ -3,14 +3,26 @@ using UnityEngine;
 
 public class LaserShooterScript : LogicObject
 {
-	private List<GameObject> laserBeamList = new(); //---name
+	private List<GameObject> laserBeamList = new();
+	private List<GameObject> indicatorList = new();
 	[SerializeField] private float maxRayDistance = 15000;
 	[SerializeField] private float raySpread = 0;
 	[SerializeField] private LayerMask layerMask;
 	[SerializeField] private LayerMask playerMask;
-	private UnityEngine.Pool.ObjectPool<GameObject> beamPool;// ---name
-	public GameObject laserBeam;
+	[SerializeField] GameObject laserBeam;
+	[SerializeField] GameObject indicatorPrefab;
 	public int reflections;
+
+	[Header("Timed laser")]
+
+	[SerializeField] bool isTimed = false;
+	[SerializeField] bool startOn = false;
+	[SerializeField] float offTime = 0f;
+	[SerializeField] float onTime = 0f;
+	[SerializeField] float indicatorDuration = 0.5f;
+
+	private UnityEngine.Pool.ObjectPool<GameObject> beamPool;// ---name
+	private UnityEngine.Pool.ObjectPool<GameObject> indicatorPool;
 
 	private GameObject lastReceiver = null;
 
@@ -22,7 +34,9 @@ public class LaserShooterScript : LogicObject
 	private void ClearLasers()
 	{
 		foreach (var go in laserBeamList) beamPool.Release(go);
+		foreach (var go in indicatorList) indicatorPool.Release(go);
 		laserBeamList.Clear();
+		indicatorList.Clear();
 	}
 	/// <summary>
 	/// laser visualization
@@ -40,8 +54,11 @@ public class LaserShooterScript : LogicObject
 	/// </summary>
 	protected override void Start()
 	{
-		beamPool = new UnityEngine.Pool.ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool,
-			OnDestroyPoolObject);
+		isOn = startOn;
+		timer = (isOn) ? onTime : offTime;
+
+		beamPool = new UnityEngine.Pool.ObjectPool<GameObject>(CreatePooledLaser, OnTakeFromPool, OnReturnedToPool,OnDestroyPoolObject);
+		indicatorPool = new UnityEngine.Pool.ObjectPool<GameObject>(CreatePooledIndicator, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject);
 
 		ParticleSystem particleSystem;
 		if (transform.GetChild(0).TryGetComponent<ParticleSystem>(out particleSystem) && transform.childCount > 0)
@@ -54,11 +71,42 @@ public class LaserShooterScript : LogicObject
 	/// <summary>
 	/// updates every frame	for laser
 	/// </summary>
+	float timer = 0;
+	bool isOn;
 	private void Update()
 	{
-		if (!state)
-			FirstLaserShot();
-		else if (laserBeamList.Count > 0) ClearLasers();
+		if (isTimed)
+		{
+			timer -= Time.deltaTime;
+
+			if (timer <= 0)
+            {
+				isOn = !isOn;
+				timer = (isOn) ? onTime : offTime;
+			}
+
+
+			if (isOn)
+				FirstLaserShot();
+			else if (timer-indicatorDuration <= 0) {
+				float val = Mathf.InverseLerp(indicatorDuration, 0, timer);
+				FirstIndicatorShot(val);
+			} else if (laserBeamList.Count > 0 || indicatorList.Count > 0)
+			{
+				SetParticles(false);
+				ClearLasers();
+			}
+		}
+		else
+		{
+			if (!state)
+				FirstLaserShot();
+			else if (laserBeamList.Count > 0 || indicatorList.Count > 0)
+			{
+				SetParticles(false);
+				ClearLasers();
+			}
+		}
 	}
 	/// <summary>
 	/// shoots first laser
@@ -67,6 +115,12 @@ public class LaserShooterScript : LogicObject
 	{
 		ClearLasers();
 		ShootLaser(reflections, transform.position, transform.right);
+	}
+
+	private void FirstIndicatorShot(float heightVal = 1)
+	{
+		ClearLasers();
+		ShootIndicator(reflections, transform.position, transform.right, heightVal);
 	}
 
 	private bool particlesPlaying = false;
@@ -94,6 +148,29 @@ public class LaserShooterScript : LogicObject
 				particleSystemt.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 			}
 		}
+	}
+
+	void ShootIndicator(int reflectionsLeft, Vector2 origin, Vector2 dir, float heightVal)
+    {
+		if (reflectionsLeft == 0) return;
+
+		var hit = Physics2D.Raycast(origin, dir, maxRayDistance, layerMask);
+
+		var dist = hit.collider == null ? maxRayDistance : hit.distance;
+
+
+		if (dist > Mathf.Epsilon) Draw2DIndicatorRay(origin, origin + dir * dist, heightVal);
+		if (hit.collider != null)
+		{
+			if (hit.collider.CompareTag("Mirror"))
+			{
+				var norm = (hit.point - (Vector2)hit.collider.transform.position).normalized;
+
+				ShootIndicator(reflectionsLeft - 1, hit.point - dir * 0.001f, Vector2.Reflect(dir, norm), heightVal);
+			}
+		}
+
+		
 	}
 
 	/// <summary>
@@ -152,6 +229,39 @@ public class LaserShooterScript : LogicObject
 			}
 		}
 	}
+
+	private void Draw2DIndicatorRay(Vector2 startPos, Vector2 hitPos, float heightVal)
+	{
+		var middle = (hitPos - startPos) / 2 + startPos;
+
+		var dis = (startPos - hitPos).magnitude;
+
+
+		Vector3 norm;
+		if (dis == 0)
+		{
+
+			norm = Vector3.up;
+		}
+		else
+		{
+			norm = (hitPos - startPos) / dis;
+		}
+
+
+		var rot = Mathf.Atan2(norm.y, norm.x) * Mathf.Rad2Deg;
+		var quat = Quaternion.Euler(0, 0, rot);
+
+		var indicator = indicatorPool.Get();
+		indicatorList.Add(indicator);
+
+		indicator.transform.position = middle;
+
+		indicator.transform.rotation = quat;
+
+		indicator.GetComponent<SpriteRenderer>().size = new Vector2(dis, Mathf.Lerp(0,1f, heightVal));
+	}
+
 	/// <summary>
 	/// draws the laser beam
 	/// </summary>
@@ -198,12 +308,24 @@ public class LaserShooterScript : LogicObject
 	/// creates a pooled item in the  game
 	/// </summary>
 	/// <returns>created object</returns>
-	private GameObject CreatePooledItem()
+	private GameObject CreatePooledLaser()
 	{
 		if (laserBeam != null)
 		{
 
 			var temp = Instantiate(laserBeam, Vector2.zero, Quaternion.identity);//---laserb null
+
+			return temp;
+		}
+		return null;
+	}
+
+	private GameObject CreatePooledIndicator()
+	{
+		if (laserBeam != null)
+		{
+
+			var temp = Instantiate(indicatorPrefab, Vector2.zero, Quaternion.identity);//---laserb null
 
 			return temp;
 		}
@@ -243,5 +365,9 @@ public class LaserShooterScript : LogicObject
 	public void RemoveLaser(GameObject obj)
 	{
 		beamPool.Release(obj);
+	}
+	public void RemoveIndicator(GameObject obj)
+	{
+		indicatorPool.Release(obj);
 	}
 }

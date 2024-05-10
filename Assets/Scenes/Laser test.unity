@@ -2207,6 +2207,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 442464435642125114, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442464435642125114, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442464435642125114, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442464435642125114, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 880497195110120740, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.715319
@@ -2246,6 +2262,30 @@ PrefabInstance:
     - target: {fileID: 880497195110120740, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: onTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: isTimed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: offTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: maxRayDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: indicatorPrefab
+      value: 
+      objectReference: {fileID: 8217157563342640764, guid: 1b5a0e20e60bb594485728b21b7664e0, type: 3}
+    - target: {fileID: 2480633992676289796, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
+      propertyPath: prewarm
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5457305248381586581, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
       propertyPath: m_Name
@@ -2787,12 +2827,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3044147501487243482, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
+      propertyPath: yAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044147501487243482, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
       propertyPath: trailMinMax.x
-      value: -2.22
+      value: -2.39
       objectReference: {fileID: 0}
     - target: {fileID: 3044147501487243482, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
       propertyPath: trailMinMax.y
-      value: -0.48
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 3044147501487243482, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
       propertyPath: sliderJointMiddlePrefab
@@ -2800,11 +2844,11 @@ PrefabInstance:
       objectReference: {fileID: 7428565004301500846, guid: 60fc3e5a37808a141a072f1a6ae8c726, type: 3}
     - target: {fileID: 5025893224515049823, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.52
+      value: -1.53
       objectReference: {fileID: 0}
     - target: {fileID: 5025893224515049823, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.96
+      value: -3.89
       objectReference: {fileID: 0}
     - target: {fileID: 5025893224515049823, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
       propertyPath: m_LocalPosition.z
