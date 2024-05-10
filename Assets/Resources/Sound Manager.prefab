@@ -83,7 +83,7 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   playOnAwake: 1
   muteWithMAndChangeSong: 1
-  whenStoppedChangeToNext: 0
+  whenStoppedChangeToNext: 1
   songs:
   - name: Song 1
     clip: {fileID: 8300000, guid: b3c737854605b354ea1cc727adafb5fb, type: 3}
