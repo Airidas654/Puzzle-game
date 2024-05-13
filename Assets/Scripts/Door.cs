@@ -55,8 +55,14 @@ public class Door : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            int exact = SceneManager.GetActiveScene().buildIndex;
+            if (exact - 4 >= 0)
+            {
+                LevelSelectManager.done[exact - 4] = true;
+            }
+
             if (goToIncrimentedLevel)
-                UImanager.StartLevelTransition(SceneManager.GetActiveScene().buildIndex + 1, 0.5f);
+                UImanager.StartLevelTransition(exact + 1, 0.5f);
             else
                 UImanager.StartLevelTransition(exactLevel, 0.5f);
         }

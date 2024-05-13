@@ -17,7 +17,7 @@ public class Switch : LogicObject
             GetComponent<SpriteRenderer>().sprite = SwitchOff;
     }
 
-    public void Toggle()
+    public virtual void Toggle()
     {
         state = !state;
         Transmit(state);

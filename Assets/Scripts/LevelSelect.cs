@@ -1,8 +1,9 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class LevelSelect : MonoBehaviour
+public class LevelSelect : Switch
 {
     [SerializeField] private int levelId;
     [SerializeField] private GameObject messagePrefab;
@@ -22,8 +23,9 @@ public class LevelSelect : MonoBehaviour
         this.time = time;
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         trans = GetComponent<Switch>();
 
         message = Instantiate(messagePrefab);
@@ -43,9 +45,22 @@ public class LevelSelect : MonoBehaviour
         //message.SetActive(false);
     }
 
+    public void NonPlayerToggle()
+    {
+        base.Toggle();
+    }
+
+    public override void Toggle()
+    {
+        if (!LevelSelectManager.toggled)
+        {
+            UImanager.StartLevelTransition(levelId, 0.5f);
+            LevelSelectManager.toggled = true;
+        }
+    }
+
     private void Update()
     {
-        if (trans.state) UImanager.StartLevelTransition(levelId, 0.5f);
         if (time > 0)
         {
             time -= Time.deltaTime;
