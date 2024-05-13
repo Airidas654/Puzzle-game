@@ -45,7 +45,7 @@ public class LevelSelectManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if(PlayerMovement.input.Player.Cheat.WasReleasedThisFrame())
         {
             Check();
             for (int i = 0; i < done.Length; i++)
