@@ -17,6 +17,16 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private bool freezeX;
     [SerializeField] private bool freezeY;
 
+    public void SetFreezeX(bool val)
+    {
+        freezeX = val;
+    }
+
+    public void SetFreezeY(bool val)
+    {
+        freezeY = val;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
