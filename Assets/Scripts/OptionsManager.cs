@@ -10,9 +10,9 @@ public class OptionsManager : MonoBehaviour
     private void Start()
     {
         float volume;
-        SoundManager.Instance.GetMusic(0).GetVolume(out volume);
+        volume = SoundManager.Instance.GetGlobalSoundVolume();
         sliders[0].SetValue(volume); // set value to sound volume
-        SoundManager.Instance.GetSound(0).GetVolume(out volume);
+        volume = SoundManager.Instance.GetGlobalMusicVolume();
         sliders[1].SetValue(volume); // set value to music volume
         checkboxes[0].SetValue(GameManager.inst.GetOldMonitorEffects()); // set value to post effects
     }

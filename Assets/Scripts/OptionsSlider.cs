@@ -57,15 +57,17 @@ public class OptionsSlider : MonoBehaviour
 
         GameObject middleObj = Instantiate(sliderJointMiddlePrefab);
 
+ 
+
         if (XAxis)
         {
-            value = Mathf.InverseLerp(range.x, range.y, transform.position.x);
+            //value = Mathf.InverseLerp(range.x, range.y, transform.position.x);      
             middleObj.transform.position = new Vector3((range.x+range.y)/2, transform.position.y, transform.position.z);
             slidJoint.angle = 0;
         }
         else
         {
-            value = Mathf.InverseLerp(range.x, range.y, transform.position.y);
+            //value = Mathf.InverseLerp(range.x, range.y, transform.position.y);
             middleObj.transform.position = new Vector3(transform.position.x,(range.x + range.y) / 2, transform.position.z);
             slidJoint.angle = 90;
         }
