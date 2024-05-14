@@ -1339,8 +1339,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1931090785}
     m_Modifications:
     - target: {fileID: 3044147501487243482, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
+      propertyPath: yAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044147501487243482, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
+      propertyPath: trailMinMax.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044147501487243482, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
       propertyPath: trailMinMax.y
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 5025893224515049823, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
       propertyPath: m_LocalPosition.x
