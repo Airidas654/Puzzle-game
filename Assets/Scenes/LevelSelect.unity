@@ -39564,7 +39564,6 @@ MonoBehaviour:
   secretWallPoint: {x: -10.29, y: -2.21}
   distance: 2.09
   minDist: 0.97
-  cameraReturnDist: 3.37
   secretObjParent: {fileID: 248619992}
 --- !u!1 &1146493356
 GameObject:
@@ -39723,7 +39722,7 @@ SpriteRenderer:
   m_SortingLayerID: -1501991301
   m_SortingLayer: 5
   m_SortingOrder: 16
-  m_Sprite: {fileID: -385087500, guid: 5b71713284cb1c345adfa95674134580, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9fad6a652f156a4ca447e06fe52372d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -41558,9 +41557,9 @@ SpriteRenderer:
   m_SortingLayerID: -1501991301
   m_SortingLayer: 5
   m_SortingOrder: 16
-  m_Sprite: {fileID: -820364159, guid: 5b71713284cb1c345adfa95674134580, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9fad6a652f156a4ca447e06fe52372d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.5, y: 0.5}
