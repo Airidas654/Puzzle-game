@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public static GameObject currPlayer;
+    public static bool isCool = false;
     [SerializeField] private float moveSpeed = 10;
     private Rigidbody2D rg;
     private Animator animator;
     [HideInInspector] public Vector2 moveDir;
+
+    [SerializeField] AnimatorController coolAnimator;
 
     [HideInInspector] public bool cantRotateWithMove = false;
     public bool lookRight = false;
@@ -43,11 +47,21 @@ public class PlayerMovement : MonoBehaviour
         rg = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         canMove = true;
+
+        if (isCool)
+        {
+            animator.runtimeAnimatorController = coolAnimator;
+        }
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (PlayerMovement.input.Player.Cheat.WasPressedThisFrame())
+        {
+            isCool = true;
+        }
+
         if (GameManager.inst.CantDoAnything || PauseUi.instance.paused) return;
         if (canMove)
         {
