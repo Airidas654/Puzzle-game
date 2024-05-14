@@ -167,6 +167,8 @@ MonoBehaviour:
   trailMinMax: {x: 0, y: 3}
   yAxis: 0
   trailOffset: {x: 0, y: 0}
+  spriteX: {fileID: -32287121, guid: e835cc0ee35e09342b945e73c0ba60ce, type: 3}
+  spriteY: {fileID: -744819733, guid: e835cc0ee35e09342b945e73c0ba60ce, type: 3}
 --- !u!234 &1683593822220570960
 SliderJoint2D:
   m_ObjectHideFlags: 0

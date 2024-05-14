@@ -177,7 +177,7 @@ public class LaserShooterScript : LogicObject
 		{
 			if (hit.collider.CompareTag("Mirror"))
 			{
-				var norm = (hit.point - (Vector2)hit.collider.transform.position).normalized;
+				var norm = (hit.point - ((Vector2)hit.collider.transform.position+ hit.collider.offset)).normalized;
 
 				ShootIndicator(reflectionsLeft - 1, hit.point - dir * 0.001f, Vector2.Reflect(dir, norm), heightVal);
 			}
@@ -208,7 +208,7 @@ public class LaserShooterScript : LogicObject
 		{
 			if (hit.collider.CompareTag("Mirror"))
 			{
-				var norm = (hit.point - (Vector2)hit.collider.transform.position).normalized;
+				var norm = (hit.point - ((Vector2)hit.collider.transform.position + hit.collider.offset)).normalized;
 
 
 

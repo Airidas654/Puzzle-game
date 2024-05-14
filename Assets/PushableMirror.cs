@@ -10,6 +10,9 @@ public class PushableMirror : MonoBehaviour
     [SerializeField] bool yAxis = false;
     [SerializeField] Vector2 trailOffset;
 
+    [SerializeField] Sprite spriteX;
+    [SerializeField] Sprite spriteY;
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
@@ -50,6 +53,9 @@ public class PushableMirror : MonoBehaviour
             Vector3 pos1 = transform.position + new Vector3(trailMinMax.x, 0, 0);
             Vector3 pos2 = transform.position + new Vector3(trailMinMax.y, 0, 0);
 
+            GetComponent<SpriteRenderer>().sprite = spriteX;
+            GetComponent<CircleCollider2D>().offset = new Vector2(0, 0.3f);
+
             trailObj.transform.position = (pos1 + pos2) / 2;
             trailObj.transform.rotation = Quaternion.Euler(0, 0, 0);
             trailObj.GetComponent<SpriteRenderer>().size = new Vector2(Mathf.Abs(trailMinMax.x-trailMinMax.y)+1,0.5f);
@@ -63,6 +69,9 @@ public class PushableMirror : MonoBehaviour
 
             Vector3 pos1 = transform.position + new Vector3(0, trailMinMax.x, 0);
             Vector3 pos2 = transform.position + new Vector3(0, trailMinMax.y, 0);
+
+            GetComponent<SpriteRenderer>().sprite = spriteY;
+            GetComponent<CircleCollider2D>().offset = new Vector2(0,0.06f);
 
             trailObj.transform.position = (pos1 + pos2) / 2;
             trailObj.transform.rotation = Quaternion.Euler(0, 0, 90);
