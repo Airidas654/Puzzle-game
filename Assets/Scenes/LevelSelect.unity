@@ -38460,7 +38460,7 @@ MonoBehaviour:
   - {fileID: 17196722}
   SwitchOn: {fileID: 1590153497, guid: 60f897d01c8b7ce43a768167f80eef88, type: 3}
   SwitchOff: {fileID: -1958971085, guid: 60f897d01c8b7ce43a768167f80eef88, type: 3}
-  levelId: 25
+  levelId: 20
   messagePrefab: {fileID: 2539055706260453101, guid: 64016759141aa1646bdad55cd0ae2aa3, type: 3}
   messageOffset: {x: 0, y: 100}
   messageText: ???
@@ -40156,7 +40156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212965873360041593, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8212965873360041593, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
       propertyPath: m_LocalPosition.y
