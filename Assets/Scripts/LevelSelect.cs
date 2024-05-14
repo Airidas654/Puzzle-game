@@ -8,6 +8,8 @@ public class LevelSelect : Switch
     [SerializeField] private int levelId;
     [SerializeField] private GameObject messagePrefab;
     [SerializeField] private Vector2 messageOffset;
+    [SerializeField] private string messageText;
+    [SerializeField] private bool showId;
     private Switch trans;
     private float time;
     private GameObject message;
@@ -29,17 +31,11 @@ public class LevelSelect : Switch
         trans = GetComponent<Switch>();
 
         message = Instantiate(messagePrefab);
-        message.GetComponent<TextMeshProUGUI>().text = $"Level {levelId - 3}";
+        message.GetComponent<TextMeshProUGUI>().text = string.Format("{0}{1}",messageText,(showId)?(" " + (levelId - 3)):"");
         var mCamera = Camera.main;
         message.transform.SetParent(GameObject.Find("Canvas").transform);
-
-        Vector2 adjustedPosition = mCamera.WorldToScreenPoint((Vector2)transform.position);
         var mCanvas = GameObject.Find("Canvas").GetComponent<RectTransform>();
-
-        adjustedPosition.x *= mCanvas.rect.width / mCamera.pixelWidth;
-        adjustedPosition.y *= mCanvas.rect.height / mCamera.pixelHeight;
-
-        message.GetComponent<RectTransform>().anchoredPosition = adjustedPosition - mCanvas.sizeDelta / 2f;
+        message.GetComponent<RectTransform>().anchoredPosition = gameObject.transform.position / mCanvas.localScale.x; //adjustedPosition - mCanvas.sizeDelta / 2f;
         message.transform.localScale = Vector3.one;
         message.GetComponent<RectTransform>().anchoredPosition += messageOffset;
         //message.SetActive(false);
