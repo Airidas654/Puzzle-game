@@ -21,4 +21,5 @@ public class LaserReceiverScript : LogicObject
 			gameObject.GetComponent<SpriteRenderer>().sprite =(value)? receiverOn: receiverOff;
 		}
     }
+   
 }
