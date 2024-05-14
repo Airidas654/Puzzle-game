@@ -55,10 +55,10 @@ Material:
     m_Floats:
     - _DistMin: 0.81
     - _EnableExternalAlpha: 0
-    - _Value: 0.07534863
+    - _Value: 1.2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 0.10625002, g: 0.535, b: 0, a: 0}
+    - _Offset: {r: 0.04100001, g: 0.475, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

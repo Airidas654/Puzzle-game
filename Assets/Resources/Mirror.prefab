@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailsPrefab: {fileID: 7098366692523756955, guid: 24efb84d5ce3de24fb4f4fe678a621a1, type: 3}
-  sliderJointMiddlePrefab: {fileID: 0}
-  trailMinMax: {x: -0.95, y: 0.56}
+  sliderJointMiddlePrefab: {fileID: 7428565004301500846, guid: 60fc3e5a37808a141a072f1a6ae8c726, type: 3}
+  trailMinMax: {x: 0, y: 3.5}
   yAxis: 0
 --- !u!234 &1683593822220570960
 SliderJoint2D:
