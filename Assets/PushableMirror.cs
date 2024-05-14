@@ -8,17 +8,18 @@ public class PushableMirror : MonoBehaviour
     [SerializeField] GameObject sliderJointMiddlePrefab;
     [SerializeField] Vector2 trailMinMax;
     [SerializeField] bool yAxis = false;
+    [SerializeField] Vector2 trailOffset;
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
         if (!yAxis)
         {
-            Gizmos.DrawLine(transform.position + new Vector3(trailMinMax.x, 0, 0), transform.position + new Vector3(trailMinMax.y, 0, 0));
+            Gizmos.DrawLine((Vector3)trailOffset + transform.position + new Vector3(trailMinMax.x, 0, 0), (Vector3)trailOffset+transform.position + new Vector3(trailMinMax.y, 0, 0));
         }
         else
         {
-            Gizmos.DrawLine(transform.position + new Vector3(0,trailMinMax.x, 0), transform.position + new Vector3(0,trailMinMax.y, 0));
+            Gizmos.DrawLine((Vector3)trailOffset + transform.position + new Vector3(0,trailMinMax.x, 0), (Vector3)trailOffset+transform.position + new Vector3(0,trailMinMax.y, 0));
         }
     }
 
@@ -51,7 +52,7 @@ public class PushableMirror : MonoBehaviour
 
             trailObj.transform.position = (pos1 + pos2) / 2;
             trailObj.transform.rotation = Quaternion.Euler(0, 0, 0);
-            trailObj.GetComponent<SpriteRenderer>().size = new Vector2(Mathf.Abs(trailMinMax.x-trailMinMax.y)+1,1);
+            trailObj.GetComponent<SpriteRenderer>().size = new Vector2(Mathf.Abs(trailMinMax.x-trailMinMax.y)+1,0.5f);
 
             middleObj.transform.position = new Vector3(transform.position.x + (trailMinMax.x + trailMinMax.y) / 2, transform.position.y, transform.position.z);
             slidJoint.angle = 0;
@@ -65,7 +66,7 @@ public class PushableMirror : MonoBehaviour
 
             trailObj.transform.position = (pos1 + pos2) / 2;
             trailObj.transform.rotation = Quaternion.Euler(0, 0, 90);
-            trailObj.GetComponent<SpriteRenderer>().size = new Vector2(Mathf.Abs(trailMinMax.x - trailMinMax.y)+1, 1);
+            trailObj.GetComponent<SpriteRenderer>().size = new Vector2(Mathf.Abs(trailMinMax.x - trailMinMax.y)+1, 0.5f);
 
             middleObj.transform.position = new Vector3(transform.position.x, transform.position.y+(trailMinMax.x + trailMinMax.y) / 2, transform.position.z);
             slidJoint.angle = 90;

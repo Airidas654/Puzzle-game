@@ -39563,6 +39563,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secretWallPoint: {x: -10.29, y: -2.21}
   distance: 2.09
+  minDist: 0.97
+  cameraReturnDist: 3.37
   secretObjParent: {fileID: 248619992}
 --- !u!1 &1146493356
 GameObject:
@@ -40047,7 +40049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212965873360041593, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8212965873360041593, guid: 7d5906c0a552ed549983d6579472c7bf, type: 3}
       propertyPath: m_LocalPosition.y

@@ -10,12 +10,16 @@ public class SecretLevel : MonoBehaviour
 
     [SerializeField] Vector2 secretWallPoint;
     [SerializeField] float distance;
+    [SerializeField] float minDist;
     [SerializeField] Transform secretObjParent;
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(secretWallPoint, distance);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(secretWallPoint, minDist);
     }
     void Start()
     {
@@ -41,18 +45,12 @@ public class SecretLevel : MonoBehaviour
     {
         float dist = ((Vector2)player.transform.position - secretWallPoint).magnitude;
 
-        if (dist < distance)
-        {
-            cameraFollow.SetFreezeX(false);
-        }
-        else if (Camera.main.transform.position.x >= -Mathf.Epsilon)
-        {
-            cameraFollow.SetFreezeX(true);
-        }
+        
 
-        float val = Mathf.Max(0,Mathf.Min(1, Mathf.InverseLerp(0, distance, dist)));
+        float val = Mathf.Max(0,Mathf.Min(1, Mathf.InverseLerp(minDist, distance, dist)));
 
         SetTransparency(val);
+        Camera.main.transform.position = new Vector3(-2.5f*(1-val), 0,-10);
 
     }
 }
