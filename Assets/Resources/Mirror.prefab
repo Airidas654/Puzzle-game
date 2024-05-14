@@ -147,9 +147,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.3}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!114 &3044147501487243482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,8 +164,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailsPrefab: {fileID: 7098366692523756955, guid: 24efb84d5ce3de24fb4f4fe678a621a1, type: 3}
   sliderJointMiddlePrefab: {fileID: 7428565004301500846, guid: 60fc3e5a37808a141a072f1a6ae8c726, type: 3}
-  trailMinMax: {x: 0, y: 3.5}
+  trailMinMax: {x: 0, y: 3}
   yAxis: 0
+  trailOffset: {x: 0, y: 0}
 --- !u!234 &1683593822220570960
 SliderJoint2D:
   m_ObjectHideFlags: 0
