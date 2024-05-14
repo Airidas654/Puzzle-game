@@ -13,7 +13,7 @@ public class LevelSelectManager : MonoBehaviour
     public static bool[] done;
 
 
-    static void Check()
+    public static void Check()
     {
         if (done == null)
         {

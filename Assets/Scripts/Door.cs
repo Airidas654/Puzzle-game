@@ -59,6 +59,7 @@ public class Door : MonoBehaviour
             int exact = SceneManager.GetActiveScene().buildIndex;
             if (exact - 4 >= 0)
             {
+                LevelSelectManager.Check();
                 LevelSelectManager.done[exact - 4] = true;
             }
 
