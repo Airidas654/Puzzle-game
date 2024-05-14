@@ -5,18 +5,17 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
     
-    private Vector3 previousPosition;
     private bool isMoving;
     private float epsilon = 0.01f;
+    Rigidbody2D rg;
     private void Start()
     {
+        rg = GetComponent<Rigidbody2D>();
         PushableObjectManager.RegisterBox(gameObject);
-        previousPosition = transform.position;
     }
     private void CheckIfMoving()
     {
-        Vector3 dis = transform.position - previousPosition;
-        float movementMag = dis.magnitude;
+        float movementMag = rg.velocity.sqrMagnitude;
         if (movementMag > epsilon)
         {
             isMoving = true;
@@ -25,12 +24,10 @@ public class Box : MonoBehaviour
         else
         {
             isMoving = false;
-            SoundManager.Instance.GetSound("Box").Stop();
         }
-        previousPosition = transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         CheckIfMoving();
     }

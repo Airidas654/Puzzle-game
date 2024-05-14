@@ -8,7 +8,6 @@ public class PushableMirror : MonoBehaviour
     [SerializeField] GameObject sliderJointMiddlePrefab;
     [SerializeField] Vector2 trailMinMax;
     [SerializeField] bool yAxis = false;
-    [SerializeField] Vector2 trailOffset;
 
     [SerializeField] Sprite spriteX;
     [SerializeField] Sprite spriteY;
@@ -18,11 +17,11 @@ public class PushableMirror : MonoBehaviour
         Gizmos.color = Color.cyan;
         if (!yAxis)
         {
-            Gizmos.DrawLine((Vector3)trailOffset + transform.position + new Vector3(trailMinMax.x, 0, 0), (Vector3)trailOffset+transform.position + new Vector3(trailMinMax.y, 0, 0));
+            Gizmos.DrawLine(transform.position + new Vector3(trailMinMax.x, 0, 0), transform.position + new Vector3(trailMinMax.y, 0, 0));
         }
         else
         {
-            Gizmos.DrawLine((Vector3)trailOffset + transform.position + new Vector3(0,trailMinMax.x, 0), (Vector3)trailOffset+transform.position + new Vector3(0,trailMinMax.y, 0));
+            Gizmos.DrawLine(transform.position + new Vector3(0,trailMinMax.x, 0), transform.position + new Vector3(0,trailMinMax.y, 0));
         }
     }
 
