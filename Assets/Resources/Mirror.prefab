@@ -100,8 +100,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 4
-  m_LinearDrag: 50
+  m_Mass: 10
+  m_LinearDrag: 65
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: ea592a6cd534084498c7c20d378f233c, type: 2}
@@ -164,9 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailsPrefab: {fileID: 7098366692523756955, guid: 24efb84d5ce3de24fb4f4fe678a621a1, type: 3}
   sliderJointMiddlePrefab: {fileID: 7428565004301500846, guid: 60fc3e5a37808a141a072f1a6ae8c726, type: 3}
-  trailMinMax: {x: 0, y: 3}
-  yAxis: 0
-  trailOffset: {x: 0, y: 0}
+  trailMinMax: {x: -2.53, y: 0.8}
+  yAxis: 1
   spriteX: {fileID: -32287121, guid: e835cc0ee35e09342b945e73c0ba60ce, type: 3}
   spriteY: {fileID: -744819733, guid: e835cc0ee35e09342b945e73c0ba60ce, type: 3}
 --- !u!234 &1683593822220570960
