@@ -27,6 +27,7 @@ public class Door : MonoBehaviour
 
     private void Open()
     {
+        SoundManager.Instance.GetSound("Door").Play();
         GetComponent<SpriteRenderer>().sprite = OpenedDoorSprite;
     }
 
