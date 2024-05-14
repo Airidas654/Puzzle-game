@@ -87,14 +87,22 @@ public class LaserShooterScript : LogicObject
 
 
 			if (isOn)
-				FirstLaserShot();
-			else if (timer-indicatorDuration <= 0) {
-				float val = Mathf.InverseLerp(indicatorDuration, 0, timer);
-				FirstIndicatorShot(val);
-			} else if (laserBeamList.Count > 0 || indicatorList.Count > 0)
 			{
+				SoundManager.Instance.GetSound("Lazer").Play();
+				FirstLaserShot();
+			}
+			else if (timer - indicatorDuration <= 0)
+			{
+				float val = Mathf.InverseLerp(indicatorDuration, 0, timer);
+                SoundManager.Instance.GetSound("Lazer").Stop();
+                FirstIndicatorShot(val);
+			}
+			else if (laserBeamList.Count > 0 || indicatorList.Count > 0)
+			{
+				
 				SetParticles(false);
 				ClearLasers();
+
 			}
 		}
 		else

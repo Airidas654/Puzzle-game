@@ -81,6 +81,24 @@ MonoBehaviour:
     onlyPlaysOneShots: 1
     maxSoundsAtSameTime: 10
     audioSource: {fileID: 0}
+  - name: Door
+    clip: {fileID: 8300000, guid: 67414367af3a2d1459732f8e586810ff, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchRandomness: 0.05
+    loop: 0
+    onlyPlaysOneShots: 0
+    maxSoundsAtSameTime: 10
+    audioSource: {fileID: 0}
+  - name: Lazer
+    clip: {fileID: 8300000, guid: f5b1e55d0ff29e7478349d217b3bafb3, type: 3}
+    volume: 0.4
+    pitch: 1
+    pitchRandomness: 0.1
+    loop: 1
+    onlyPlaysOneShots: 0
+    maxSoundsAtSameTime: 10
+    audioSource: {fileID: 0}
   playOnAwake: 1
   muteWithMAndChangeSong: 1
   whenStoppedChangeToNext: 1
