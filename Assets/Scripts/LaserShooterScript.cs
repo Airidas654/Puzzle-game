@@ -95,6 +95,7 @@ public class LaserShooterScript : LogicObject
 			{
 				float val = Mathf.InverseLerp(indicatorDuration, 0, timer);
                 SoundManager.Instance.GetSound("Lazer").Stop();
+                SetParticles(false);
                 FirstIndicatorShot(val);
 			}
 			else if (laserBeamList.Count > 0 || indicatorList.Count > 0)
@@ -108,9 +109,13 @@ public class LaserShooterScript : LogicObject
 		else
 		{
 			if (!state)
+			{
+				SoundManager.Instance.GetSound("Lazer").Play();
 				FirstLaserShot();
+			}
 			else if (laserBeamList.Count > 0 || indicatorList.Count > 0)
 			{
+				SoundManager.Instance.GetSound("Lazer").Stop();
 				SetParticles(false);
 				ClearLasers();
 			}
@@ -172,7 +177,7 @@ public class LaserShooterScript : LogicObject
 		{
 			if (hit.collider.CompareTag("Mirror"))
 			{
-				var norm = (hit.point - (Vector2)hit.collider.transform.position).normalized;
+				var norm = (hit.point - ((Vector2)hit.collider.transform.position+ hit.collider.offset)).normalized;
 
 				ShootIndicator(reflectionsLeft - 1, hit.point - dir * 0.001f, Vector2.Reflect(dir, norm), heightVal);
 			}
@@ -203,7 +208,7 @@ public class LaserShooterScript : LogicObject
 		{
 			if (hit.collider.CompareTag("Mirror"))
 			{
-				var norm = (hit.point - (Vector2)hit.collider.transform.position).normalized;
+				var norm = (hit.point - ((Vector2)hit.collider.transform.position + hit.collider.offset)).normalized;
 
 
 

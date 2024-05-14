@@ -40,7 +40,7 @@ public class DartLauncherScript : LogicObject
     protected override void Start()
     {
         dartPool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject);
-        timer = startDelay + delay;
+        timer = startDelay;
     }
 
     /// <summary>

@@ -49,7 +49,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -9762,7 +9762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   receivers: []
-  maxRayDistance: 15
+  maxRayDistance: 50
   raySpread: 0.22
   layerMask:
     serializedVersion: 2
@@ -9771,12 +9771,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   laserBeam: {fileID: 2338082274800474245, guid: f6938b047100c7846a41d4be2535d54a, type: 3}
-  indicatorPrefab: {fileID: 0}
+  indicatorPrefab: {fileID: 8217157563342640764, guid: 1b5a0e20e60bb594485728b21b7664e0, type: 3}
   reflections: 5
-  isTimed: 0
+  isTimed: 1
   startOn: 0
-  offTime: 0
-  onTime: 0
+  offTime: 1
+  onTime: 0.5
   indicatorDuration: 0.5
 --- !u!61 &1516627488381612441
 BoxCollider2D:

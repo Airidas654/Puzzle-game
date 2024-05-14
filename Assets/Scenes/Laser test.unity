@@ -2207,22 +2207,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 442464435642125114, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 442464435642125114, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 442464435642125114, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 442464435642125114, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 880497195110120740, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.715319
@@ -2262,30 +2246,6 @@ PrefabInstance:
     - target: {fileID: 880497195110120740, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: onTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: isTimed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: offTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: maxRayDistance
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: indicatorPrefab
-      value: 
-      objectReference: {fileID: 8217157563342640764, guid: 1b5a0e20e60bb594485728b21b7664e0, type: 3}
-    - target: {fileID: 2480633992676289796, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: prewarm
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5457305248381586581, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
       propertyPath: m_Name
