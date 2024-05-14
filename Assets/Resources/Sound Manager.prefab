@@ -97,7 +97,16 @@ MonoBehaviour:
     pitchRandomness: 0.1
     loop: 1
     onlyPlaysOneShots: 0
-    maxSoundsAtSameTime: 10
+    maxSoundsAtSameTime: 4
+    audioSource: {fileID: 0}
+  - name: Box
+    clip: {fileID: 8300000, guid: 8e8a682904f21404380dacb50bf45137, type: 3}
+    volume: 0.4
+    pitch: 1
+    pitchRandomness: 0
+    loop: 0
+    onlyPlaysOneShots: 0
+    maxSoundsAtSameTime: 4
     audioSource: {fileID: 0}
   playOnAwake: 1
   muteWithMAndChangeSong: 1
