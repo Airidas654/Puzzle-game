@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7144101515315707883}
   - component: {fileID: 3935991077269491211}
   m_Layer: 9
-  m_Name: LaserReceiver
+  m_Name: LaserReceiverRight
   m_TagString: LaserReceiver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03062506, y: -0.101062775}
+  m_Offset: {x: 0.02990818, y: -0.10751933}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3691236, y: 0.27112365}
+  m_Size: {x: 0.376297, y: 0.28403676}
   m_EdgeRadius: 0
 --- !u!114 &3935991077269491211
 MonoBehaviour:
