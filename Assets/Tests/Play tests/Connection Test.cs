@@ -52,7 +52,7 @@ public class ConnectorsTest : InputTestFixture
     public IEnumerator SwitchConnectionTest()
     {
         yield return new WaitForSeconds(0.1f);
-        var sw = Object.Instantiate((GameObject)Resources.Load("Switch"), new Vector3(0, 1, 0), Quaternion.identity);
+        var sw = Object.Instantiate((GameObject)Resources.Load("Switch"), new Vector3(0, 0, 0), Quaternion.identity);
 
         var spikes = Object.Instantiate((GameObject)Resources.Load("Spikes"), new Vector3(3, 1, 0),
             Quaternion.identity);
