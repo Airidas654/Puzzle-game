@@ -2798,10 +2798,6 @@ PrefabInstance:
       propertyPath: trailMinMax.y
       value: 0.93
       objectReference: {fileID: 0}
-    - target: {fileID: 3044147501487243482, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
-      propertyPath: sliderJointMiddlePrefab
-      value: 
-      objectReference: {fileID: 7428565004301500846, guid: 60fc3e5a37808a141a072f1a6ae8c726, type: 3}
     - target: {fileID: 5025893224515049823, guid: 78dc463c5c0813e4ba81977c3ef1aff0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.53

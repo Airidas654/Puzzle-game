@@ -9766,7 +9766,7 @@ MonoBehaviour:
   raySpread: 0.22
   layerMask:
     serializedVersion: 2
-    m_Bits: 1728
+    m_Bits: 5824
   playerMask:
     serializedVersion: 2
     m_Bits: 64

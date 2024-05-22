@@ -9,8 +9,10 @@ public class PushableMirror : MonoBehaviour
     [SerializeField] Vector2 trailMinMax;
     [SerializeField] bool yAxis = false;
 
-    [SerializeField] Sprite spriteX;
-    [SerializeField] Sprite spriteY;
+    [SerializeField] Sprite spriteXTop;
+    [SerializeField] Sprite spriteYTop;
+    [SerializeField] Sprite spriteXBase;
+    [SerializeField] Sprite spriteYBase;
 
     private void OnDrawGizmos()
     {
@@ -52,8 +54,13 @@ public class PushableMirror : MonoBehaviour
             Vector3 pos1 = transform.position + new Vector3(trailMinMax.x, 0, 0);
             Vector3 pos2 = transform.position + new Vector3(trailMinMax.y, 0, 0);
 
-            GetComponent<SpriteRenderer>().sprite = spriteX;
-            GetComponent<CircleCollider2D>().offset = new Vector2(0, 0.3f);
+            GetComponent<SpriteRenderer>().sprite = spriteXBase;
+
+            BoxCollider2D boxColl = GetComponent<BoxCollider2D>();
+            boxColl.size = new Vector2(0.94f, 0.4713664f);
+            boxColl.offset = new Vector2(0, 0);
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = spriteXTop;
+            transform.GetChild(0).GetComponent<CircleCollider2D>().offset = new Vector2(0, 0.3f);
 
             trailObj.transform.position = (pos1 + pos2) / 2;
             trailObj.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -69,8 +76,13 @@ public class PushableMirror : MonoBehaviour
             Vector3 pos1 = transform.position + new Vector3(0, trailMinMax.x, 0);
             Vector3 pos2 = transform.position + new Vector3(0, trailMinMax.y, 0);
 
-            GetComponent<SpriteRenderer>().sprite = spriteY;
-            GetComponent<CircleCollider2D>().offset = new Vector2(0,0.06f);
+            GetComponent<SpriteRenderer>().sprite = spriteYBase;
+
+            BoxCollider2D boxColl = GetComponent<BoxCollider2D>();
+            boxColl.size = new Vector2(0.625f, 0.88f);
+            boxColl.offset = new Vector2(0, -0.03f);
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = spriteYTop;
+            transform.GetChild(0).GetComponent<CircleCollider2D>().offset = new Vector2(0,0.06f);
 
             trailObj.transform.position = (pos1 + pos2) / 2;
             trailObj.transform.rotation = Quaternion.Euler(0, 0, 90);

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e835cc0ee35e09342b945e73c0ba60ce
+guid: 2ab89ebb12bba114f9d3320087d01739
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,7 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -94,11 +94,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mirrors_0
+      name: mirrorsTop_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,29 +124,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 254c3073f77ae7e45b04f1f7b702bc05
-      internalID: -32287121
+      spriteID: 449cd6f834d4d214c9f0cdb270f16a08
+      internalID: -610997396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mirrors_1
+      name: mirrorsTop_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a28eebd3847ec4442892d811b81a9e18
-      internalID: -744819733
+      spriteID: 01e7c2f3db316614b92fe43339f1176c
+      internalID: -151699975
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mirrors_0: -32287121
-      mirrors_1: -744819733
+      mirrorsTop_0: -610997396
+      mirrorsTop_1: -151699975
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
