@@ -21,6 +21,7 @@ public class UImanager : MonoBehaviour
             Instance = this;
         else
             Destroy(this);
+        SoundManager.Instance.ChangeGlobalTransitionVolume(0);
     }
 
     private bool oneTime = false;
@@ -49,6 +50,7 @@ public class UImanager : MonoBehaviour
                         (Vector2)Instance.player.transform.position + Instance.playerOffset);
                 Instance.trasitionMat.SetVector(offsetId, offset);
                 Instance.trasitionMat.SetFloat(valueId, x);
+                SoundManager.Instance.ChangeGlobalTransitionVolume(x / 1.2f);
             }, 0, length).SetId(Instance.transitionTweenId).SetEase(Ease.OutSine).SetDelay(delay)
             .OnComplete(() => SceneManager.LoadScene(sceneIndex)).SetUpdate(true).SetUpdate(UpdateType.Normal, true);
     }
@@ -65,8 +67,13 @@ public class UImanager : MonoBehaviour
         //dark.DOKill();
         //dark.DOColor(new Color(0,0,0,0), darkStartLength).SetEase(Ease.OutSine).OnComplete(()=>dark.gameObject.SetActive(false));
         DOTween.Kill(transitionTweenId);
+        DOTween.Kill(20);
+       
         value = 0;
+        float value2 = 0;
 
+        
+        DOTween.To(() => value2, (x) => SoundManager.Instance.ChangeGlobalTransitionVolume(x), 1, 1).SetId(20).SetDelay(1).SetEase(Ease.InSine);
         DOTween.To(() => value, (x) =>
         {
             value = x;

@@ -52,7 +52,7 @@ MonoBehaviour:
     pitchRandomness: 0.1
     loop: 0
     onlyPlaysOneShots: 1
-    maxSoundsAtSameTime: 10
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   - name: Step
     clip: {fileID: 8300000, guid: b1b43665730824945a47e8583f8546cd, type: 3}
@@ -61,7 +61,7 @@ MonoBehaviour:
     pitchRandomness: 0.2
     loop: 0
     onlyPlaysOneShots: 1
-    maxSoundsAtSameTime: 10
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   - name: DartShoot
     clip: {fileID: 8300000, guid: 5db81ad8911da774fbca157fce1b22e4, type: 3}
@@ -70,7 +70,7 @@ MonoBehaviour:
     pitchRandomness: 0.1
     loop: 0
     onlyPlaysOneShots: 1
-    maxSoundsAtSameTime: 10
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   - name: Switch
     clip: {fileID: 8300000, guid: adc1a2d8532e0b94bab063f4b78850d7, type: 3}
@@ -79,7 +79,7 @@ MonoBehaviour:
     pitchRandomness: 0.1
     loop: 0
     onlyPlaysOneShots: 1
-    maxSoundsAtSameTime: 10
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   - name: Door
     clip: {fileID: 8300000, guid: 67414367af3a2d1459732f8e586810ff, type: 3}
@@ -88,7 +88,7 @@ MonoBehaviour:
     pitchRandomness: 0.05
     loop: 0
     onlyPlaysOneShots: 0
-    maxSoundsAtSameTime: 10
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   - name: Lazer
     clip: {fileID: 8300000, guid: f5b1e55d0ff29e7478349d217b3bafb3, type: 3}
@@ -97,7 +97,7 @@ MonoBehaviour:
     pitchRandomness: 0.1
     loop: 1
     onlyPlaysOneShots: 0
-    maxSoundsAtSameTime: 4
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   - name: Box
     clip: {fileID: 8300000, guid: 8e8a682904f21404380dacb50bf45137, type: 3}
@@ -106,7 +106,7 @@ MonoBehaviour:
     pitchRandomness: 0
     loop: 0
     onlyPlaysOneShots: 0
-    maxSoundsAtSameTime: 4
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   playOnAwake: 1
   muteWithMAndChangeSong: 1

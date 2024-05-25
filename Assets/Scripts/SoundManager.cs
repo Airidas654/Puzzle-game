@@ -379,6 +379,8 @@ public class SoundManager : MonoBehaviour
     private float globalMusicVolume = 1;
     private float globalSoundVolume = 1;
 
+    private float globalSoundVolumeInTransition = 0;
+
     private void Reset()
     {
         sounds = new List<Sound>()
@@ -402,9 +404,20 @@ public class SoundManager : MonoBehaviour
         return globalMusicVolume;
     }
 
+    public void ChangeGlobalTransitionVolume(float val)
+    {
+        globalSoundVolumeInTransition = val;
+        ChangeGlobalSoundVolume(globalSoundVolume);
+    }
+
     public void ChangeGlobalSoundVolume(float val)
     {
-        foreach (var i in sounds) i.GlobalVolumeChanged(val);
+        foreach (var i in sounds) {
+            if (!musicHash.ContainsKey(i.name))
+            {
+                i.GlobalVolumeChanged(val * globalSoundVolumeInTransition);
+            }
+        }
         globalSoundVolume = val;
     }
 
