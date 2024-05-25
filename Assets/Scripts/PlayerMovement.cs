@@ -28,7 +28,10 @@ public class PlayerMovement : MonoBehaviour
     public void StopMovement()
     {
         canMove = false;
-        rg.velocity = Vector2.zero;
+        if (rg != null)
+        {
+            rg.velocity = Vector2.zero;
+        }
     }
 
     private void Awake()
