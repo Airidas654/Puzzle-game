@@ -30,6 +30,7 @@ public class PushableMirror : MonoBehaviour
     Rigidbody2D rb;
     SliderJoint2D slidJoint;
 
+
     private void Start()
     {
         GameObject trailObj = Instantiate(trailsPrefab);
@@ -94,5 +95,19 @@ public class PushableMirror : MonoBehaviour
         slidJoint.connectedBody = middleObj.GetComponent<Rigidbody2D>();
 
         PushableObjectManager.RegisterBox(gameObject);
+    }
+    private float epsilon = 0.01f;
+    private void CheckIfMoving()
+    {
+        float movementMag = rb.velocity.sqrMagnitude;
+        if (movementMag > epsilon)
+        {
+            SoundManager.Instance.GetSound("Box").PlayWithCooldown(0.4f);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        CheckIfMoving();
     }
 }

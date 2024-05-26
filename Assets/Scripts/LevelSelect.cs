@@ -50,6 +50,7 @@ public class LevelSelect : Switch
     {
         if (!LevelSelectManager.toggled)
         {
+            SoundManager.Instance.GetSound("Switch").PlayOneShot();
             UImanager.StartLevelTransition(levelId, 0.5f);
             LevelSelectManager.toggled = true;
         }

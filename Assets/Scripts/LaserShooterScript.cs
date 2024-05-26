@@ -88,13 +88,13 @@ public class LaserShooterScript : LogicObject
 
 			if (isOn)
 			{
-				SoundManager.Instance.GetSound("Lazer").Play();
+				//SoundManager.Instance.GetSound("Lazer").Play();
 				FirstLaserShot();
 			}
 			else if (timer - indicatorDuration <= 0)
 			{
 				float val = Mathf.InverseLerp(indicatorDuration, 0, timer);
-                SoundManager.Instance.GetSound("Lazer").Stop();
+                //SoundManager.Instance.GetSound("Lazer").Stop();
                 SetParticles(false);
                 FirstIndicatorShot(val);
 			}
@@ -110,12 +110,12 @@ public class LaserShooterScript : LogicObject
 		{
 			if (!state)
 			{
-				SoundManager.Instance.GetSound("Lazer").Play();
+				//SoundManager.Instance.GetSound("Lazer").Play();
 				FirstLaserShot();
 			}
 			else if (laserBeamList.Count > 0 || indicatorList.Count > 0)
 			{
-				SoundManager.Instance.GetSound("Lazer").Stop();
+				//SoundManager.Instance.GetSound("Lazer").Stop();
 				SetParticles(false);
 				ClearLasers();
 			}
@@ -127,6 +127,7 @@ public class LaserShooterScript : LogicObject
 	private void FirstLaserShot()
 	{
 		ClearLasers();
+		SoundManager.Instance.GetSound("Lazer").PlayIfEnded();
 		ShootLaser(reflections, transform.position, transform.right);
 	}
 

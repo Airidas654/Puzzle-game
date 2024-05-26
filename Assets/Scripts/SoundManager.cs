@@ -207,6 +207,7 @@ public class Sound
 
     public Sound ChangePitch(float pitch)
     {
+        this.pitch = pitch; 
         audioSource.pitch = pitch;
         return this;
     }
@@ -491,6 +492,9 @@ public class SoundManager : MonoBehaviour
         foreach (var i in songs)
         {
             i.SetSound(new Sound(i.name, i.clip));
+            float volume;
+            i.GetVolume(out volume);
+            i.SetVolume(volume);
 
             musicHash.Add(i.name, musicIndex++);
         }

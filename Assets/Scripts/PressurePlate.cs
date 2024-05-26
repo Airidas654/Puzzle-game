@@ -12,6 +12,7 @@ public class PressurePlate : LogicObject
     [SerializeField] private Sprite plateUp;
 
     private SpriteRenderer srenderer;
+    bool praeitState = false;
 
     protected override void Start()
     {
@@ -33,5 +34,11 @@ public class PressurePlate : LogicObject
         Transmit(hit != null);
 
         srenderer.sprite = hit == null ? plateUp : platePressed;
+
+        if (praeitState != (hit == null))
+        {
+            SoundManager.Instance.GetSound("Switch").PlayOneShot();
+            praeitState = (hit == null);
+        }
     }
 }
