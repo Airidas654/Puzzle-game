@@ -1680,10 +1680,6 @@ PrefabInstance:
       propertyPath: isTimed
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2227187873054546284, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 1984
-      objectReference: {fileID: 0}
     - target: {fileID: 5457305248381586581, guid: afa181458c4c55545ab37ee6c3cd7a94, type: 3}
       propertyPath: m_Name
       value: LaserShooterBox (7)
