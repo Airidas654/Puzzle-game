@@ -519,7 +519,7 @@ public class SoundManager : MonoBehaviour
 
     public void UnPauseCurrentSong()
     {
-        if (playingSong != null) playingSong.UnPause();
+	    playingSong?.UnPause();
     }
 
     public void PlaySong(int songIndex)
