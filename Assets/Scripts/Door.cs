@@ -27,12 +27,13 @@ public class Door : MonoBehaviour
 
     private void Open()
     {
-        SoundManager.Instance.GetSound("Door").Play();
+        SoundManager.Instance.GetSound("Door").ChangePitch(0.9f).PlayOneShot();
         GetComponent<SpriteRenderer>().sprite = OpenedDoorSprite;
     }
 
     private void Close()
     {
+        SoundManager.Instance.GetSound("Door").ChangePitch(1.2f).PlayOneShot();
         GetComponent<SpriteRenderer>().sprite = ClosedDoorSprite;
     }
 

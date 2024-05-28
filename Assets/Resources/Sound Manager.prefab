@@ -47,12 +47,12 @@ MonoBehaviour:
   sounds:
   - name: Spikes
     clip: {fileID: 8300000, guid: 094dfb2eb29093445b54093dfaa237dd, type: 3}
-    volume: 0.4
+    volume: 0.1
     pitch: 1
     pitchRandomness: 0.1
     loop: 0
-    onlyPlaysOneShots: 1
-    maxSoundsAtSameTime: 10
+    onlyPlaysOneShots: 0
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   - name: Step
     clip: {fileID: 8300000, guid: b1b43665730824945a47e8583f8546cd, type: 3}
@@ -60,53 +60,53 @@ MonoBehaviour:
     pitch: 1.2
     pitchRandomness: 0.2
     loop: 0
-    onlyPlaysOneShots: 1
-    maxSoundsAtSameTime: 10
+    onlyPlaysOneShots: 0
+    maxSoundsAtSameTime: 1
     audioSource: {fileID: 0}
   - name: DartShoot
     clip: {fileID: 8300000, guid: 5db81ad8911da774fbca157fce1b22e4, type: 3}
-    volume: 0.4
+    volume: 0.06
     pitch: 1
     pitchRandomness: 0.1
     loop: 0
-    onlyPlaysOneShots: 1
-    maxSoundsAtSameTime: 10
+    onlyPlaysOneShots: 0
+    maxSoundsAtSameTime: 4
     audioSource: {fileID: 0}
   - name: Switch
     clip: {fileID: 8300000, guid: adc1a2d8532e0b94bab063f4b78850d7, type: 3}
-    volume: 0.4
+    volume: 0.3
     pitch: 1
     pitchRandomness: 0.1
     loop: 0
-    onlyPlaysOneShots: 1
-    maxSoundsAtSameTime: 10
+    onlyPlaysOneShots: 0
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   - name: Door
     clip: {fileID: 8300000, guid: 67414367af3a2d1459732f8e586810ff, type: 3}
-    volume: 0.5
+    volume: 0.07
     pitch: 1
     pitchRandomness: 0.05
     loop: 0
     onlyPlaysOneShots: 0
-    maxSoundsAtSameTime: 10
+    maxSoundsAtSameTime: 3
     audioSource: {fileID: 0}
   - name: Lazer
-    clip: {fileID: 8300000, guid: f5b1e55d0ff29e7478349d217b3bafb3, type: 3}
-    volume: 0.4
+    clip: {fileID: 8300000, guid: 4b516ec35b2a8874fbcddc7225ab9d6c, type: 3}
+    volume: 0.05
     pitch: 1
-    pitchRandomness: 0.1
-    loop: 1
+    pitchRandomness: 0.05
+    loop: 0
     onlyPlaysOneShots: 0
-    maxSoundsAtSameTime: 4
+    maxSoundsAtSameTime: 2
     audioSource: {fileID: 0}
   - name: Box
     clip: {fileID: 8300000, guid: 8e8a682904f21404380dacb50bf45137, type: 3}
-    volume: 0.4
+    volume: 0.15
     pitch: 1
     pitchRandomness: 0
     loop: 0
     onlyPlaysOneShots: 0
-    maxSoundsAtSameTime: 4
+    maxSoundsAtSameTime: 1
     audioSource: {fileID: 0}
   playOnAwake: 1
   muteWithMAndChangeSong: 1
@@ -114,16 +114,16 @@ MonoBehaviour:
   songs:
   - name: Song 1
     clip: {fileID: 8300000, guid: b3c737854605b354ea1cc727adafb5fb, type: 3}
-    volume: 1
+    volume: 0.35
   - name: Song 2
     clip: {fileID: 8300000, guid: cc75a62d2ec24a945be6e0835b12b47a, type: 3}
-    volume: 1
+    volume: 0.3
   - name: Song 3
     clip: {fileID: 8300000, guid: cb2b84d72ae362344a0de60183f7fc60, type: 3}
-    volume: 1
+    volume: 0.2
   - name: Song 4
     clip: {fileID: 8300000, guid: 6fb57de448e0e1648a707286b36985e4, type: 3}
-    volume: 1
+    volume: 0.35
   - name: Song 5
     clip: {fileID: 8300000, guid: 154f6c741f81cd64fa2776e5faa9f46b, type: 3}
-    volume: 1
+    volume: 0.3

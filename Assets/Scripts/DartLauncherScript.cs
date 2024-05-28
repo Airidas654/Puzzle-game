@@ -155,7 +155,7 @@ public class DartLauncherScript : LogicObject
                     }
 
                     if (SoundManager.Instance != null) {
-                        SoundManager.Instance.GetSound("DartShoot").PlayOneShot(); 
+                        SoundManager.Instance.GetSound("DartShoot").PlayWithCooldown(0.05f);
                     }
                     timer = delay;
 
@@ -179,7 +179,7 @@ public class DartLauncherScript : LogicObject
 
                         if (SoundManager.Instance != null)
                         {
-                            SoundManager.Instance.GetSound("DartShoot").PlayOneShot();
+                            SoundManager.Instance.GetSound("DartShoot").PlayWithCooldown(0.05f);
                         }
                         timer = delay;
 
